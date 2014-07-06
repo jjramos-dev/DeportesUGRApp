@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Autor: Namir Sayed-Ahmad Baraza
+	 mail: namirsab@gmail.com -->
+<resources>
+    
+
+<!-- Introduce el nombre de tu aplicación -->
+    <string name="app_name_noticias">CAD/Noticias</string>
+    <string name="app_name">DeportesUGR</string>
+    
+    
+    
+    
+    <string name="boton_acerca_de">Acerca de</string>
+    <string name="appsUgr">Visitar Catálogo AppsUGR</string>
+<!--     TODO: Introduce en la linea de debajo el texto del disclaimer -->
+     <string name="disclaimer"> </string>
+     <string name="promotedBy">Promovido por:</string>
+     <string name="copyright">Copyright UGR "\u00AE" 2014 v.1.0</string>
+     <string name="contact">Contacto</string>
+     <string name="contact1">958240956</string>
+     <string name="contact2">958243144</string>
+     <string name="contact3">958242892</string> 
+     <string name="mapFuentenueva">Localización</string>
+     <string name="mapCartuja">Localización</string>
+     
+     
+     <string name="boton_campeonatos">Competiciones</string>
+     <string name="boton_noticias">Noticias</string>
+     <string name="boton_instalaciones">Instalaciones</string>
+     <string name="boton_reservas">Reservas</string>
+     <string name="boton_info">Información \nde contacto</string>
+     <string name="boton_misEquipos">Mis Equipos</string>
+     <string name="infoFuentenueva"><b>     CAMPUS UNIVERSITARIO FUENTENUEVA</b> \n \n <b>Direccion:</b> Paseo Profesor Juan Osorio s/n (Paseos Universitarios) \n <b>Horario:</b> Lunes a Viernes de 9 a 14 y de 15 a 20 horas. \n <b>Tlfn. Administración:</b> 958240956 y 958243144 \n <b>Fax:</b> 958243143</string>
+     <string name="infoCartuja"><b>      CAMPUS UNIVERSITARIO CARTUJA</b> \n \n <b>Direccion:</b> Paseo Profesor Clavera s/n \n <b>Horario:</b> Lunes a Viernes de 9 a 14 horas. \n <b>Tlfn. Administración:</b> 958242892 \n <b>Fax:</b> 958242892</string>
+ 	 <string name="usuario">Usuario</string>
+ 	 <string name="contrasena">Contraseña</string>
+ 	 <string name="boton_agregarUsuario">Agregar Usuario</string>
+ 	 <string name="boton_login">Login</string>
+ 	 <string name="nuevoUsuario">Usuario</string>
+ 	 <string name="nuevoDNI">DNI</string>
+ 	 <string name="nuevaContrasena">Contraseña</string>
+ 	 <string name="nuevaConfirmarContrasena">Confirmar contraseña</string>
+ 	 <string name="nuevoNumeroIdCAD">Numero Id tarjeta CAD</string>
+ 	 <string name="boton_guardarUsuarioNuevo">Guardar Usuario</string>
+ 	 <string name="recordarUsuario">Recordar Usuario</string>
+ 	 <string name="boton_desconectar">Desconectar</string>
+ 	 <string name="InstalacionesCampusUniversitarioFuentenueva">Instalaciones Campus Universitario de Fuentenueva</string>
+ 	 <string name="boton_pabellonesFuente">2 Pabellones Cubiertos</string>
+ 	 <string name="boton_pistasPolidep">5 Pistas Polideportivas</string>
+ 	 <string name="boton_pistasVoleyPlaya">2 Pistas Voley Playa</string>
+ 	 <string name="boton_campoFutbol11Fuente">1 Campo de Fútbol 11 \n(2 de Fútbol 7)</string>
+ 	 <string name="boton_pistasTenis">4 Pistas de Tenis</string>
+ 	 <string name="boton_campoRugby">Campo de rugby</string>
+ 	 <string name="boton_piscina">Piscina Olímpica</string>
+ 	 <string name="InstalacionesCampusUniversitarioCartuja">Instalaciones Campus Universitario de Cartuja</string>
+ 	 <string name="boton_pabellonCartuja">1 Pabellón Cubierto</string>
+ 	 <string name="boton_pistaCesped">1 Pista de Fútbol Sala (Césped Artificial)</string>
+ 	 <string name="boton_campoFutbol11Cartuja">1 Campo de Fútbol 11 \n(2 de Fútbol 7)</string>
+ 	 <string name="boton_pistasPadel">4 Pistas de Pádel</string>
+ 	 <string name="alquilerPuntual">Alquiler Puntual</string>
+ 	 <string name="comunidadUniversitaria">Comunidad Universitaria</string>
+ 	 <string name="sinLuz">Sin Luz</string>
+ 	 <string name="conLuz">Con Luz</string>
+ 	 <string name="comunidadNoUniversitaria">Comunidad No Universitaria</string>
+ 	 <string name="penasDeportivas">Peñas Deportivas</string>
+ 	 <string name="boton_elegir_calendario">Calendario General</string>
+ 	 <string name="boton_elegir_calendarioMisEquipos">Calendario "Mis Equipos"</string>
+ 	 <string name="boton_elegir_clasificacion">Clasificación</string>
+ 	 <string name="rugby">No existe información disponible sobre esta instalación.</string>
+ 	 <string name="natacionLibre">Natación Libre</string>
+ 	 <string name="comUniversitaria">Com. Universitaria</string>
+ 	 <string name="comNoUniversitaria">Com. No Universitaria</string>
+ 	 <string name="natacionRecreativa">Natación Recreativa</string>
+ 	 <string name="diario">De Lunes a Viernes</string>
+ 	 <string name="findes">Sábados, Domingos y Festivos</string>
+ 	 <string name="adultosUni">Adultos Com. Universitaria</string>
+ 	 <string name="adultosNoUni">Adultos Com. No Universitaria</string>
+ 	 <string name="niniosJubUni">Niños y Jubilados Com. Univers</string>
+ 	 <string name="niniosJubNoUni">Niños y Jubilados Com. No Univers</string>
+ 	 <string name="masInfoPiscina">Para mayor información sobre horarios y bonos haga click aqui</string>
+ 	 <string name="misEquipos">Equipos Seleccionados:</string>
+ 	 <string name="guardarMisEquipos">Guardar Mis Equipos</string>
+ 	 <string name="boton_agregarEquipo">Agregar/Quitar Equipo</string>
+ 	 <string name="equiposInscritos">Equipos Inscritos:</string>
+ 	 <string name="elegirEquipos">Elegir Equipos</string>
+ 	 <string name="licenciaApache">Licencia Apache 2.0</string>
+ 	 <string name="licencia2">Licencia MIT</string>
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+</resources>

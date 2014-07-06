@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/ugr_background" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" >
+    
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" 
+        android:orientation="vertical"
+        
+        
+        >
+
+        <TextView
+            android:id="@+id/InstalacionesCampusUniversitarioFuentenueva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+            android:text="@string/InstalacionesCampusUniversitarioFuentenueva"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center" />
+
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        <Button
+            android:id="@+id/botonPabellonesFuente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            
+            android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickPabellonesFuentenueva"
+            android:text="@string/boton_pabellonesFuente"
+             />
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+
+        <Button
+            android:id="@+id/botonPistasPolidep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            
+            android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickPistasPolideportivas"
+            android:text="@string/boton_pistasPolidep"
+             />
+
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        <Button
+            android:id="@+id/botonPistasVoleyPlaya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickPistasVoleyPlaya"
+            android:text="@string/boton_pistasVoleyPlaya"
+             />
+
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        <Button
+            android:id="@+id/botonFutbol11Fuente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            
+            android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickFutbol11Fuente"
+            android:text="@string/boton_campoFutbol11Fuente"
+             />
+
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        
+        <Button
+            android:id="@+id/botonPiscina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            
+            android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickPiscina"
+            android:text="@string/boton_piscina"
+             />
+
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+       
+        
+        
+        <Button
+            android:id="@+id/botonCampoRugby"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            
+            android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickCampoRugby"
+            android:text="@string/boton_campoRugby"
+             />
+        
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        
+        <TextView
+            android:id="@+id/InstalacionesCampusUniversitarioCartuja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="@string/InstalacionesCampusUniversitarioCartuja"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20sp"
+            android:textStyle="bold" 
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center"/>
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        <Button
+            android:id="@+id/botonPabellonCartuja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            
+			android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickPabellonCartuja"
+            android:text="@string/boton_pabellonCartuja"
+             />
+
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        
+        <Button
+            android:id="@+id/botonPistaCesped"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            
+			android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickPistaCesped"
+            android:text="@string/boton_pistaCesped"
+             />
+
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        
+        <Button
+            android:id="@+id/botonFutbol11Cartuja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            
+            android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickFutbol11Cartuja"
+            android:text="@string/boton_campoFutbol11Cartuja"
+             />
+
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        
+        <Button
+            android:id="@+id/botonPistasPadel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            
+            android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickPistasPadel"
+            android:text="@string/boton_pistasPadel"
+             />
+
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        
+        <Button
+            android:id="@+id/botonPistasTenis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            
+            android:background="@drawable/selector"
+            android:drawableLeft="@drawable/flecha_negro25prueba"
+            android:drawablePadding="10dp"
+            android:onClick="onClickPistasTenis"
+            android:text="@string/boton_pistasTenis"
+             />
+
+        
+        <View
+        android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:background="#000000"
+		 />
+        
+        
+
+        
+
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>

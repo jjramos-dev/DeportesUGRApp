@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ugr_background"
+    tools:context=".MainActivity" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+           
+      <RelativeLayout
+        android:id="@+id/botonInfoFuentenueva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/about_promovidopor_background" >
+
+        <TextView
+            android:id="@+id/textViewInfoFuentenueva"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:text="@string/infoFuentenueva" />
+
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignTop="@+id/contactButtonFuentenueva2"
+            android:layout_marginBottom="49dp"
+            android:background="@color/about_borde" />
+
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignTop="@+id/contactButtonFuentenueva1"
+            android:layout_marginBottom="49dp"
+            android:background="@color/about_borde" />
+
+        <Button
+            android:id="@+id/contactButtonFuentenueva2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/contactButtonFuentenueva1"
+            android:background="@drawable/menu_boton_selector"
+            android:drawableLeft="@drawable/telefono_color40"
+            android:onClick="onClickBotonContactoFuentenueva2"
+            android:padding="10dp"
+            android:text="@string/contact2"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/mapFuentenueva"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/contactButtonFuentenueva2"
+            android:background="@drawable/menu_boton_selector"
+            android:drawableLeft="@drawable/mapa_color"
+            android:onClick="onClickBotonMapFuentenueva"
+            android:padding="10dp"
+            android:text="@string/mapFuentenueva"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:typeface="monospace" />
+
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/mapFuentenueva"
+            android:background="@color/about_borde" />
+
+        <Button
+            android:id="@+id/contactButtonFuentenueva1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textViewInfoFuentenueva"
+            android:background="@drawable/menu_boton_selector"
+            android:drawableLeft="@drawable/telefono_color40"
+            android:onClick="onClickBotonContactoFuentenueva"
+            android:padding="10dp"
+            android:text="@string/contact1"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:typeface="monospace" />
+
+    </RelativeLayout>      
+
+     <RelativeLayout
+        android:id="@+id/botonInfoCartuja"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/about_promovidopor_background" >
+
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/mapCartuja"
+            android:layout_marginBottom="49dp"
+            android:background="@color/about_borde" />
+
+        
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/contactButtonCartuja"
+            android:layout_marginBottom="49dp"
+            android:background="@color/about_borde" />
+
+        <TextView
+            android:id="@+id/textViewInfoCartuja"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/infoCartuja" />
+
+        <Button
+            android:id="@+id/contactButtonCartuja"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textViewInfoCartuja"
+            android:background="@drawable/menu_boton_selector"
+            android:drawableLeft="@drawable/telefono_color40"
+            android:onClick="onClickBotonContactoCartuja"
+            android:padding="10dp"
+            android:text="@string/contact3"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/mapCartuja"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/contactButtonCartuja"
+            android:background="@drawable/menu_boton_selector"
+            android:drawableLeft="@drawable/mapa_color"
+            android:onClick="onClickBotonMapCartuja"
+            android:padding="10dp"
+            android:text="@string/mapCartuja"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:typeface="monospace" />
+
+    </RelativeLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

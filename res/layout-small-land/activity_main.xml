@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/ugr_background" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="323dp" >
+
+            <Button
+                android:id="@+id/botonInstalaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/botonNoticias"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/selector"
+                android:drawableTop="@drawable/campo_colo70prueba"
+                android:onClick="onClickInstalaciones"
+                android:text="@string/boton_instalaciones"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/botonNoticias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/selector"
+                android:drawableTop="@drawable/noticias70prueba"
+                android:onClick="onClickNoticias"
+                android:text="@string/boton_noticias"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/botonAcercaDe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                
+                android:background="@drawable/selector"
+                android:drawableTop="@drawable/ayuda_azul70prueba"
+                android:onClick="onClickAcercaDe"
+                android:text="@string/boton_acerca_de"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/botonMisEquipos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/botonInstalaciones"
+                android:layout_alignBottom="@+id/botonInstalaciones"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/selector"
+                android:drawableTop="@drawable/persona_azul70prueba"
+                android:onClick="onClickMisEquipos"
+                android:text="@string/boton_misEquipos"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/botonCampeonatos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/botonInstalaciones"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/selector"
+                android:drawableTop="@drawable/copa_color70prueba"
+                android:onClick="onClickCompeticiones"
+                android:text="@string/boton_campeonatos"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/botonInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="33dp"
+                android:layout_alignTop="@+id/botonMisEquipos"
+                android:background="@drawable/selector"
+                android:drawableTop="@drawable/info_azul70prueba"
+                android:onClick="onClickInfo"
+                android:text="@string/boton_info"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/botonReservas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="33dp"
+                android:layout_marginRight="47dp"
+                android:background="@drawable/selector"
+                android:drawableTop="@drawable/calendario_azul70prueba"
+                android:onClick="onClickReservas"
+                android:text="@string/boton_reservas"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+    
+</RelativeLayout>

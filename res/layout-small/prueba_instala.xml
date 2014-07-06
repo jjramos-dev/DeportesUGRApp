@@ -1,0 +1,340 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/ugr_background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:id="@+id/tableLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                
+
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    >
+
+                    <TextView
+                        android:id="@+id/alquilerPuntual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alquilerPuntual"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:paddingTop="10dp"
+                    	android:paddingBottom="10dp"
+                    	android:gravity="center"
+                         />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/comunidadUniversitaria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/comunidadUniversitaria"
+                        android:textSize="19sp"
+                        android:textStyle="bold" 
+                        android:paddingTop="10dp"
+                    	android:paddingBottom="10dp"
+                    	android:paddingLeft="5dp"
+                    	/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/sinLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sinLuz"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp" />
+
+                    <TextView
+                        android:id="@+id/conLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/conLuz" 
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/precioUniSinLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                    	android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+
+                    <TextView
+                        android:id="@+id/precioUniLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" 
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/comunidadNoUniversitaria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/comunidadNoUniversitaria"
+                        android:textSize="19sp"
+                        android:textStyle="bold" 
+                        android:paddingTop="10dp"
+                    	android:paddingBottom="10dp"
+                    	android:paddingLeft="5dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/sinLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sinLuz" 
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+
+                    <TextView
+                        android:id="@+id/conLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/conLuz" 
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/precioNoUniSinLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" 
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+
+                    <TextView
+                        android:id="@+id/precioNoUniLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" 
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/penas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/penasDeportivas"
+                        android:textSize="25sp"
+                        android:textStyle="bold" 
+                        android:paddingTop="25dp"
+                    	android:paddingBottom="10dp"
+                    	android:layout_gravity="center"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/comunidadUniversitaria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/comunidadUniversitaria"
+                        android:textSize="19sp"
+                        android:textStyle="bold" 
+                        android:paddingTop="10dp"
+                    	android:paddingBottom="10dp"
+                    	android:paddingLeft="5dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/sinLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sinLuz" 
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+
+                    <TextView
+                        android:id="@+id/conLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/conLuz" 
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/precioPenasUniSinLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" 
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+
+                    <TextView
+                        android:id="@+id/precioPenasUniLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" 
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/comunidadNoUniversitaria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/comunidadNoUniversitaria"
+                        android:textSize="19sp"
+                        android:textStyle="bold" 
+                        android:paddingTop="10dp"
+                    	android:paddingBottom="10dp"
+                    	android:paddingLeft="5dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/sinLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sinLuz"
+                        android:textSize="16sp"
+                        android:textStyle="bold" 
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+
+                    <TextView
+                        android:id="@+id/conLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/conLuz" 
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    
+
+                    <TextView
+                        android:id="@+id/precioPenasNoUniSinLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" 
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+
+                    <TextView
+                        android:id="@+id/precioPenasNoUniLuz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" 
+                        android:paddingBottom="5dp"
+                    	android:paddingLeft="5dp"/>
+                </TableRow>
+            </TableLayout>
+            
+            <TextView
+                        android:id="@+id/nombrePista"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+            
+            
+            
+        </LinearLayout>
+	
+	</ScrollView>
+</LinearLayout>
