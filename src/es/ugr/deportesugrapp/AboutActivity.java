@@ -74,7 +74,14 @@ public class AboutActivity extends ActionBarActivity {
 		TextView disclaimer = (TextView) findViewById(R.id.disclaimer);
 		// disclaimer.setTextSize(11);
 		disclaimer
-				.setText("DeportesUGR es una aplicación que permite acceder a la información de la página web del Centro de Actividades Deportivas de la UGR. DeportesUGR y el servidor correspondiente usan software libre (JSoup licencia MIT, Jackson licencia Apache 2.0, RESTlet licencia Apache 2.0).\n \nDescargo de responsabilidad: La Universidad de Granada no se hace responsable del uso de esta aplicación. Este software se proporciona tal cual ('as-is'), sin garantía de ningún tipo, expresa o implícita. En nigún caso los autores o los titulares del copyright serán responsables de ninguna queja, daños u otra responsabilidad que surja en relación al software, su uso, su tratamiento, o el servicio que proporciona.\n\nAutores principales de la app: Luis Carlos Casanova y Juan José Ramos\nDesarroladores del servidor: Juan José Ramos, Juan Manuel López, Jorge Navarro, Pablo Ameigeiras y Jonathan Prados\nIconografía: Diego José Molins \n \nAgradecimientos: \nRosana Montes (CEVUG); Servicio del CAD, especialmente a Jordi Mercadé, Álex Requena, Fernando S. Martínez (CAD); Antonio Muñoz (CSIRC)."
+				.setText("DeportesUGR es una aplicación que permite acceder a la información de la página web del Centro de Actividades Deportivas de la UGR. DeportesUGR y el servidor correspondiente usan software libre (JSoup licencia MIT, Jackson licencia Apache 2.0, RESTlet licencia Apache 2.0).\n \n" +
+						"Descargo de responsabilidad: La Universidad de Granada no se hace responsable del uso de esta aplicación. " +
+
+						"DeportesUGR es software libre: puede redistribuirlo y/o modificarlo bajo los términos de la Licencia General Pública de GNU publicada por la Free Software Foundation, ya sea la versión 3 de la Licencia, o (a su elección) cualquier versión posterior.\n"+
+						"Este programa se distribuye con la esperanza de que sea útil pero SIN NINGUNA GARANTÍA; incluso sin la garantía implícita de MERCANTIBILIDAD o CALIFICADA PARA UN PROPÓSITO EN PARTICULAR. Vea la Licencia General Pública de GNU para más detalles.\n"+
+						"Usted ha debido de recibir una copia de la Licencia General Pública de GNU junto con este programa. Si no, vea <http://www.gnu.org/licenses/>.\n\n"+ 
+						//"Este software se proporciona tal cual ('as-is'), sin garantía de ningún tipo, expresa o implícita. En nigún caso los autores o los titulares del copyright serán responsables de ninguna queja, daños u otra responsabilidad que surja en relación al software, su uso, su tratamiento, o el servicio que proporciona.\n\n" +
+						"Autores principales de la app: Luis Carlos Casanova y Juan José Ramos\nDesarroladores del servidor: Juan José Ramos, Juan Manuel López, Jorge Navarro, Pablo Ameigeiras y Jonathan Prados\nIconografía: Diego José Molins \n \nAgradecimientos: \nRosana Montes (CEVUG); Servicio del CAD, especialmente a Jordi Mercadé, Álex Requena, Fernando S. Martínez (CAD); Antonio Muñoz (CSIRC)."
 						+ "\n\nSi detecta algún error o tiene alguna sugerencia, contacte con nosotros.");
 
 	}
