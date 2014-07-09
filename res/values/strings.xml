@@ -86,6 +86,9 @@
  	 <string name="elegirEquipos">Elegir Equipos</string>
  	 <string name="licenciaApache">Licencia Apache 2.0</string>
  	 <string name="licencia2">Licencia MIT</string>
+ 	 <string name="licenciaGPLV3">Licencia GPLV3</string>
+ 	 <string name="contactoNuestro">Contacto</string>
+ 	 <string name="repositorio">Código Fuente: https://github.com/jjramos-dev/DeportesUGRApp</string>
  	 
  	 
  	 

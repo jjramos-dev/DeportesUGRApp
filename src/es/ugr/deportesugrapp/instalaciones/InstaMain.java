@@ -36,10 +36,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class InstaMain extends Activity {
-	
-	
-	
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,92 +43,112 @@ public class InstaMain extends Activity {
 		setContentView(R.layout.prueba_instala);
 
 		/*
-		Bundle extras = getIntent().getExtras();
-		
-		
-		String pistaId = extras.getString("pistaId");
-	    String nombre = extras.getString("nombre");
-	    float preUniSinLuz = extras.getFloat("preUniSinLuz");
-	    float preUniLuz = extras.getFloat("preUniLuz");
-	    float preNoUniSinLuz = extras.getFloat("preNoUniSinLuz");
-	    float preNoUniLuz = extras.getFloat("preNoUniLuz");
-	    float prePeñaUniSinLuz = extras.getFloat("prePeñaUniSinLuz");
-	    float prePeñaUniLuz = extras.getFloat("prePeñaUniLuz");
-	    float prePeñaNoUniSinLuz = extras.getFloat("prePeñaNoUniSinLuz");
-	    float prePeñaNoUniLuz = extras.getFloat("prePeñaNoUniLuz");
-		
-		*/
+		 * Bundle extras = getIntent().getExtras();
+		 * 
+		 * 
+		 * String pistaId = extras.getString("pistaId"); String nombre =
+		 * extras.getString("nombre"); float preUniSinLuz =
+		 * extras.getFloat("preUniSinLuz"); float preUniLuz =
+		 * extras.getFloat("preUniLuz"); float preNoUniSinLuz =
+		 * extras.getFloat("preNoUniSinLuz"); float preNoUniLuz =
+		 * extras.getFloat("preNoUniLuz"); float prePeñaUniSinLuz =
+		 * extras.getFloat("prePeñaUniSinLuz"); float prePeñaUniLuz =
+		 * extras.getFloat("prePeñaUniLuz"); float prePeñaNoUniSinLuz =
+		 * extras.getFloat("prePeñaNoUniSinLuz"); float prePeñaNoUniLuz =
+		 * extras.getFloat("prePeñaNoUniLuz");
+		 */
 		// Las funciones de red hay que lanzarlas en backgronud:
-		int progreso=0;
-		
+		int progreso = 0;
+
 		new SolicitudInfoPistaTask().execute(242424);
-		
-		
+
 	}
 
-// Mirar : http://developer.android.com/reference/android/os/AsyncTask.html
-//										Parámetros, unidades de progreso, resultado
-public class SolicitudInfoPistaTask extends AsyncTask<Integer, Integer, Pista>{
-	Pista pista=null;
-	String respuesta="no";
-@Override
-protected Pista doInBackground(Integer... params) {
-	
-	int pistaId=params[0];
-	//float precio=params[0];
-	//int numero=params[0];
-	
-	// Hay que formar la dirección del recurso del servicio:
-	String url="http://oberon.ugr.es:8080/pista/"+pistaId;
-	
-	try {
-		// Hacemos una petición HTTP GET... Esto sólo sirve para cosultar! de momento no modificamos nada:
-		URL servicio = new URL(url);
-	   URLConnection conexion = servicio.openConnection();
-	   BufferedReader in = new BufferedReader(new InputStreamReader(
-                                conexion.getInputStream()));
-    
-	   // Recibimos la respuesta línea a línea (el JSON):
-    respuesta="";
-    String inputLine;
-    
-    while ((inputLine = in.readLine()) != null){        
-    	// System.out.println(inputLine);
-    	respuesta=respuesta+inputLine;        
-    }
-    in.close();
-    
-    // Intentamos interpertarlo con jackson:
-    ObjectMapper mapper=new ObjectMapper(); 
-    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    pista=mapper.readValue(respuesta, Pista.class);
-   
-    
-	} catch (MalformedURLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-	return pista;
-}
+	// Mirar : http://developer.android.com/reference/android/os/AsyncTask.html
+	// Parámetros, unidades de progreso, resultado
+	public class SolicitudInfoPistaTask extends
+			AsyncTask<Integer, Integer, Pista> {
+		Pista pista = null;
+		String respuesta = "no";
 
-@Override
+		@Override
+		protected Pista doInBackground(Integer... params) {
+
+			int pistaId = params[0];
+			// float precio=params[0];
+			// int numero=params[0];
+
+			// Hay que formar la dirección del recurso del servicio:
+			String url = "http://oberon.ugr.es:8080/pista/" + pistaId;
+
+			try {
+				// Hacemos una petición HTTP GET... Esto sólo sirve para
+				// cosultar! de momento no modificamos nada:
+				URL servicio = new URL(url);
+				URLConnection conexion = servicio.openConnection();
+				BufferedReader in = new BufferedReader(new InputStreamReader(
+						conexion.getInputStream()));
+
+				// Recibimos la respuesta línea a línea (el JSON):
+				respuesta = "";
+				String inputLine;
+
+				while ((inputLine = in.readLine()) != null) {
+					// System.out.println(inputLine);
+					respuesta = respuesta + inputLine;
+				}
+				in.close();
+
+				// Intentamos interpertarlo con jackson:
+				ObjectMapper mapper = new ObjectMapper();
+				mapper.configure(
+						DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
+						false);
+				pista = mapper.readValue(respuesta, Pista.class);
+
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			return pista;
+		}
+
+		@Override
 		protected void onPostExecute(Pista pista2) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(pista);
-			
-			TextView texto=(TextView)findViewById(R.id.nombrePista);
-			
-			if(pista!=null){
-				texto.setText(" El identificador de la pista es:"+pista.getPistaId()+"\n Nombre: "+pista.getNombre()+ " \n Precio Pista Universitario Sin Luz: "+pista.getPrecioUniversitarioSinLuz()+" \n Precio Pista Universitario Con Luz: "+pista.getPrecioUniversitarioLuz()+" \n Precio Pista No Universitario Sin Luz: "+pista.getPrecioNoUniversitarioSinLuz()+" \n Precio Pista No Universitario Con Luz: "+pista.getPrecioNoUniversitarioLuz()+" \n Precio Pista Peña Universitario Sin Luz: "+pista.getPrecioPeñaUniversitarioSinLuz()+" \n Precio Pista Peña Universitario Con Luz: "+pista.getPrecioPeñaUniversitarioLuz()+" \n Precio Pista Peña No Universitario Sin Luz: "+pista.getPrecioPeñaNoUniversitarioSinLuz()+" \n Precio Pista Peña No Universitario Con Luz: "+pista.getPrecioPeñaNoUniversitarioLuz());
+
+			TextView texto = (TextView) findViewById(R.id.nombrePista);
+
+			if (pista != null) {
+				texto.setText(" El identificador de la pista es:"
+						+ pista.getPistaId() + "\n Nombre: "
+						+ pista.getNombre()
+						+ " \n Precio Pista Universitario Sin Luz: "
+						+ pista.getPrecioUniversitarioSinLuz()
+						+ " \n Precio Pista Universitario Con Luz: "
+						+ pista.getPrecioUniversitarioLuz()
+						+ " \n Precio Pista No Universitario Sin Luz: "
+						+ pista.getPrecioNoUniversitarioSinLuz()
+						+ " \n Precio Pista No Universitario Con Luz: "
+						+ pista.getPrecioNoUniversitarioLuz()
+						+ " \n Precio Pista Peña Universitario Sin Luz: "
+						+ pista.getPrecioPeñaUniversitarioSinLuz()
+						+ " \n Precio Pista Peña Universitario Con Luz: "
+						+ pista.getPrecioPeñaUniversitarioLuz()
+						+ " \n Precio Pista Peña No Universitario Sin Luz: "
+						+ pista.getPrecioPeñaNoUniversitarioSinLuz()
+						+ " \n Precio Pista Peña No Universitario Con Luz: "
+						+ pista.getPrecioPeñaNoUniversitarioLuz());
 			} else {
 				// ¿Qué tipo de error? Esto habrá que refinarlo...
 				texto.setText("Error al obtener la informaciñn de la pista");
 			}
 		}
-}
+	}
 
 }

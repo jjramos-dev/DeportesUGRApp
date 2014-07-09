@@ -20,7 +20,6 @@ package es.ugr.deportesugrapp.misequipos;
 
 import java.util.List;
 
-
 import es.ugr.deportesugrapp.torneos.Equipo;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,28 +34,24 @@ public class BotonEquipoListenir implements OnClickListener {
 	private List<Equipo> listaElegidos;
 	private List<Equipo> listaEquipos;
 	private EleccionEquipoActivity padre;
-	
 
 	public BotonEquipoListenir(Equipo equipo) {
-//		this.equipoId=equipoId;
-//		this.nombre=nombre;
-		this.equipo=equipo;
+		// this.equipoId=equipoId;
+		// this.nombre=nombre;
+		this.equipo = equipo;
 	}
 
 	@Override
 	public void onClick(View v) {
 		padre.actualizarListaElegidos(equipo);
-		//padre.cargarEquipos(listaEquipos);
-		//padre.actualizarBoton();
-		
+		// padre.cargarEquipos(listaEquipos);
+		// padre.actualizarBoton();
 
 	}
 
-	
-
 	public void setPadre(EleccionEquipoActivity mainActivity) {
-		padre=mainActivity;
-		
+		padre = mainActivity;
+
 	}
 
 }

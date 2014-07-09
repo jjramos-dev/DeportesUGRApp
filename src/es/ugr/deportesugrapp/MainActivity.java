@@ -30,14 +30,15 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * Actividad principal. Esta actividad se puede cambiar completamente.
- * Sólo es obligatorio enlazar de alguna manera con la actividad "AboutActivity"
+ * Actividad principal. Esta actividad se puede cambiar completamente. Sólo es
+ * obligatorio enlazar de alguna manera con la actividad "AboutActivity"
+ * 
  * @author Namir Sayed-Ahmad Baraza
  * @mail namirsab@gmail.com
  */
 
 public class MainActivity extends ActionBarActivity {
-	
+
 	Button botonAcercaDe;
 	Button botonCampeonatos;
 	Button botonNoticias;
@@ -45,58 +46,57 @@ public class MainActivity extends ActionBarActivity {
 	Button botonInfo;
 	Button botonMisEquipos;
 	Button botonReservas;
-	
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.support.v7.app.ActionBarActivity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
+
 		actionBar.setTitle("DeportesUGR");
-		//actionBar.setSubtitle("");
-		
-		
+		// actionBar.setSubtitle("");
+
 	}
-	
-    
-	
-	public void onClickAcercaDe(View v){
+
+	public void onClickAcercaDe(View v) {
 		Intent acercaDeIntent = new Intent(this, AboutActivity.class);
 		startActivity(acercaDeIntent);
 	}
 
-	
-	public void onClickCompeticiones(View v){
+	public void onClickCompeticiones(View v) {
 		Intent torneosIntent = new Intent(this, TorneoActivity.class);
 		startActivity(torneosIntent);
-	} 
-	
-	public void onClickNoticias(View v){
+	}
+
+	public void onClickNoticias(View v) {
 		Intent noticiasIntent = new Intent(this, Noticias.class);
 		startActivity(noticiasIntent);
 	}
-	
-	public void onClickInstalaciones(View v){
+
+	public void onClickInstalaciones(View v) {
 		Intent instalacionesIntent = new Intent(this, Instalaciones.class);
 		startActivity(instalacionesIntent);
 	}
-	
-	public void onClickInfo(View v){
+
+	public void onClickInfo(View v) {
 		Intent infoIntent = new Intent(this, InfoContacto.class);
 		startActivity(infoIntent);
 	}
-	
-	public void onClickMisEquipos(View v){
+
+	public void onClickMisEquipos(View v) {
 		Intent perfilIntent = new Intent(this, MisEquipos.class);
 		startActivity(perfilIntent);
 	}
-	
-	public void onClickReservas(View v){
+
+	public void onClickReservas(View v) {
 		Intent reservasIntent = new Intent(this, ReservasActivity.class);
 		startActivity(reservasIntent);
 	}
-	
-	
+
 }

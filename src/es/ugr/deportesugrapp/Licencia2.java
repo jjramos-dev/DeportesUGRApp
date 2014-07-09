@@ -27,50 +27,48 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
-public class Licencia2 extends ActionBarActivity{
+public class Licencia2 extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_licencia2);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
-		
+
 		TextView tv;
-		
+
 		tv = (TextView) findViewById(R.id.tvLicencia2);
 		tv.setText(readText());
-		
-		
+
 		actionBar.setTitle("Licencia Jsoup");
-		//actionBar.setSubtitle("");
-	
+		// actionBar.setSubtitle("");
+
 	}
-	
-private String readText(){
-		
-		InputStream inputStream = getResources().openRawResource(R.raw.licencia_2);
-		
+
+	private String readText() {
+
+		InputStream inputStream = getResources().openRawResource(
+				R.raw.licencia_2);
+
 		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-		
+
 		int i;
-		try{
-			
+		try {
+
 			i = inputStream.read();
-			
-			while (i != -1){
+
+			while (i != -1) {
 				byteArrayOutputStream.write(i);
 				i = inputStream.read();
 			}
 			inputStream.close();
-			
-		}catch (IOException e){
+
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return byteArrayOutputStream.toString();
 	}
-	
-	
+
 }

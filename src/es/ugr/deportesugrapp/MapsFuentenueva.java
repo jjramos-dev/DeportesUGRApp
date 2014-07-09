@@ -29,17 +29,14 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsFuentenueva extends FragmentActivity implements OnMapClickListener {
+public class MapsFuentenueva extends FragmentActivity implements
+		OnMapClickListener {
 
-	
 	private final LatLng UGR1 = new LatLng(37.1820297, -3.6091333);
 
 	private GoogleMap mapa;
 
-	
-
-	@Override 
-
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -52,24 +49,19 @@ public class MapsFuentenueva extends FragmentActivity implements OnMapClickListe
 		mapa.getUiSettings().setZoomControlsEnabled(false);
 		mapa.getUiSettings().setCompassEnabled(true);
 		mapa.addMarker(new MarkerOptions()
-		.position(UGR1)
-		.title("DeportesUGR")
-		.snippet("Campus Universitario de Fuentenueva")
-		.icon(BitmapDescriptorFactory
-				.fromResource(R.drawable.puntero_color60))
+				.position(UGR1)
+				.title("DeportesUGR")
+				.snippet("Campus Universitario de Fuentenueva")
+				.icon(BitmapDescriptorFactory
+						.fromResource(R.drawable.puntero_color60))
 				.anchor(0.5f, 0.5f));
 		mapa.setOnMapClickListener(this);
 	}
 
-
-
 	@Override
 	public void onMapClick(LatLng arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
-	
-	
+
 }

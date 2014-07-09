@@ -79,15 +79,14 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 		// Obtenemos referencias a cada elemento de la activity
 		layout = (LinearLayout) findViewById(R.id.layout);
 		elegidos = (TextView) findViewById(R.id.equiposRegistrados);
-		
+
 		gestorPreferencias = new GestorPreferencias(this);
 
 		// Creamos un objeto de ayuda para realizar la llamada:
 		deporteUGRApi = new DeporteUGRClient();
-		
-	
+
 		cargarListaElegidos();
-		
+
 		// Cargamos la página mediante un asynctask:
 		new CargadorEquipos(this, deporteUGRApi)
 				.execute(categoriaId, deporteId);
@@ -143,86 +142,82 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 		}
 
 	}
-	
-	
-	
+
 	private List<Equipo> cargarListaElegidos() {
 		// Los cargamos de las preferencias:
-		List<Equipo> listaGuardada = gestorPreferencias.getListaEquiposEscogidos();
-		mapaElegidos=new HashMap<String,Equipo>();
-		
+		List<Equipo> listaGuardada = gestorPreferencias
+				.getListaEquiposEscogidos();
+		mapaElegidos = new HashMap<String, Equipo>();
+
 		// Copiamos su infomación:
-		if (listaGuardada != null){
-			for(Equipo equipo:listaGuardada){
+		if (listaGuardada != null) {
+			for (Equipo equipo : listaGuardada) {
 				mapaElegidos.put(equipo.getUrl(), equipo);
 			}
 		}
-		
+
 		return null;
 	}
 
 	public void cargarEquipos(List<Equipo> listaEquipos) {
 
 		// Si hay alguna lista:
-		//if (listaEquipos.isEmpty()) {
-			
-				// mostramos los botones:
-				for (final Equipo equipo : listaEquipos) {
+		// if (listaEquipos.isEmpty()) {
 
-					final ToggleButton boton = new ToggleButton(this);
-					boton.setText(equipo.getNombre());
+		// mostramos los botones:
+		for (final Equipo equipo : listaEquipos) {
 
-					boton.setBackgroundColor(Color.argb(0, 0, 0, 0));
-					boton.setBackgroundResource(R.drawable.selector);
-					boton.setTextOn(equipo.getNombre());
-					boton.setTextOff(equipo.getNombre());
+			final ToggleButton boton = new ToggleButton(this);
+			boton.setText(equipo.getNombre());
 
+			boton.setBackgroundColor(Color.argb(0, 0, 0, 0));
+			boton.setBackgroundResource(R.drawable.selector);
+			boton.setTextOn(equipo.getNombre());
+			boton.setTextOff(equipo.getNombre());
 
-					boton.setOnClickListener(new OnClickListener() {
+			boton.setOnClickListener(new OnClickListener() {
 
-						@Override
-						public void onClick(View v) {
-							// TODO Auto-generated method stub
-							if (boton.isChecked()) {
-								boton.setCompoundDrawablesWithIntrinsicBounds(
-										R.drawable.flecha_negro25prueba, 0, 0,
-										0);
-							} else {
-								boton.setCompoundDrawablesWithIntrinsicBounds(
-										0, 0, 0, 0);
-							}
-
-							actualizarListaElegidos(equipo);
-						}
-					});
-					
-					// Si lo tenemos en la lista de elegidos, además 
-					// marcamos con el icono o no...
-//					for (Equipo equipoEle : listaElegidos) {
-//						if (equipo.getNombre().compareTo(equipoEle.getNombre()) == 0) {
-//							boton.setCompoundDrawablesWithIntrinsicBounds(
-//									R.drawable.flecha_negro25prueba, 0, 0, 0);
-//							boton.setChecked(true);
-//						}
-//					}
-					if(mapaElegidos.get(equipo.getUrl())!=null){
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					if (boton.isChecked()) {
 						boton.setCompoundDrawablesWithIntrinsicBounds(
-									R.drawable.flecha_negro25prueba, 0, 0, 0);
-							boton.setChecked(true);
+								R.drawable.flecha_negro25prueba, 0, 0, 0);
+					} else {
+						boton.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0,
+								0);
 					}
 
-				
-					layout.addView(boton);
-					View ruler = new View(this);
-					ruler.setBackgroundColor(0xFF000000);
-					layout.addView(ruler, new ViewGroup.LayoutParams(
-							ViewGroup.LayoutParams.FILL_PARENT, 1));
-
+					actualizarListaElegidos(equipo);
 				}
-			//} else {
-			//	mostrarError("Este deporte no contiene equipos registrados");
-		
-			//}
+			});
+
+			// Si lo tenemos en la lista de elegidos, además
+			// marcamos con el icono o no...
+			// for (Equipo equipoEle : listaElegidos) {
+			// if (equipo.getNombre().compareTo(equipoEle.getNombre()) == 0) {
+			// boton.setCompoundDrawablesWithIntrinsicBounds(
+			// R.drawable.flecha_negro25prueba, 0, 0, 0);
+			// boton.setChecked(true);
+			// }
+			// }
+			if (mapaElegidos.get(equipo.getUrl()) != null) {
+				boton.setCompoundDrawablesWithIntrinsicBounds(
+						R.drawable.flecha_negro25prueba, 0, 0, 0);
+				boton.setChecked(true);
+			}
+
+			layout.addView(boton);
+			View ruler = new View(this);
+			ruler.setBackgroundColor(0xFF000000);
+			layout.addView(ruler, new ViewGroup.LayoutParams(
+					ViewGroup.LayoutParams.FILL_PARENT, 1));
+
+		}
+		// } else {
+		// mostrarError("Este deporte no contiene equipos registrados");
+
+		// }
 	}
 
 	private void mostrarError(String string) {
@@ -231,20 +226,20 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 		textoError.setText(string);
 		textoError.setTextSize(20);
 		textoError.setPadding(15, 20, 0, 0);
-		
+
 	}
 
 	public void actualizarListaElegidos(Equipo equipo) {
 		String cadena = "";
-		
-		System.out.println("Actualizando equipo "+equipo.getUrl());
+
+		System.out.println("Actualizando equipo " + equipo.getUrl());
 		// Si ya estaba en la lista, lo eliminamos:
-		Equipo equipo_=mapaElegidos.get(equipo.getUrl());
-		if(equipo_!=null){
-				mapaElegidos.remove(equipo.getUrl());
-		} else  {
+		Equipo equipo_ = mapaElegidos.get(equipo.getUrl());
+		if (equipo_ != null) {
+			mapaElegidos.remove(equipo.getUrl());
+		} else {
 			// O lo añadimos a la lista de elegidos....
-			mapaElegidos.put(equipo.getUrl(),equipo);
+			mapaElegidos.put(equipo.getUrl(), equipo);
 		}
 	}
 
@@ -252,13 +247,13 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 	protected void onStop() {
 		// TODO Auto-generated method stub
 		super.onStop();
-		
+
 		// Lo pasamos a lista, y lo guardamos:
-		listaElegidos=new ArrayList<Equipo>();
-		for(Equipo equipo:mapaElegidos.values()){
+		listaElegidos = new ArrayList<Equipo>();
+		for (Equipo equipo : mapaElegidos.values()) {
 			listaElegidos.add(equipo);
 		}
-		
+
 		gestorPreferencias.guardarMisEquipos(listaElegidos);
 	}
 }

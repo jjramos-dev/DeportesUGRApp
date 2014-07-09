@@ -24,37 +24,37 @@
 package es.ugr.deportesugrapp.reservas;
 
 /**
- *
+ * 
  * @author jjramos
  */
 public class PistaReservable {
 
-    private String codigo=null;
-    private String titulo=null;
+	private String codigo = null;
+	private String titulo = null;
 
-    PistaReservable() {
-   
-    }
+	PistaReservable() {
 
-    PistaReservable(String codigoPista, String pista) {
-        this.codigo = codigoPista;
-        this.titulo = pista;
-    }
+	}
 
-    public String getCodigo() {
-        return codigo;
-    }
+	PistaReservable(String codigoPista, String pista) {
+		this.codigo = codigoPista;
+		this.titulo = pista;
+	}
 
-    public String getTitulo() {
-        return titulo;
-    }
+	public String getCodigo() {
+		return codigo;
+	}
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
+	public String getTitulo() {
+		return titulo;
+	}
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-    
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
 }

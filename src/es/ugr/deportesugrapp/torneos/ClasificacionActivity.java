@@ -29,84 +29,71 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-public class ClasificacionActivity extends ActionBarActivity{
-		
-		
-		String categoriaId;
-		String deporteId;
-		WebView browser;
-		String URL;
-		private ProgressBar progressBar;
-		
-		@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
+public class ClasificacionActivity extends ActionBarActivity {
 
-			// En realidad, casi todas las activities son iguales (de momento) :)
-			setContentView(R.layout.activity_clasificacion);
-			
-			ActionBar actionBar = getSupportActionBar();
-			
-			
+	String categoriaId;
+	String deporteId;
+	WebView browser;
+	String URL;
+	private ProgressBar progressBar;
 
-			// Extraemos los parámetros de la llamada del intent:
-			Intent intent = getIntent();
-			categoriaId = intent
-					.getStringExtra("com.example.activitydeportes.categoriaId");
-			deporteId = intent
-					.getStringExtra("com.example.activitydeportes.deporteId");
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-			
-			actionBar.setTitle("Competiciones");
-			actionBar.setSubtitle("Clasificación: "+categoriaId+" / "+deporteId);
-			
-			URL= "http://cad.ugr.es/static/CADManagement/*/";
-			
-			browser = (WebView)findViewById(R.id.webView1);
-	         
-            //habilitamos el zoom
-			
-			browser.getSettings().setBuiltInZoomControls(true);
-            browser.setInitialScale(100); 
-			
-			
-            browser.loadUrl(URL+categoriaId+"/"+deporteId);
-     
-            browser.setWebViewClient(new WebViewClient()
-            {
-                    // evita que los enlaces se abran fuera nuestra app en el navegador de android
-            	public boolean shouldOverrideUrlLoading(WebView view, String url)
-            	{
-            		return false;
-            	}   
-         
-    		});
-            
-            progressBar = (ProgressBar) findViewById(R.id.progressbar);
-            
-            browser.setWebChromeClient(new WebChromeClient() 
-            {
-                @Override
-                public void onProgressChanged(WebView view, int progress) 
-                {               
-                    progressBar.setProgress(0);
-                    progressBar.setVisibility(View.VISIBLE);
-                    ClasificacionActivity.this.setProgress(progress * 1000);
-     
-                    progressBar.incrementProgressBy(progress);
-     
-                    if(progress == 100)
-                    {
-                        progressBar.setVisibility(View.GONE);
-                    }
-                }
-            });
-			
-		}
-		
-		
-		
-		
-		
+		// En realidad, casi todas las activities son iguales (de momento) :)
+		setContentView(R.layout.activity_clasificacion);
 
-		}
+		ActionBar actionBar = getSupportActionBar();
+
+		// Extraemos los parámetros de la llamada del intent:
+		Intent intent = getIntent();
+		categoriaId = intent
+				.getStringExtra("com.example.activitydeportes.categoriaId");
+		deporteId = intent
+				.getStringExtra("com.example.activitydeportes.deporteId");
+
+		actionBar.setTitle("Competiciones");
+		actionBar.setSubtitle("Clasificación: " + categoriaId + " / "
+				+ deporteId);
+
+		URL = "http://cad.ugr.es/static/CADManagement/*/";
+
+		browser = (WebView) findViewById(R.id.webView1);
+
+		// habilitamos el zoom
+
+		browser.getSettings().setBuiltInZoomControls(true);
+		browser.setInitialScale(100);
+
+		browser.loadUrl(URL + categoriaId + "/" + deporteId);
+
+		browser.setWebViewClient(new WebViewClient() {
+			// evita que los enlaces se abran fuera nuestra app en el navegador
+			// de android
+			public boolean shouldOverrideUrlLoading(WebView view, String url) {
+				return false;
+			}
+
+		});
+
+		progressBar = (ProgressBar) findViewById(R.id.progressbar);
+
+		browser.setWebChromeClient(new WebChromeClient() {
+			@Override
+			public void onProgressChanged(WebView view, int progress) {
+				progressBar.setProgress(0);
+				progressBar.setVisibility(View.VISIBLE);
+				ClasificacionActivity.this.setProgress(progress * 1000);
+
+				progressBar.incrementProgressBy(progress);
+
+				if (progress == 100) {
+					progressBar.setVisibility(View.GONE);
+				}
+			}
+		});
+
+	}
+
+}

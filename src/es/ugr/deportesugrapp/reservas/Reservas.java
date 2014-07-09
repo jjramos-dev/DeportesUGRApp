@@ -34,20 +34,21 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
- *
+ * 
  * @author jjramos
  */
 public class Reservas {
-    List<Pista2> listaPistas;
-    private final String urlReservasPrincipal;
-    
-    Reservas(String urlReservasPrincipal){
-        this.urlReservasPrincipal=urlReservasPrincipal;
-    }
-    
-    Reservas(String urlBase,String dni){
-        this.urlReservasPrincipal="https://oficinavirtual.ugr.es/CarneUniversitario/TarjetasDeportes.jsp?textoXML=<xml><numero_PIU></numero_PIU><solicitud><dni>"+dni+"</dni><nia></nia><tarjeta_deportiva>1</tarjeta_deportiva><pago_viable>0</pago_viable><saldo_monedero>0</saldo_monedero></solicitud></xml>#";
-    }
+	List<Pista2> listaPistas;
+	private final String urlReservasPrincipal;
+
+	Reservas(String urlReservasPrincipal) {
+		this.urlReservasPrincipal = urlReservasPrincipal;
+	}
+
+	Reservas(String urlBase, String dni) {
+		this.urlReservasPrincipal = "https://oficinavirtual.ugr.es/CarneUniversitario/TarjetasDeportes.jsp?textoXML=<xml><numero_PIU></numero_PIU><solicitud><dni>"
+				+ dni
+				+ "</dni><nia></nia><tarjeta_deportiva>1</tarjeta_deportiva><pago_viable>0</pago_viable><saldo_monedero>0</saldo_monedero></solicitud></xml>#";
+	}
 }

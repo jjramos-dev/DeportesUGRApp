@@ -23,49 +23,49 @@
 package es.ugr.deportesugrapp.torneos;
 
 /**
- *
+ * 
  * @author jjramos
  */
 public class Deporte {
-    private String titulo;
-    private String url;
-    private String id;
-    
-    public Deporte(){
-        
-    }
-    
-    public Deporte(String titulo, String url){
-        this.titulo=titulo;
-        this.url=url;
-        
-            // Como identificador le ponemos la última parte de la url:
-            String[] id_ = url.split("/");
-            //System.out.println(url);
-            if(id_.length>1){
-                id=id_[id_.length-1];
-            } else {
-                id="";
-                
-            }
-            
-            System.out.println("Deporte: "+titulo+" -> "+id);
-    }
+	private String titulo;
+	private String url;
+	private String id;
 
-    public String getTitulo() {
-        return titulo;
-    }
+	public Deporte() {
 
-    public String getUrl() {
-        return url;
-    }
+	}
 
-    public String getId() {
-        return id;
-    }
+	public Deporte(String titulo, String url) {
+		this.titulo = titulo;
+		this.url = url;
 
-    public void setId(String id) {
-        this.id = id;
-    }
-    
+		// Como identificador le ponemos la última parte de la url:
+		String[] id_ = url.split("/");
+		// System.out.println(url);
+		if (id_.length > 1) {
+			id = id_[id_.length - 1];
+		} else {
+			id = "";
+
+		}
+
+		System.out.println("Deporte: " + titulo + " -> " + id);
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 }

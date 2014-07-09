@@ -26,42 +26,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * 
  * @author jjramos
  */
 public class Fase {
-    private String titulo;
-    //private List<Partido> partidos;
-    private List<Ronda> rondas;
+	private String titulo;
+	// private List<Partido> partidos;
+	private List<Ronda> rondas;
 
-    
-    Fase(){
-        
-    }
-    
-    public Fase(String fase) {
-        this.titulo=fase;
-        //this.partidos=new ArrayList<Partido>();
-        this.rondas=new ArrayList<Ronda>();
-    }
+	Fase() {
 
-//    void addPartido(Partido partido) {
-//        partidos.add(partido);
-//    }
+	}
 
-//    public List<Partido> getPartidos() {
-//        return partidos;
-//    }
+	public Fase(String fase) {
+		this.titulo = fase;
+		// this.partidos=new ArrayList<Partido>();
+		this.rondas = new ArrayList<Ronda>();
+	}
 
-    void addRonda(Ronda ronda) {
-        rondas.add(ronda);
-    }
+	// void addPartido(Partido partido) {
+	// partidos.add(partido);
+	// }
 
-    public String getTitulo() {
-        return titulo;
-    }
+	// public List<Partido> getPartidos() {
+	// return partidos;
+	// }
 
-    public List<Ronda> getRondas() {
-        return rondas;
-    }
+	void addRonda(Ronda ronda) {
+		rondas.add(ronda);
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public List<Ronda> getRondas() {
+		return rondas;
+	}
 }

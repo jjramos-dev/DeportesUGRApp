@@ -25,46 +25,43 @@ import es.ugr.deportesugrapp.instalaciones.InstaMainFutsalCesped;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
-
-public class CargadorFechaReserva extends AsyncTask<String, Integer, String>{
+public class CargadorFechaReserva extends AsyncTask<String, Integer, String> {
 
 	private DisponibilidadActivity padre;
 	private DeporteUGRClient cadApi2;
 
-	public CargadorFechaReserva(DisponibilidadActivity disponibilidadActivity, DeporteUGRClient cadApi2) {
-		padre=disponibilidadActivity;
-		this.cadApi2=cadApi2;
+	public CargadorFechaReserva(DisponibilidadActivity disponibilidadActivity,
+			DeporteUGRClient cadApi2) {
+		padre = disponibilidadActivity;
+		this.cadApi2 = cadApi2;
 	}
-	
-private ProgressDialog Dialog;
-	
-	
+
+	private ProgressDialog Dialog;
+
 	@Override
 	protected void onPreExecute() {
 		Dialog = new ProgressDialog(padre);
 		Dialog.setMessage("Cargando información...");
 		Dialog.show();
-	
+
 	}
 
 	@Override
 	protected String doInBackground(String... params) {
-		String tabla="<H1>No se pudo obtener la información</H1>";
-		
-		tabla=cadApi2.obtenerTablaReservasFecha(params[0], params[1], params[2], params[3]);
-		
+		String tabla = "<H1>No se pudo obtener la información</H1>";
+
+		tabla = cadApi2.obtenerTablaReservasFecha(params[0], params[1],
+				params[2], params[3]);
+
 		return tabla;
 	}
-	
-	  protected void onPostExecute(String tabla) {
-		  //padre.cargarPaginaWeb("Downloaded " + tabla.length() + " bytes");
 
-		 
-			padre.cargarPaginaWeb(tabla);
-		
-		  
-		  Dialog.dismiss();
-	  }
+	protected void onPostExecute(String tabla) {
+		// padre.cargarPaginaWeb("Downloaded " + tabla.length() + " bytes");
 
+		padre.cargarPaginaWeb(tabla);
+
+		Dialog.dismiss();
+	}
 
 }

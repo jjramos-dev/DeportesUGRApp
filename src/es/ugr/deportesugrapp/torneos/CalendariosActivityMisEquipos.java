@@ -58,7 +58,6 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 	List<Equipo> listaElegidos;
 	private String categoriaId;
 	private String deporteId;
-	
 
 	// El método para crear la Activity...
 	@Override
@@ -67,14 +66,13 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 
 		// En realidad, casi todas las activities son iguales (de momento) :)
 		setContentView(R.layout.activity_calendarios);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
-	
+
 		// Guardamos el layout del fondo, para aniadir luego botones o lo que
 		// corresponda:
 		layout = (LinearLayout) findViewById(R.id.fondo);
-		
+
 		// Extraemos los parámetros de la llamada del intent:
 		Intent intent = getIntent();
 		categoriaId = intent
@@ -82,13 +80,13 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 		deporteId = intent
 				.getStringExtra("com.example.activitydeportes.deporteId");
 
-		
 		actionBar.setTitle("Competiciones");
-		actionBar.setSubtitle("Mi Calendario: "+categoriaId+" / "+deporteId);
-		
-		gestorPreferencias=new GestorPreferencias(this);
-		listaElegidos= gestorPreferencias.getListaEquiposEscogidos();
-		
+		actionBar.setSubtitle("Mi Calendario: " + categoriaId + " / "
+				+ deporteId);
+
+		gestorPreferencias = new GestorPreferencias(this);
+		listaElegidos = gestorPreferencias.getListaEquiposEscogidos();
+
 		// Creamos el AsyncTask que pide los datos mediante el servicio Web:
 		// Le pasamos la URL base:
 		SolicitudCalendariosTask task = new SolicitudCalendariosTask(
@@ -97,13 +95,13 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 
 	}
 
-	//----------------------------------------------------------
+	// ----------------------------------------------------------
 	//
 	// Tarea asíncrona para obtener los calendarios:
 	//
 	public class SolicitudCalendariosTask extends
 			AsyncTask<String, Integer, List<Fase>> {
-		
+
 		private ProgressDialog Dialog;
 		String respuesta = "no";
 
@@ -118,7 +116,6 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 			api = new DeporteUGRClient();
 		}
 
-		
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(CalendariosActivityMisEquipos.this);
@@ -148,39 +145,37 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 		// garantías.
 		protected void onPostExecute(List<Fase> fases) {
 
-			if(fases != null){
-			
+			if (fases != null) {
 
-			if(!fases.isEmpty()){
-				// Recorremos la lista de fases, y creamos un botón por cada fase:
-				for (Fase fase : fases) {
-					crearBoton(fase);
+				if (!fases.isEmpty()) {
+					// Recorremos la lista de fases, y creamos un botón por cada
+					// fase:
+					for (Fase fase : fases) {
+						crearBoton(fase);
+					}
+
+				} else {
+					// Si no existe ninguna fase, se indica:
+					mostrarError("No se han definido fases.");
 				}
-				
-			} else {
-				// Si no existe ninguna fase, se indica:
-				mostrarError("No se han definido fases.");
-			}
 
-				
-			}else{
-				
+			} else {
+
 				mostrarError("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
 			}
-			
-			
+
 			Dialog.dismiss();
 		}
 
 	}
-	
+
 	private void mostrarError(String string) {
-		TextView tv=new TextView(this);
+		TextView tv = new TextView(this);
 		tv.setText(string);
 		tv.setTextSize(20);
 		tv.setPadding(15, 20, 0, 0);
 		layout.addView(tv);
-	
+
 	}
 
 	// Método de la Activity para aniadir más botones, por cada fase. Quizás
@@ -189,14 +184,13 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 	// toda la info en esta Activity:
 	void crearBoton(Fase fase) {
 
-		
 		// Para comparar rápidamente los equipos:
-				HashMap mapaEquipos = new HashMap<String, Equipo>();
-				for (Equipo equipo : listaElegidos) {
-					// Si son de este torneo y deporte (por defecto sí):
-					if(equipo.getUrl().contains(categoriaId+"/"+deporteId))
-						mapaEquipos.put(equipo.getUrl(), equipo);
-				}
+		HashMap mapaEquipos = new HashMap<String, Equipo>();
+		for (Equipo equipo : listaElegidos) {
+			// Si son de este torneo y deporte (por defecto sí):
+			if (equipo.getUrl().contains(categoriaId + "/" + deporteId))
+				mapaEquipos.put(equipo.getUrl(), equipo);
+		}
 
 		// Creamos un TextView por cada entrada... Lo suyo será hacerlo con
 		// listasa expandibles:
@@ -210,11 +204,9 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 		tv.setPadding(0, 30, 0, 30);
 		layout.addView(tv);
 
-		
-		
 		// vamos a recuperar todos los partidos que nos interesen:
 		// Calculamos mis partidos:
-		List<Partido> listaMisPartidos=new ArrayList<Partido>();
+		List<Partido> listaMisPartidos = new ArrayList<Partido>();
 		for (Ronda ronda : fase.getRondas()) {
 
 			// Buscamos nuestros partidos:
@@ -229,129 +221,132 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 				if (mapaEquipos.containsKey(equipo2.getUrl())) {
 					equipo2Presente = true;
 				}
-				
-				if(equipo1Presente||equipo2Presente){
+
+				if (equipo1Presente || equipo2Presente) {
 					listaMisPartidos.add(partido);
 				}
 			}
 		}
-		
+
 		// Si hay partidos, los ordenamos y mostramos:
-		if(!listaMisPartidos.isEmpty()){
-		// Ordenamos los partidos por fechas:
-		Collections.sort(listaMisPartidos, new Comparator<Partido>() {
-			@Override
-			public int compare(Partido p1, Partido p2) {
-				int comparacion=0;				
-				Date f1=p1.getFecha();
-				Date f2=p2.getFecha();
-				
-				if(f1!=null&&f2!=null){
-					comparacion=f2.compareTo(f1);
+		if (!listaMisPartidos.isEmpty()) {
+			// Ordenamos los partidos por fechas:
+			Collections.sort(listaMisPartidos, new Comparator<Partido>() {
+				@Override
+				public int compare(Partido p1, Partido p2) {
+					int comparacion = 0;
+					Date f1 = p1.getFecha();
+					Date f2 = p2.getFecha();
+
+					if (f1 != null && f2 != null) {
+						comparacion = f2.compareTo(f1);
+					}
+
+					return comparacion;
 				}
-				
-				return comparacion;
-			}
-		});
-		
-		
-		// Si ha pasado el partido, lo mostramos en gris:
-		Date hoy=Calendar.getInstance().getTime();
-		for(Partido partido:listaMisPartidos){
-			boolean disputado=false;
-			String resultado="";
-			
-			
-			// Mostramos la lista de partidos:
-			Date fechaPartido=partido.getFecha();
-			if(fechaPartido==null||hoy.after(fechaPartido)) {
-				disputado=false;
-				
-				if(esNumero(partido.getResultadoEquipo1())&& esNumero(partido.getResultadoEquipo2())){
-					resultado=partido.getResultadoEquipo1()+" - "+partido.getResultadoEquipo2();
-					disputado=true;
+			});
+
+			// Si ha pasado el partido, lo mostramos en gris:
+			Date hoy = Calendar.getInstance().getTime();
+			for (Partido partido : listaMisPartidos) {
+				boolean disputado = false;
+				String resultado = "";
+
+				// Mostramos la lista de partidos:
+				Date fechaPartido = partido.getFecha();
+				if (fechaPartido == null || hoy.after(fechaPartido)) {
+					disputado = false;
+
+					if (esNumero(partido.getResultadoEquipo1())
+							&& esNumero(partido.getResultadoEquipo2())) {
+						resultado = partido.getResultadoEquipo1() + " - "
+								+ partido.getResultadoEquipo2();
+						disputado = true;
+					}
 				}
-			} 
-			
-			// Identificamos contra quién jugamos:
-			Equipo equipoAdversario=null;
-			Equipo miEquipo=null;
-			String miResultado="";
-			String suResultado="";
-			Spanned html;
-			
-			if(mapaEquipos.containsKey(partido.getEquipo1().getUrl())){
-				equipoAdversario=partido.getEquipo2();
-				miEquipo=partido.getEquipo1();
-				
-				if(disputado){
-					miResultado=partido.getResultadoEquipo1().trim();
-					suResultado=partido.getResultadoEquipo2().trim();
+
+				// Identificamos contra quién jugamos:
+				Equipo equipoAdversario = null;
+				Equipo miEquipo = null;
+				String miResultado = "";
+				String suResultado = "";
+				Spanned html;
+
+				if (mapaEquipos.containsKey(partido.getEquipo1().getUrl())) {
+					equipoAdversario = partido.getEquipo2();
+					miEquipo = partido.getEquipo1();
+
+					if (disputado) {
+						miResultado = partido.getResultadoEquipo1().trim();
+						suResultado = partido.getResultadoEquipo2().trim();
+					}
+				} else {
+					equipoAdversario = partido.getEquipo1();
+					miEquipo = partido.getEquipo2();
+
+					if (disputado) {
+						miResultado = partido.getResultadoEquipo2().trim();
+						suResultado = partido.getResultadoEquipo1().trim();
+					}
 				}
-			} else {
-				equipoAdversario=partido.getEquipo1();
-				miEquipo=partido.getEquipo2();
-				
-				if(disputado){
-					miResultado=partido.getResultadoEquipo2().trim();
-					suResultado=partido.getResultadoEquipo1().trim();
-				}
-			}
-				
-				html = Html.fromHtml( 
-						((disputado)?"<font color=\"Gray\">":"")
-						+ "<b><big>Tu equipo: </b></big>"+"<b>"
-						+ miEquipo.getNombre()+""
-						
-						+" - "+((disputado)?miResultado:"")
-						+"</b>"+"<br/>"
-						+"<b><big>Adversario: "+"</b></big>"+"<b>"
-					
+
+				html = Html.fromHtml(((disputado) ? "<font color=\"Gray\">"
+						: "")
+						+ "<b><big>Tu equipo: </b></big>"
+						+ "<b>"
+						+ miEquipo.getNombre()
+						+ ""
+
+						+ " - "
+						+ ((disputado) ? miResultado : "")
+						+ "</b>"
+						+ "<br/>"
+						+ "<b><big>Adversario: "
+						+ "</b></big>"
+						+ "<b>"
+
 						+ equipoAdversario.getNombre()
-						+" - "+((disputado)?suResultado:"")
-						+"</b>"+"<br/>"
-						+"<b><big>Fecha: </b></big>"
-						+ ((partido.getFechaString()!=null)?partido.getFechaString():"") 
-						+ ((partido.getHoraString()!=null)?(", "+partido.getHoraString()):"")+"<br/>"
-						+"<b><big>Lugar: </b></big>"
-						+partido.getLugar()
-						);
-				
-				
-				
+						+ " - "
+						+ ((disputado) ? suResultado : "")
+						+ "</b>"
+						+ "<br/>"
+						+ "<b><big>Fecha: </b></big>"
+						+ ((partido.getFechaString() != null) ? partido
+								.getFechaString() : "")
+						+ ((partido.getHoraString() != null) ? (", " + partido
+								.getHoraString()) : "")
+						+ "<br/>"
+						+ "<b><big>Lugar: </b></big>" + partido.getLugar());
+
+				TextView partidoTexto = new TextView(this);
+				partidoTexto.setPadding(15, 20, 15, 20);
+
+				partidoTexto.setText(html);
+				layout.addView(partidoTexto);
+
+				View ruler = new View(this);
+
+				ruler.setBackgroundColor(0xFF000000);
+				layout.addView(ruler, new ViewGroup.LayoutParams(
+						ViewGroup.LayoutParams.MATCH_PARENT, 2));
+			}
+		} else {
+			Spanned html = Html.fromHtml("<br><b>"
+					+ "Su equipo no juega partidos en esta etapa." + "</b>"
+					+ "<br/>");
+
 			TextView partidoTexto = new TextView(this);
 			partidoTexto.setPadding(15, 20, 15, 20);
-			
+
 			partidoTexto.setText(html);
 			layout.addView(partidoTexto);
-			
-			View ruler = new View(this); 
-			
+
+			View ruler = new View(this);
+
 			ruler.setBackgroundColor(0xFF000000);
-			layout.addView(ruler,
-			 new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, 2));
-		}
-		} else {
-			Spanned html = Html.fromHtml( 
-					"<br><b>"
-					+ "Su equipo no juega partidos en esta etapa."
-					+"</b>"+"<br/>"
-					);
-			
-			
-			
-		TextView partidoTexto = new TextView(this);
-		partidoTexto.setPadding(15, 20, 15, 20);
-		
-		partidoTexto.setText(html);
-		layout.addView(partidoTexto);
-		
-		View ruler = new View(this); 
-		
-		ruler.setBackgroundColor(0xFF000000);
-		layout.addView(ruler,
-		 new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, 2));
-			
+			layout.addView(ruler, new ViewGroup.LayoutParams(
+					ViewGroup.LayoutParams.MATCH_PARENT, 2));
+
 		}
 	}
 

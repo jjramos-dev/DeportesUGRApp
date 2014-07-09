@@ -18,7 +18,6 @@
 //
 package es.ugr.deportesugrapp;
 
-
 import java.util.List;
 
 import org.json.JSONObject;
@@ -50,36 +49,35 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class Noticias extends ActionBarActivity {
-    /** Called when the activity is first created. */
-	
+	/** Called when the activity is first created. */
+
 	ListView _rssFeedListView;
-	List<JSONObject> jobs ;
-	 List<RssFeedStructure> rssStr ;
+	List<JSONObject> jobs;
+	List<RssFeedStructure> rssStr;
 	private RssReaderListAdapter _adapter;
 	String sorti = "";
 	String mode = "";
 	private LinearLayout layout;
-	
-	
-	
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.rssfeedreaderactivity);
-        
-        ActionBar actionBar = getSupportActionBar();
-		
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.rssfeedreaderactivity);
+
+		ActionBar actionBar = getSupportActionBar();
+
 		actionBar.setTitle("Noticias");
-		//actionBar.setSubtitle("");
-		
-       _rssFeedListView = (ListView)findViewById(R.id.rssfeed_listview);
-       layout = (LinearLayout) findViewById(R.id.fondo);
-       
-       
-       RssFeedTask rssTask = new RssFeedTask();
-       rssTask.execute();
-    }
-    private class RssFeedTask extends AsyncTask<String, Void, List<RssFeedStructure>> {
+		// actionBar.setSubtitle("");
+
+		_rssFeedListView = (ListView) findViewById(R.id.rssfeed_listview);
+		layout = (LinearLayout) findViewById(R.id.fondo);
+
+		RssFeedTask rssTask = new RssFeedTask();
+		rssTask.execute();
+	}
+
+	private class RssFeedTask extends
+			AsyncTask<String, Void, List<RssFeedStructure>> {
 		// private String Content;
 		private ProgressDialog Dialog;
 		String response = "";
@@ -89,87 +87,77 @@ public class Noticias extends ActionBarActivity {
 			Dialog = new ProgressDialog(Noticias.this);
 			Dialog.setMessage("Cargando noticias...");
 			Dialog.show();
-		
+
 		}
 
 		@Override
 		protected List<RssFeedStructure> doInBackground(String... urls) {
-			  try {
-				  //String feed = "http://feeds.nytimes.com/nyt/rss/HomePage";
-				  
-				  String feed = "http://cad.ugr.es/pages/tablon/*/rss";
-				  XmlHandler rh = new XmlHandler();
-				  rssStr = rh.getLatestArticles(feed);  
-			      } catch (Exception e) {
-			      }
-			  
-			  
+			try {
+				// String feed = "http://feeds.nytimes.com/nyt/rss/HomePage";
+
+				String feed = "http://cad.ugr.es/pages/tablon/*/rss";
+				XmlHandler rh = new XmlHandler();
+				rssStr = rh.getLatestArticles(feed);
+			} catch (Exception e) {
+			}
+
 			return null;
 
 		}
 
 		@Override
 		protected void onPostExecute(List<RssFeedStructure> result) {
-			  
-			
-				
-			  if(rssStr != null&& !rssStr.isEmpty()){
-			    _adapter = new RssReaderListAdapter(Noticias.this,rssStr);
-		        _rssFeedListView.setAdapter(_adapter);
-		       // _rssFeedListView.setOnItemClickListener(new ListListener(result, local));
-		       
-		       
-		        
-		        _rssFeedListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-		       
-		        	
-					@Override
-		        	public void onItemClick(AdapterView<?> parent, View listItemView, int pos, long idOfItem) {
-		            // Here you put what you want to do when a listItem is clicked
-					
-		        	
-						//Log.d("My POSITION",""+pos);
-		        	
-						listItemView.setBackgroundResource(R.drawable.selector);
-						Intent intent=new Intent(Noticias.this,LeerNoticia.class);
-						String linkNot = rssStr.get(pos).getLink();
-						intent.putExtra("linkNoticias", linkNot);
-						
-					
-						
-						
-						startActivity(intent);
-						
-						
-		        	
-		        	
-		        	
-		                    //k.setData(Uri.parse(rssStr.get(pos).getLink()));
-		                    
-		                    //startActivity(k);
 
-		        }
-		    });  
-		       // _rssFeedListView.setOnItemClickListener(new ListListener(result, RssFeedReaderActivity.this));
-		        
-			  } else {
-				  
-				  
-				  mostrarError("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo mas tarde.");
-				  
-			  }
-		        Dialog.dismiss();
+			if (rssStr != null && !rssStr.isEmpty()) {
+				_adapter = new RssReaderListAdapter(Noticias.this, rssStr);
+				_rssFeedListView.setAdapter(_adapter);
+				// _rssFeedListView.setOnItemClickListener(new
+				// ListListener(result, local));
+
+				_rssFeedListView
+						.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+							@Override
+							public void onItemClick(AdapterView<?> parent,
+									View listItemView, int pos, long idOfItem) {
+								// Here you put what you want to do when a
+								// listItem is clicked
+
+								// Log.d("My POSITION",""+pos);
+
+								listItemView
+										.setBackgroundResource(R.drawable.selector);
+								Intent intent = new Intent(Noticias.this,
+										LeerNoticia.class);
+								String linkNot = rssStr.get(pos).getLink();
+								intent.putExtra("linkNoticias", linkNot);
+
+								startActivity(intent);
+
+								// k.setData(Uri.parse(rssStr.get(pos).getLink()));
+
+								// startActivity(k);
+
+							}
+						});
+				// _rssFeedListView.setOnItemClickListener(new
+				// ListListener(result, RssFeedReaderActivity.this));
+
+			} else {
+
+				mostrarError("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo mas tarde.");
+
+			}
+			Dialog.dismiss();
 		}
 	}
-    
-   
-    
-    private void mostrarError(String string) {
-		TextView tv=new TextView(this);
+
+	private void mostrarError(String string) {
+		TextView tv = new TextView(this);
 		tv.setText(string);
 		tv.setTextSize(20);
 		tv.setPadding(15, 20, 0, 0);
 		layout.addView(tv);
 	}
-  
+
 }

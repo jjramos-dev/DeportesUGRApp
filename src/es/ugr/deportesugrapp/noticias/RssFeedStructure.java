@@ -18,56 +18,53 @@
 //
 package es.ugr.deportesugrapp.noticias;
 
-
-
-
 public class RssFeedStructure {
 
-private String title;
-private String link;
-private String pubDate;
+	private String title;
+	private String link;
+	private String pubDate;
 
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
 
-/**
-* @return the title
-*/
-public String getTitle() {
-return title;
+	/**
+	 * @param title
+	 *            the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	/**
+	 * @param pubDate
+	 *            the pubDate to set
+	 */
+	public void setPubDate(String pubDate) {
+		this.pubDate = pubDate;
+	}
+
+	/**
+	 * @return the pubDate
+	 */
+	public String getPubDate() {
+		return pubDate;
+	}
+
+	@Override
+	public String toString() {
+		return title + "\n" + pubDate;
+	}
+
 }
-/**
-* @param title the title to set
-*/
-public void setTitle(String title) {
-this.title = title;
-}
-
-
-public String getLink() {
-	return link;
-}
-
-public void setLink(String link) {
-	this.link = link;
-}
-
-/**
-* @param pubDate the pubDate to set
-*/
-public void setPubDate(String pubDate) {
-this.pubDate = pubDate;
-}
-/**
-* @return the pubDate
-*/
-public String getPubDate() {
-return pubDate;
-}
-
-@Override
-public String toString() {
-	return  title + "\n" + pubDate;
-}
-
-}
-
-

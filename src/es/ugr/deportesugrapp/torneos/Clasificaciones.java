@@ -28,38 +28,37 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
- *
+ * 
  * @author jjramos
  */
 public class Clasificaciones {
-    String url;
-    private Deporte deporte;
-    List<Fase> fases;
-    
-    Clasificaciones(String url) {
-        this.url=url;
-        fases=new ArrayList<Fase>();
-    }
+	String url;
+	private Deporte deporte;
+	List<Fase> fases;
 
-    void setDeporte(Deporte deporte) {
-       this.deporte=deporte;
-    }
+	Clasificaciones(String url) {
+		this.url = url;
+		fases = new ArrayList<Fase>();
+	}
 
-    Deporte getDeporte() {
-     return deporte;
-    }
+	void setDeporte(Deporte deporte) {
+		this.deporte = deporte;
+	}
 
-    List<Fase> getFases() {
-        return fases;
-    }
+	Deporte getDeporte() {
+		return deporte;
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	List<Fase> getFases() {
+		return fases;
+	}
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 }

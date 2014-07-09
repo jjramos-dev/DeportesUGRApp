@@ -36,68 +36,60 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import android.util.Log;
 
-
 public class XmlHandler extends DefaultHandler {
-private RssFeedStructure feedStr = new RssFeedStructure();
-private List<RssFeedStructure> rssList = new ArrayList<RssFeedStructure>();
+	private RssFeedStructure feedStr = new RssFeedStructure();
+	private List<RssFeedStructure> rssList = new ArrayList<RssFeedStructure>();
 
+	StringBuffer chars = new StringBuffer();
 
-StringBuffer chars = new StringBuffer();
+	public void startElement(String uri, String localName, String qName,
+			Attributes atts) {
+		chars = new StringBuffer();
 
-public void startElement(String uri, String localName, String qName, Attributes atts) {
-chars = new StringBuffer();
+	}
 
- 
+	public void endElement(String uri, String localName, String qName)
+			throws SAXException {
+		if (localName.equalsIgnoreCase("title")) {
+			feedStr.setTitle(chars.toString());
+		} else if (localName.equalsIgnoreCase("pubDate")) {
 
-}
-public void endElement(String uri, String localName, String qName) throws SAXException {
-if (localName.equalsIgnoreCase("title"))
-{
-	feedStr.setTitle(chars.toString());
-}
-else  if (localName.equalsIgnoreCase("pubDate"))
-{
+			feedStr.setPubDate(chars.toString());
+		} else if (localName.equalsIgnoreCase("link")) {
 
-	feedStr.setPubDate(chars.toString());
-}
-else if (localName.equalsIgnoreCase("link"))
-{
+			feedStr.setLink(chars.toString());
 
-	feedStr.setLink(chars.toString());
+		}
+		if (localName.equalsIgnoreCase("item")) {
+			rssList.add(feedStr);
 
-}
-if (localName.equalsIgnoreCase("item")) {
-rssList.add(feedStr);
+			feedStr = new RssFeedStructure();
 
-feedStr = new RssFeedStructure();
+		}
+	}
 
+	public void characters(char ch[], int start, int length) {
+		chars.append(new String(ch, start, length));
+	}
 
-}
-}
+	public List<RssFeedStructure> getLatestArticles(String feedUrl) {
+		URL url = null;
+		try {
 
-public void characters(char ch[], int start, int length) {
-chars.append(new String(ch, start, length));
-}
+			SAXParserFactory spf = SAXParserFactory.newInstance();
+			SAXParser sp = spf.newSAXParser();
+			XMLReader xr = sp.getXMLReader();
+			url = new URL(feedUrl);
+			xr.setContentHandler(this);
+			xr.parse(new InputSource(url.openStream()));
+		} catch (IOException e) {
+		} catch (SAXException e) {
 
+		} catch (ParserConfigurationException e) {
 
-public List<RssFeedStructure> getLatestArticles(String feedUrl) {
-URL url = null;
-try {
+		}
 
-SAXParserFactory spf = SAXParserFactory.newInstance();
-SAXParser sp = spf.newSAXParser();
-XMLReader xr = sp.getXMLReader();
-url = new URL(feedUrl);
-xr.setContentHandler(this);
-xr.parse(new InputSource(url.openStream()));
-} catch (IOException e) {
-} catch (SAXException e) {
-
-} catch (ParserConfigurationException e) {
-
-}
-
-return rssList;
-}
+		return rssList;
+	}
 
 }

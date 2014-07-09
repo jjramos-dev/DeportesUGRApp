@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/linearLayout1"
     android:layout_width="fill_parent"
@@ -16,32 +15,34 @@
         android:src="@drawable/ugr_word" />
 
     <ScrollView
-        
         android:layout_width="fill_parent"
         android:layout_height="100dp"
         android:layout_weight="8.0"
         android:background="@drawable/ugr_background"
-        android:scrollbars="vertical"
-         >
+        android:scrollbars="vertical" >
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp" >
-<!-- 	Comienza la caja del promotor -->
-<!-- Para aniadir una caja de promotor más, copie lo que esta entre comentarios
+
+            <!-- Comienza la caja del promotor -->
+            <!--
+     Para aniadir una caja de promotor más, copie lo que esta entre comentarios
 	 Cambie los nombres de los id para que no haya conflictos y adecue las dependencias entre Views:
 	 layout_below,etc. Para entender esto mejor, consulte el manual del desarrollador de android, en concreto
 	 RelativeLayout
 	 Para cambiar la imagen del promtor, cambia la etiqueta android:src del objeto ImageView linkLogo que
-	 está más abajo. -->
+	 está más abajo.
+            -->
+
             <RelativeLayout
                 android:id="@+id/botonPromotor"
                 android:layout_width="wrap_content"
                 android:layout_height="160dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/disclaimer"
+                android:layout_below="@+id/licenciaGPLV3"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="34dp"
@@ -54,10 +55,10 @@
                     android:layout_above="@+id/separator"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
+                    android:onClick="onClickPromotor1"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
-                    android:src="@drawable/link_promotor"
-                    android:onClick="onClickPromotor1" />
+                    android:src="@drawable/link_promotor" />
 
                 <ImageView
                     android:id="@+id/separator"
@@ -69,18 +70,18 @@
                     android:layout_alignTop="@+id/contactButton"
                     android:layout_marginBottom="49dp"
                     android:background="@color/about_borde" />
-				
-				<ImageView
-				    android:id="@+id/separator"
-				    android:layout_width="fill_parent"
-				    android:layout_height="1dp"
-				    android:layout_above="@+id/contactButton"
-				    android:layout_alignParentBottom="true"
-				    android:layout_alignParentLeft="true"
-				    android:layout_alignTop="@+id/separator"
-				    android:layout_marginBottom="49dp"
-				    android:background="@color/about_borde" />
-                
+
+                <ImageView
+                    android:id="@+id/separator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_above="@+id/contactButton"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignTop="@+id/separator"
+                    android:layout_marginBottom="49dp"
+                    android:background="@color/about_borde" />
+
                 <Button
                     android:id="@+id/contactButton"
                     android:layout_width="fill_parent"
@@ -95,10 +96,9 @@
                     android:textSize="20sp"
                     android:typeface="monospace" />
             </RelativeLayout>
-<!-- 			Fin de la caja del promotor -->
+            <!-- Fin de la caja del promotor -->
 
-
-<RelativeLayout
+            <RelativeLayout
                 android:id="@+id/botonPromotor2"
                 android:layout_width="wrap_content"
                 android:layout_height="160dp"
@@ -117,10 +117,10 @@
                     android:layout_above="@+id/separator"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
+                    android:onClick="onClickPromotor2"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
-                    android:src="@drawable/logocsirc"
-                    android:onClick="onClickPromotor2" />
+                    android:src="@drawable/logocsirc" />
 
                 <ImageView
                     android:id="@+id/separator"
@@ -132,18 +132,18 @@
                     android:layout_alignTop="@+id/contactButton2"
                     android:layout_marginBottom="49dp"
                     android:background="@color/about_borde" />
-				
-				<ImageView
-				    android:id="@+id/separator"
-				    android:layout_width="fill_parent"
-				    android:layout_height="1dp"
-				    android:layout_above="@+id/contactButton2"
-				    android:layout_alignParentBottom="true"
-				    android:layout_alignParentLeft="true"
-				    android:layout_alignTop="@+id/separator"
-				    android:layout_marginBottom="49dp"
-				    android:background="@color/about_borde" />
-                
+
+                <ImageView
+                    android:id="@+id/separator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_above="@+id/contactButton2"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignTop="@+id/separator"
+                    android:layout_marginBottom="49dp"
+                    android:background="@color/about_borde" />
+
                 <Button
                     android:id="@+id/contactButton2"
                     android:layout_width="fill_parent"
@@ -164,17 +164,16 @@
                 android:layout_width="fill_parent"
                 android:layout_height="70dp"
                 android:layout_below="@+id/botonPromotor2"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/selector2"
-            
                 android:drawableLeft="@drawable/flecha_negro25prueba"
+                android:onClick="onClickAppsUgr"
+                android:padding="10dp"
                 android:text="@string/appsUgr"
                 android:textColor="@color/black"
-                android:onClick="onClickAppsUgr"
                 android:textSize="20sp"
                 android:typeface="monospace" />
 
@@ -183,44 +182,42 @@
                 android:layout_width="fill_parent"
                 android:layout_height="70dp"
                 android:layout_below="@+id/appsButton"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/selector2"
-            
                 android:drawableLeft="@drawable/flecha_negro25prueba"
+                android:onClick="onClickLicenciaApache"
+                android:padding="10dp"
                 android:text="@string/licenciaApache"
                 android:textColor="@color/black"
-                android:onClick="onClickLicenciaApache"
                 android:textSize="20sp"
                 android:typeface="monospace" />
-            
+
             <Button
                 android:id="@+id/licencia2"
                 android:layout_width="fill_parent"
                 android:layout_height="70dp"
                 android:layout_below="@+id/licenciaApache"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/selector2"
-            
                 android:drawableLeft="@drawable/flecha_negro25prueba"
+                android:onClick="onClickLicencia2"
+                android:padding="10dp"
                 android:text="@string/licencia2"
                 android:textColor="@color/black"
-                android:onClick="onClickLicencia2"
                 android:textSize="20sp"
                 android:typeface="monospace" />
-            
+
             <TextView
                 android:id="@+id/promovidoPor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/disclaimer"
+                android:layout_below="@+id/licenciaGPLV3"
                 android:text="@string/promotedBy"
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -231,12 +228,65 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                
                 android:padding="10dp"
                 android:text="@string/disclaimer"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/licenciaGPLV3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/repositorio"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector2"
+                android:drawableLeft="@drawable/flecha_negro25prueba"
+                android:onClick="onClickLicenciaGPLV3"
+                android:padding="10dp"
+                android:text="@string/licenciaGPLV3"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:typeface="monospace" />
+
+            <Button
+                android:id="@+id/repositorio"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contactoNuestro"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector2"
+                android:drawableLeft="@drawable/flecha_negro25prueba"
+                android:onClick="onClickCodigoFuente"
+                android:padding="10dp"
+                android:text="@string/repositorio"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:typeface="monospace" />
+
+            <Button
+                android:id="@+id/contactoNuestro"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/disclaimer"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector2"
+                android:drawableLeft="@drawable/flecha_negro25prueba"
+                android:onClick="onClickBotonContactoNuestro"
+                android:padding="10dp"
+                android:text="@string/contactoNuestro"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:typeface="monospace" />
         </RelativeLayout>
     </ScrollView>
 

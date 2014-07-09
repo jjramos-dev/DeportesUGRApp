@@ -23,36 +23,36 @@
 package es.ugr.deportesugrapp.torneos;
 
 /**
- *
+ * 
  * @author jjramos
  */
 public class Equipo {
-    private String nombre;
-    private String url;
+	private String nombre;
+	private String url;
 
-    Equipo(){
-        
-    }
-    
-    public Equipo(String nombre, String url) {
-        this.nombre=nombre;
-        this.url=url;
-    }
+	Equipo() {
 
-    public String getNombre() {
-        return nombre;
-    }
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public Equipo(String nombre, String url) {
+		this.nombre = nombre;
+		this.url = url;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-    
+	public String getUrl() {
+		return url;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 }

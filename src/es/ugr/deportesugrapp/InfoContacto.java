@@ -27,63 +27,68 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.Window;
 
-public class InfoContacto extends ActionBarActivity{
+public class InfoContacto extends ActionBarActivity {
 
-		//TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los hay) siga el esquema definido
-		private final String TEL_FUENTENUEVA1 = "958240956";
-		
-		//TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los hay) siga el esquema definido
-		private final String TEL_FUENTENUEVA2 = "958243144";
-				
-		//TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los hay) siga el esquema definido
-		private final String TEL_CARTUJA = "958242892";
-		
-		
-		@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			setContentView(R.layout.info_contacto);
-			
-			
-			ActionBar actionBar = getSupportActionBar();
-			
-			actionBar.setTitle("Información de Contacto");
-			//actionBar.setSubtitle("");
-			
-		}
-		
-		
-		
-		//Acción al pulsar el botón de contacto de la oficina de fuentenueva. Realiza la llamada
-		public void onClickBotonContactoFuentenueva(View v){
-			Intent llamarFuentenueva = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+TEL_FUENTENUEVA1));
-			startActivity(llamarFuentenueva);			
-		}
-		
-		//Acción al pulsar el botón de contacto de la oficina de fuentenueva. Realiza la llamada
-		public void onClickBotonContactoFuentenueva2(View v){
-			Intent llamarFuentenueva = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+TEL_FUENTENUEVA2));
-			startActivity(llamarFuentenueva);			
-		}
-		
-		//Acción al pulsar el botón de contacto de la oficina de fuentenueva. Realiza la llamada
-		public void onClickBotonMapFuentenueva(View v){
-			Intent mapFuentenueva = new Intent(this,MapsFuentenueva.class);
-			startActivity(mapFuentenueva);			
-				}
-		
-		//Acción al pulsar el botón de contacto de la oficina de cartuja. Realiza la llamada
-		public void onClickBotonContactoCartuja(View v){
-			Intent llamarCartuja = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+TEL_CARTUJA));
-			startActivity(llamarCartuja);			
-			}
-		
-		//Acción al pulsar el botón de contacto de la oficina de fuentenueva. Realiza la llamada
-		public void onClickBotonMapCartuja(View v){
-			Intent mapCartuja = new Intent(this,MapsCartuja.class);
-			startActivity(mapCartuja);			
-						}
-		
-	
-	
+	// TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los
+	// hay) siga el esquema definido
+	private final String TEL_FUENTENUEVA1 = "958240956";
+
+	// TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los
+	// hay) siga el esquema definido
+	private final String TEL_FUENTENUEVA2 = "958243144";
+
+	// TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los
+	// hay) siga el esquema definido
+	private final String TEL_CARTUJA = "958242892";
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.info_contacto);
+
+		ActionBar actionBar = getSupportActionBar();
+
+		actionBar.setTitle("Información de Contacto");
+		// actionBar.setSubtitle("");
+
+	}
+
+	// Acción al pulsar el botón de contacto de la oficina de fuentenueva.
+	// Realiza la llamada
+	public void onClickBotonContactoFuentenueva(View v) {
+		Intent llamarFuentenueva = new Intent(Intent.ACTION_DIAL,
+				Uri.parse("tel:" + TEL_FUENTENUEVA1));
+		startActivity(llamarFuentenueva);
+	}
+
+	// Acción al pulsar el botón de contacto de la oficina de fuentenueva.
+	// Realiza la llamada
+	public void onClickBotonContactoFuentenueva2(View v) {
+		Intent llamarFuentenueva = new Intent(Intent.ACTION_DIAL,
+				Uri.parse("tel:" + TEL_FUENTENUEVA2));
+		startActivity(llamarFuentenueva);
+	}
+
+	// Acción al pulsar el botón de contacto de la oficina de fuentenueva.
+	// Realiza la llamada
+	public void onClickBotonMapFuentenueva(View v) {
+		Intent mapFuentenueva = new Intent(this, MapsFuentenueva.class);
+		startActivity(mapFuentenueva);
+	}
+
+	// Acción al pulsar el botón de contacto de la oficina de cartuja. Realiza
+	// la llamada
+	public void onClickBotonContactoCartuja(View v) {
+		Intent llamarCartuja = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"
+				+ TEL_CARTUJA));
+		startActivity(llamarCartuja);
+	}
+
+	// Acción al pulsar el botón de contacto de la oficina de fuentenueva.
+	// Realiza la llamada
+	public void onClickBotonMapCartuja(View v) {
+		Intent mapCartuja = new Intent(this, MapsCartuja.class);
+		startActivity(mapCartuja);
+	}
+
 }

@@ -26,87 +26,95 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
-
-public class Instalaciones extends ActionBarActivity{
-	
+public class Instalaciones extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.instalaciones);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
+
 		actionBar.setTitle("Instalaciones");
-		//actionBar.setSubtitle("");
-	
+		// actionBar.setSubtitle("");
+
 	}
-	
-	
-	public void onClickPabellonesFuentenueva(View v){
-		Intent webPabFuente = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainPabellon.class);
+
+	public void onClickPabellonesFuentenueva(View v) {
+		Intent webPabFuente = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainPabellon.class);
 		startActivity(webPabFuente);
-		
+
 	}
-	
-	public void onClickPistasPolideportivas(View v){
-		Intent webPistasPoli = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainPistaPolidep.class);
+
+	public void onClickPistasPolideportivas(View v) {
+		Intent webPistasPoli = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainPistaPolidep.class);
 		startActivity(webPistasPoli);
-		
+
 	}
-	
-	public void onClickPistasVoleyPlaya(View v){
-		Intent webPlaya = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainVoleyPlaya.class);
+
+	public void onClickPistasVoleyPlaya(View v) {
+		Intent webPlaya = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainVoleyPlaya.class);
 		startActivity(webPlaya);
-		
+
 	}
-	
-	public void onClickFutbol11Fuente(View v){
-		Intent webFutbol11Fuente = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainFutbol11.class);
+
+	public void onClickFutbol11Fuente(View v) {
+		Intent webFutbol11Fuente = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainFutbol11.class);
 		startActivity(webFutbol11Fuente);
-		
+
 	}
-	
-	public void onClickCampoRugby(View v){
-		Intent webRugby = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainRugby.class);
+
+	public void onClickCampoRugby(View v) {
+		Intent webRugby = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainRugby.class);
 		startActivity(webRugby);
-		
+
 	}
-	
-	public void onClickPiscina(View v){
-		Intent webPiscina = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainPiscina.class);
+
+	public void onClickPiscina(View v) {
+		Intent webPiscina = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainPiscina.class);
 		startActivity(webPiscina);
-		
-	} 
-	
-	public void onClickPabellonCartuja(View v){
-		Intent webPabCartuja = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainPabellon.class);
+
+	}
+
+	public void onClickPabellonCartuja(View v) {
+		Intent webPabCartuja = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainPabellon.class);
 		startActivity(webPabCartuja);
-		
+
 	}
-	
-	public void onClickPistaCesped(View v){
-		Intent webPistaCesped = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainFutsalCesped.class);
+
+	public void onClickPistaCesped(View v) {
+		Intent webPistaCesped = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainFutsalCesped.class);
 		startActivity(webPistaCesped);
-		
+
 	}
-	
-	public void onClickFutbol11Cartuja(View v){
-		Intent webFutbol11Cartuja = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainFutbol11.class);
+
+	public void onClickFutbol11Cartuja(View v) {
+		Intent webFutbol11Cartuja = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainFutbol11.class);
 		startActivity(webFutbol11Cartuja);
-		
+
 	}
-	
-	public void onClickPistasPadel(View v){
-		Intent webPadel = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainPadel.class);
+
+	public void onClickPistasPadel(View v) {
+		Intent webPadel = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainPadel.class);
 		startActivity(webPadel);
-		
+
 	}
-	
-	public void onClickPistasTenis(View v){
-		Intent webTenis = new Intent(this, es.ugr.deportesugrapp.instalaciones.InstaMainTenis.class);
+
+	public void onClickPistasTenis(View v) {
+		Intent webTenis = new Intent(this,
+				es.ugr.deportesugrapp.instalaciones.InstaMainTenis.class);
 		startActivity(webTenis);
-		
+
 	}
-	
+
 }

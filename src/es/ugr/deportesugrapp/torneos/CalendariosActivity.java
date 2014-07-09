@@ -141,37 +141,36 @@ public class CalendariosActivity extends ActionBarActivity {
 		// garantías.
 		protected void onPostExecute(List<Fase> fases) {
 
-			if(fases != null){
-				
-				if(!fases.isEmpty()){
-				// Recorremos la lista de fases, y creamos un botón por cada fase:
-				for (Fase fase : fases) {
-					crearBoton(fase);
-				}
+			if (fases != null) {
+
+				if (!fases.isEmpty()) {
+					// Recorremos la lista de fases, y creamos un botón por cada
+					// fase:
+					for (Fase fase : fases) {
+						crearBoton(fase);
+					}
 				} else {
 					// Si no existe ninguna fase, se indica:
 					mostrarError("No se han definido fases.");
 				}
 
-				
-			}else{
-				
+			} else {
+
 				mostrarError("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
 			}
-						
 
 			Dialog.dismiss();
 		}
 
 	}
-	
+
 	private void mostrarError(String string) {
-		TextView tv=new TextView(this);
+		TextView tv = new TextView(this);
 		tv.setText(string);
 		tv.setTextSize(20);
 		tv.setPadding(15, 20, 0, 0);
 		layout.addView(tv);
-		
+
 	}
 
 	// Método de la Activity para aniadir más botones, por cada fase. Quizás
@@ -184,7 +183,7 @@ public class CalendariosActivity extends ActionBarActivity {
 		HashMap mapaEquipos = new HashMap<String, Equipo>();
 		for (Equipo equipo : listaElegidos) {
 			// Si son de este torneo y deporte (por defecto sí):
-			if(equipo.getUrl().contains(categoriaId+"/"+deporteId))
+			if (equipo.getUrl().contains(categoriaId + "/" + deporteId))
 				mapaEquipos.put(equipo.getUrl(), equipo);
 		}
 
@@ -212,86 +211,92 @@ public class CalendariosActivity extends ActionBarActivity {
 			rondaTexto.setText(Html.fromHtml(ronda.getTitulo()));
 			layout.addView(rondaTexto);
 
-			
 			List<Partido> listaPartidos = ronda.getPartidos();
-			
+
 			// Si hay partidos, los ordenamos y mostramos:
-			if(listaPartidos!=null){
-				if(!listaPartidos.isEmpty()){
-			
-			// Ordenamos los partidos por fechas:
-			Collections.sort(listaPartidos, new Comparator<Partido>() {
-				@Override
-				public int compare(Partido p1, Partido p2) {
-					int comparacion=0;				
-					Date f1=p1.getFecha();
-					Date f2=p2.getFecha();
-					
-					if(f1!=null&&f2!=null){
-						comparacion=f2.compareTo(f1);
+			if (listaPartidos != null) {
+				if (!listaPartidos.isEmpty()) {
+
+					// Ordenamos los partidos por fechas:
+					Collections.sort(listaPartidos, new Comparator<Partido>() {
+						@Override
+						public int compare(Partido p1, Partido p2) {
+							int comparacion = 0;
+							Date f1 = p1.getFecha();
+							Date f2 = p2.getFecha();
+
+							if (f1 != null && f2 != null) {
+								comparacion = f2.compareTo(f1);
+							}
+
+							return comparacion;
+						}
+					});
+
+					// Mostramos cada partido:
+					for (Partido partido : listaPartidos) {
+						Equipo equipo1 = partido.getEquipo1();
+						Equipo equipo2 = partido.getEquipo2();
+						boolean equipo1Presente = false, equipo2Presente = false;
+
+						if (mapaEquipos.containsKey(equipo1.getUrl())) {
+							equipo1Presente = true;
+						}
+						if (mapaEquipos.containsKey(equipo2.getUrl())) {
+							equipo2Presente = true;
+						}
+
+						TextView partidoTexto = new TextView(this);
+
+						partidoTexto.setPadding(15, 20, 15, 20);
+						Spanned html = Html
+								.fromHtml(
+
+								"<b><big>"
+										+ ((equipo1Presente) ? "<font color=\"#990000\">"
+												: "")
+										+ partido.getEquipo1().getNombre()
+										+ ((equipo1Presente) ? "</font>" : "")
+										+ "</big></b>"
+										+ "<b>"
+										+
+
+										" vs "
+										+ "</b>"
+
+										+ "<b><big>"
+										+ ((equipo2Presente) ? "<font color=\"#990000\">"
+												: "")
+										+ partido.getEquipo2().getNombre()
+										+ ((equipo2Presente) ? "</font>" : "")
+										+
+
+										"</big></b>"
+										+ "  "
+										+ ((partido.getResultadoEquipo1() == null) ? ("<i>"
+												+ partido.getEstado() + "</i> ")
+												: (" ("
+														+ partido
+																.getResultadoEquipo1()
+														+ "-"
+														+ partido
+																.getResultadoEquipo2() + ") "))
+										+ "<br/>" + partido.getLugar()
+										+ " <br/> " + partido.getFechaString()
+										+ ", " + partido.getHoraString() + " ");
+
+						partidoTexto.setText(html);
+						layout.addView(partidoTexto);
+
+						View ruler = new View(this);
+						ruler.setBackgroundColor(0xFF000000);
+						// ruler.setPadding(0, 0, 0, 20);
+
+						layout.addView(ruler, new ViewGroup.LayoutParams(
+								ViewGroup.LayoutParams.MATCH_PARENT, 2));
+
 					}
-					
-					return comparacion;
 				}
-			});
-			
-			// Mostramos cada partido:
-			for (Partido partido : listaPartidos) {
-				Equipo equipo1 = partido.getEquipo1();
-				Equipo equipo2 = partido.getEquipo2();
-				boolean equipo1Presente = false, equipo2Presente = false;
-
-				if (mapaEquipos.containsKey(equipo1.getUrl())) {
-					equipo1Presente = true;
-				}
-				if (mapaEquipos.containsKey(equipo2.getUrl())) {
-					equipo2Presente = true;
-				}
-
-				TextView partidoTexto = new TextView(this);
-
-				partidoTexto.setPadding(15, 20, 15, 20);
-				Spanned html = Html.fromHtml(
-
-				"<b><big>"
-						+ ((equipo1Presente) ? "<font color=\"#990000\">" : "")
-						+ partido.getEquipo1().getNombre()
-						+ ((equipo1Presente) ? "</font>" : "")
-						+ "</big></b>"
-						+ "<b>"
-						+
-
-						" vs "
-						+ "</b>"
-
-						+ "<b><big>"
-						+ ((equipo2Presente) ? "<font color=\"#990000\">" : "")
-						+ partido.getEquipo2().getNombre()
-						+ ((equipo2Presente) ? "</font>" : "")
-						+
-
-						"</big></b>"
-						+ "  "
-						+ ((partido.getResultadoEquipo1() == null) ? ("<i>"
-								+ partido.getEstado() + "</i> ") : (" ("
-								+ partido.getResultadoEquipo1() + "-"
-								+ partido.getResultadoEquipo2() + ") "))
-						+ "<br/>" + partido.getLugar() + " <br/> "
-						+ partido.getFechaString() + ", "
-						+ partido.getHoraString() + " ");
-
-				partidoTexto.setText(html);
-				layout.addView(partidoTexto);
-
-				View ruler = new View(this);
-				ruler.setBackgroundColor(0xFF000000);
-				// ruler.setPadding(0, 0, 0, 20);
-
-				layout.addView(ruler, new ViewGroup.LayoutParams(
-						ViewGroup.LayoutParams.MATCH_PARENT, 2));
-
-			}
-		}
 			}
 		}
 

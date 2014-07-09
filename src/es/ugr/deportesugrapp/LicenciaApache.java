@@ -28,49 +28,46 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
-public class LicenciaApache extends ActionBarActivity{
+public class LicenciaApache extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_licencia_apache);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
+
 		TextView tv = (TextView) findViewById(R.id.tvApache);
 		tv.setText(readText());
-		
-				
+
 		actionBar.setTitle("Licencia Apache 2.0");
-		//actionBar.setSubtitle("");
-	
+		// actionBar.setSubtitle("");
+
 	}
-	
-	private String readText(){
-		
-		InputStream inputStream = getResources().openRawResource(R.raw.licencia_apache);
-		
+
+	private String readText() {
+
+		InputStream inputStream = getResources().openRawResource(
+				R.raw.licencia_apache);
+
 		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-		
+
 		int i;
-		try{
-			
+		try {
+
 			i = inputStream.read();
-			
-			while (i != -1){
+
+			while (i != -1) {
 				byteArrayOutputStream.write(i);
 				i = inputStream.read();
 			}
 			inputStream.close();
-			
-		}catch (IOException e){
+
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return byteArrayOutputStream.toString();
 	}
-	
-	
-	
-	
+
 }

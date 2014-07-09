@@ -23,42 +23,41 @@
 package es.ugr.deportesugrapp.reservas;
 
 /**
- *
+ * 
  * @author jjramos
  */
 public class Pista2 {
-    String pistaId;
-    int numero=13;
-    String nombre;
-//    String descripcion;
-    float precioPorHora;
+	String pistaId;
+	int numero = 13;
+	String nombre;
+	// String descripcion;
+	float precioPorHora;
 
-    public Pista2(){
-        pistaId="";
-    }
-    
-    public Pista2 (String pistaId,int numero, String nom, float pre) {
-        this.pistaId=pistaId;
-        this.numero=numero;
-        this.nombre=nom;
-        this.precioPorHora=pre;
-        
-       
-    }
+	public Pista2() {
+		pistaId = "";
+	}
 
-    public String getPistaId() {
-        return pistaId;
-    }
-    
-    public int getNumero(){
-        return numero;
-    }
-    
-    public String getNombre(){
-        return nombre;
-    }
-    
-    public float getPrecio(){
-        return precioPorHora;
-    }
+	public Pista2(String pistaId, int numero, String nom, float pre) {
+		this.pistaId = pistaId;
+		this.numero = numero;
+		this.nombre = nom;
+		this.precioPorHora = pre;
+
+	}
+
+	public String getPistaId() {
+		return pistaId;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public float getPrecio() {
+		return precioPorHora;
+	}
 }

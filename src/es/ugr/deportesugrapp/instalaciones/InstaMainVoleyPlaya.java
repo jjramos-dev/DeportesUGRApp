@@ -39,133 +39,126 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
 public class InstaMainVoleyPlaya extends ActionBarActivity {
-	
-	
-	
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.prueba_instala);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
+
 		actionBar.setTitle("Instalaciones");
 		actionBar.setSubtitle("Pistas Voley Playa");
-		
 
-		
 		// Las funciones de red hay que lanzarlas en backgronud:
-		int progreso=0;
-		
+		int progreso = 0;
+
 		new SolicitudInfoPistaTask().execute(4);
-		
-		
+
 	}
 
-// Mirar : http://developer.android.com/reference/android/os/AsyncTask.html
-//										Parámetros, unidades de progreso, resultado
-public class SolicitudInfoPistaTask extends AsyncTask<Integer, Integer, PistaVoleyPlaya>{
-	PistaVoleyPlaya pista=null;
-	String respuesta="no";
-	private ProgressDialog Dialog;
-	
-	
-	@Override
-	protected void onPreExecute() {
-		Dialog = new ProgressDialog(InstaMainVoleyPlaya.this);
-		Dialog.setMessage("Cargando información...");
-		Dialog.show();
-	
-	}
-	
-	
-	
-@Override
-protected PistaVoleyPlaya doInBackground(Integer... params) {
-	
-	int pistaId=params[0];
-	//float precio=params[0];
-	//int numero=params[0];
-	
-	// Hay que formar la dirección del recurso del servicio:
-	String url="http://oberon.ugr.es:8080/pista/"+pistaId;
-	
-	try {
-		// Hacemos una petición HTTP GET... Esto sólo sirve para cosultar! de momento no modificamos nada:
-		URL servicio = new URL(url);
-	   URLConnection conexion = servicio.openConnection();
-	   BufferedReader in = new BufferedReader(new InputStreamReader(
-                                conexion.getInputStream()));
-    
-	   // Recibimos la respuesta línea a línea (el JSON):
-    respuesta="";
-    String inputLine;
-    
-    while ((inputLine = in.readLine()) != null){        
-    	// System.out.println(inputLine);
-    	respuesta=respuesta+inputLine;        
-    }
-    in.close();
-    
-    // Intentamos interpertarlo con jackson:
-    ObjectMapper mapper=new ObjectMapper(); 
-    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    pista=mapper.readValue(respuesta, PistaVoleyPlaya.class);
-   
-    
-	} catch (MalformedURLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-	return pista;
-}
+	// Mirar : http://developer.android.com/reference/android/os/AsyncTask.html
+	// Parámetros, unidades de progreso, resultado
+	public class SolicitudInfoPistaTask extends
+			AsyncTask<Integer, Integer, PistaVoleyPlaya> {
+		PistaVoleyPlaya pista = null;
+		String respuesta = "no";
+		private ProgressDialog Dialog;
 
-@Override
+		@Override
+		protected void onPreExecute() {
+			Dialog = new ProgressDialog(InstaMainVoleyPlaya.this);
+			Dialog.setMessage("Cargando información...");
+			Dialog.show();
+
+		}
+
+		@Override
+		protected PistaVoleyPlaya doInBackground(Integer... params) {
+
+			int pistaId = params[0];
+			// float precio=params[0];
+			// int numero=params[0];
+
+			// Hay que formar la dirección del recurso del servicio:
+			String url = "http://oberon.ugr.es:8080/pista/" + pistaId;
+
+			try {
+				// Hacemos una petición HTTP GET... Esto sólo sirve para
+				// cosultar! de momento no modificamos nada:
+				URL servicio = new URL(url);
+				URLConnection conexion = servicio.openConnection();
+				BufferedReader in = new BufferedReader(new InputStreamReader(
+						conexion.getInputStream()));
+
+				// Recibimos la respuesta línea a línea (el JSON):
+				respuesta = "";
+				String inputLine;
+
+				while ((inputLine = in.readLine()) != null) {
+					// System.out.println(inputLine);
+					respuesta = respuesta + inputLine;
+				}
+				in.close();
+
+				// Intentamos interpertarlo con jackson:
+				ObjectMapper mapper = new ObjectMapper();
+				mapper.configure(
+						DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
+						false);
+				pista = mapper.readValue(respuesta, PistaVoleyPlaya.class);
+
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			return pista;
+		}
+
+		@Override
 		protected void onPostExecute(PistaVoleyPlaya pista2) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(pista);
-			
-			TextView nombrePista=(TextView)findViewById(R.id.nombrePista);
-			TextView uniSinLuz=(TextView)findViewById(R.id.precioUniSinLuz);
-			TextView uniLuz=(TextView)findViewById(R.id.precioUniLuz);
-			TextView noUniSinLuz=(TextView)findViewById(R.id.precioNoUniSinLuz);
-			TextView noUniLuz=(TextView)findViewById(R.id.precioNoUniLuz);
-			TextView penasUniSinLuz=(TextView)findViewById(R.id.precioPenasUniSinLuz);
-			TextView penasUniLuz=(TextView)findViewById(R.id.precioPenasUniLuz);
-			TextView penasNoUniSinLuz=(TextView)findViewById(R.id.precioPenasNoUniSinLuz);
-			TextView penasNoUniLuz=(TextView)findViewById(R.id.precioPenasNoUniLuz);
-			
-			if(pista!=null){
-				
-				
-				//nombrePista.setText("Pista Voley Playa");
-				
+
+			TextView nombrePista = (TextView) findViewById(R.id.nombrePista);
+			TextView uniSinLuz = (TextView) findViewById(R.id.precioUniSinLuz);
+			TextView uniLuz = (TextView) findViewById(R.id.precioUniLuz);
+			TextView noUniSinLuz = (TextView) findViewById(R.id.precioNoUniSinLuz);
+			TextView noUniLuz = (TextView) findViewById(R.id.precioNoUniLuz);
+			TextView penasUniSinLuz = (TextView) findViewById(R.id.precioPenasUniSinLuz);
+			TextView penasUniLuz = (TextView) findViewById(R.id.precioPenasUniLuz);
+			TextView penasNoUniSinLuz = (TextView) findViewById(R.id.precioPenasNoUniSinLuz);
+			TextView penasNoUniLuz = (TextView) findViewById(R.id.precioPenasNoUniLuz);
+
+			if (pista != null) {
+
+				// nombrePista.setText("Pista Voley Playa");
+
 				uniSinLuz.setText(pista.getPrecioUniversitarioSinLuz());
 				uniLuz.setText(pista.getPrecioUniversitarioLuz());
 				noUniSinLuz.setText(pista.getPrecioNoUniversitarioSinLuz());
 				noUniLuz.setText(pista.getPrecioNoUniversitarioLuz());
-				penasUniSinLuz.setText(pista.getPrecioPeniaUniversitarioSinLuz());
+				penasUniSinLuz.setText(pista
+						.getPrecioPeniaUniversitarioSinLuz());
 				penasUniLuz.setText(pista.getPrecioPeniaUniversitarioLuz());
-				penasNoUniSinLuz.setText(pista.getPrecioPeniaNoUniversitarioSinLuz());
+				penasNoUniSinLuz.setText(pista
+						.getPrecioPeniaNoUniversitarioSinLuz());
 				penasNoUniLuz.setText(pista.getPrecioPeniaNoUniversitarioLuz());
-				
-				
-				 
+
 			} else {
 				// ¿Qué tipo de error? Esto habrá que refinarlo...
 				nombrePista.setTextSize(20);
 				nombrePista.setPadding(15, 20, 0, 0);
-				nombrePista.setText("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
+				nombrePista
+						.setText("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
 			}
-			
+
 			Dialog.dismiss();
 		}
-}
+	}
 
 }

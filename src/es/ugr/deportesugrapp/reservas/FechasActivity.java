@@ -38,81 +38,67 @@ import es.ugr.deportesugrapp.R;
 import es.ugr.deportesugrapp.torneos.DeportesActivity;
 import es.ugr.deportesugrapp.torneos.EleccionActivity;
 
+public class FechasActivity extends ActionBarActivity {
 
-public class FechasActivity  extends ActionBarActivity {
-
-	
 	String codigoPista;
-	
-	
-		LinearLayout layout;
-			
+
+	LinearLayout layout;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_fechas);
+
+		ActionBar actionBar = getSupportActionBar();
+
+		// Extraemos los parámetros de la llamada del intent:
+		Intent intent = getIntent();
+		codigoPista = intent
+				.getStringExtra("com.example.activitydeportes.codigoPista");
+
+		actionBar.setTitle("Reservas");
+		actionBar.setSubtitle(codigoPista);
+
+		final CalendarView calendario;
+
+		calendario = (CalendarView) findViewById(R.id.calendarView);
+
+		calendario.setOnDateChangeListener(new OnDateChangeListener() {
+
 			@Override
-			protected void onCreate(Bundle savedInstanceState) {
-				super.onCreate(savedInstanceState);
-				setContentView(R.layout.activity_fechas);
-				
-				ActionBar actionBar = getSupportActionBar();
-				
-				
+			public void onSelectedDayChange(CalendarView view, int anio,
+					int mes, int dia) {
 
-				// Extraemos los parámetros de la llamada del intent:
-				Intent intent = getIntent();
-				codigoPista = intent
-						.getStringExtra("com.example.activitydeportes.codigoPista");
-				
+				mes = mes + 1;
 
-				
-				actionBar.setTitle("Reservas");
-				actionBar.setSubtitle(codigoPista);
-				
-				
-				final CalendarView calendario;
-            	
-				calendario =(CalendarView) findViewById(R.id.calendarView);
-            	
+				// SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+				// String dia2 = sdf.format(new Date(calendario.getDate()));
 
-		        calendario.setOnDateChangeListener(new OnDateChangeListener() {
+				// Formatter dia2 =new Formatter();
+				// Formatter mes2 =new Formatter();
 
-		        	
-		        	
+				// dia2.format("%02d", dia);
+				// mes2.format("%02d", mes);
 
-					@Override
-		            public void onSelectedDayChange(CalendarView view, int anio, int mes,
-		                    int dia) {
-		            	
-		            	
-		            	mes = mes +1;
-		            	
-		            	//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		            	//String dia2 = sdf.format(new Date(calendario.getDate()));
-		            	
-		            	//Formatter dia2 =new Formatter();
-		            	//Formatter mes2 =new Formatter();
-		            	
-		            	
-		            	//dia2.format("%02d", dia);
-		            	//mes2.format("%02d", mes);
-		            	
-		            	String dia2= String.format("%02d", dia);
-		            	String mes2 = String.format("%02d", mes);
-		            	
-		            	
-		            	
-		                 Toast.makeText(getApplicationContext(), "Has seleccionado el dia: "+dia2+"/"+mes2+"/"+anio, 0).show();
-		                 
-		                Intent intent=new Intent(FechasActivity.this,DisponibilidadActivity.class);
-		 				intent.putExtra("com.example.activitydeportes.anio", anio);
-		 				intent.putExtra("com.example.activitydeportes.mes2", mes2);
-		 				intent.putExtra("com.example.activitydeportes.dia2", dia2);
-		 				intent.putExtra("com.example.activitydeportes.codigoPista", codigoPista);
-		 				
-		 				
-		 				
-		 				
-		 				startActivity(intent);
+				String dia2 = String.format("%02d", dia);
+				String mes2 = String.format("%02d", mes);
 
-		            }
-		        });
+				Toast.makeText(
+						getApplicationContext(),
+						"Has seleccionado el dia: " + dia2 + "/" + mes2 + "/"
+								+ anio, 0).show();
+
+				Intent intent = new Intent(FechasActivity.this,
+						DisponibilidadActivity.class);
+				intent.putExtra("com.example.activitydeportes.anio", anio);
+				intent.putExtra("com.example.activitydeportes.mes2", mes2);
+				intent.putExtra("com.example.activitydeportes.dia2", dia2);
+				intent.putExtra("com.example.activitydeportes.codigoPista",
+						codigoPista);
+
+				startActivity(intent);
+
 			}
+		});
+	}
 }

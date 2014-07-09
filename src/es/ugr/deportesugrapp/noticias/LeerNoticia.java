@@ -18,8 +18,6 @@
 //
 package es.ugr.deportesugrapp.noticias;
 
-
-
 import es.ugr.deportesugrapp.R;
 import es.ugr.deportesugrapp.client.DeporteUGRClient;
 import android.support.v7.app.ActionBarActivity;
@@ -52,76 +50,71 @@ public class LeerNoticia extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_leer_noticia);
-		
+
 		ActionBar actionBar = getSupportActionBar();
 
 		// Obtenemos referencias a cada elemento de la activity de la noticia:
-		titulo=(TextView) findViewById(R.id.titulo);
-		//imagen=(ImageButton)findViewById(R.id.imagen);
-		cuerpoNoticia=(TextView) findViewById(R.id.cuerpo);
-		
+		titulo = (TextView) findViewById(R.id.titulo);
+		// imagen=(ImageButton)findViewById(R.id.imagen);
+		cuerpoNoticia = (TextView) findViewById(R.id.cuerpo);
+
 		webview = (WebView) findViewById(R.id.webView1);
 		// Creamos un objeto de ayuda para realizar la llamada:
-		deporteUGRApi=new DeporteUGRClient();
-		
+		deporteUGRApi = new DeporteUGRClient();
+
 		Intent intent = getIntent();
 		linkNot = intent.getStringExtra("linkNoticias");
-		
+
 		webview.setBackgroundColor(0x00000000);
-		if (Build.VERSION.SDK_INT >= 11) webview.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+		if (Build.VERSION.SDK_INT >= 11)
+			webview.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
 
-		webview.setWebViewClient(new WebViewClient()
-		{
-		    @Override
-		    public void onPageFinished(WebView view, String url)
-		    {
-		        view.setBackgroundColor(0x00000000);
-		        if (Build.VERSION.SDK_INT >= 11) view.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
-		    }
+		webview.setWebViewClient(new WebViewClient() {
+			@Override
+			public void onPageFinished(WebView view, String url) {
+				view.setBackgroundColor(0x00000000);
+				if (Build.VERSION.SDK_INT >= 11)
+					view.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+			}
 		});
-		
-		
-		 // Ejemplo: Si nos pasan el enlace a una noticia, extrae sus elementos y hace la llamda:
-        String enlaceNoticia=linkNot;
 
-        
-        // Obtenemos el tablón y el identificador de la noticia:
-        String[] tokens = enlaceNoticia.split("/");
-        String tablon=tokens[tokens.length-2];
-        String noticiaId=tokens[tokens.length-1];
-		
-        actionBar.setTitle("Noticias");
-		//actionBar.setSubtitle(categoriaId);
-        
+		// Ejemplo: Si nos pasan el enlace a una noticia, extrae sus elementos y
+		// hace la llamda:
+		String enlaceNoticia = linkNot;
+
+		// Obtenemos el tablón y el identificador de la noticia:
+		String[] tokens = enlaceNoticia.split("/");
+		String tablon = tokens[tokens.length - 2];
+		String noticiaId = tokens[tokens.length - 1];
+
+		actionBar.setTitle("Noticias");
+		// actionBar.setSubtitle(categoriaId);
+
 		// Cargamos la página mediante un asynctask:
-		new CargadorNoticia(this,deporteUGRApi).execute(tablon,noticiaId);
+		new CargadorNoticia(this, deporteUGRApi).execute(tablon, noticiaId);
 	}
-	
-	
-	
-	
 
 	public void cargarNoticia(Noticia noticia) {
-		String titulo_="<h1>¡Ha habido un problema!</h1>";
-		String cuerpo_="Lo sentimos, no se puede encontrar la noticia solictada.";
-		String enlace_="";
-		
-		// Hay que cargar la imagen y todo... 
-		// Mejor crear el html sobre esos datos y 
+		String titulo_ = "<h1>¡Ha habido un problema!</h1>";
+		String cuerpo_ = "Lo sentimos, no se puede encontrar la noticia solictada.";
+		String enlace_ = "";
+
+		// Hay que cargar la imagen y todo...
+		// Mejor crear el html sobre esos datos y
 		// mostrarlos como webview en lugar de imagebutton y cuerpoNoticia!!!!!!
 		//
-		if(noticia!=null){
-			cuerpo_=noticia.getTextoHtml();
-			titulo_=noticia.getTitulo();
-			enlace_=noticia.getUrl();
+		if (noticia != null) {
+			cuerpo_ = noticia.getTextoHtml();
+			titulo_ = noticia.getTitulo();
+			enlace_ = noticia.getUrl();
 		} else {
-			
+
 		}
-		
+
 		titulo.setText(Html.fromHtml(titulo_));
-		
+
 		webview.loadDataWithBaseURL(null, cuerpo_, "text/html", "utf-8", null);
-		//cuerpoNoticia.setText(cuerpo_+" -> "+enlace_);
-		
-	} 
+		// cuerpoNoticia.setText(cuerpo_+" -> "+enlace_);
+
+	}
 }

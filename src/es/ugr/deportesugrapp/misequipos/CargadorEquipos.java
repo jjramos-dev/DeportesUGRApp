@@ -25,50 +25,45 @@ import es.ugr.deportesugrapp.torneos.Equipo;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
-public class CargadorEquipos extends AsyncTask<String, Integer, List<Equipo>>{
+public class CargadorEquipos extends AsyncTask<String, Integer, List<Equipo>> {
 
 	private EleccionEquipoActivity padre;
 	private DeporteUGRClient deporteUGRApi;
 	private ProgressDialog Dialog;
 
-	public CargadorEquipos(EleccionEquipoActivity actividadVistaWeb, DeporteUGRClient deporteUGRApi) {
-		padre=actividadVistaWeb;
-		this.deporteUGRApi=deporteUGRApi;
+	public CargadorEquipos(EleccionEquipoActivity actividadVistaWeb,
+			DeporteUGRClient deporteUGRApi) {
+		padre = actividadVistaWeb;
+		this.deporteUGRApi = deporteUGRApi;
 	}
 
-	
 	@Override
 	protected void onPreExecute() {
 		Dialog = new ProgressDialog(padre);
 		Dialog.setMessage("Cargando equipos...");
 		Dialog.show();
-	
-	}	
-	
-	
+
+	}
+
 	@Override
 	protected List<Equipo> doInBackground(String... params) {
-		List<Equipo> listaEquipos=null;
-		
-		listaEquipos= deporteUGRApi.obtenerEquipo(params[0], params[1]);
-		
+		List<Equipo> listaEquipos = null;
+
+		listaEquipos = deporteUGRApi.obtenerEquipo(params[0], params[1]);
+
 		return listaEquipos;
 	}
-	
-	  protected void onPostExecute(List<Equipo> listaEquipos) {
-		  //padre.cargarPaginaWeb("Downloaded " + tabla.length() + " bytes");
 
-		  if (listaEquipos != null) {
-		  
-			  padre.cargarEquipos(listaEquipos);
-		  
-		  }
-			  
-			  
-		  Dialog.dismiss();
-	  }
+	protected void onPostExecute(List<Equipo> listaEquipos) {
+		// padre.cargarPaginaWeb("Downloaded " + tabla.length() + " bytes");
 
+		if (listaEquipos != null) {
+
+			padre.cargarEquipos(listaEquipos);
+
+		}
+
+		Dialog.dismiss();
+	}
 
 }
-
-

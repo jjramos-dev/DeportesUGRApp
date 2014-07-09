@@ -30,45 +30,43 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
- *
+ * 
  * @author jjramos
  */
 public class Torneos {
-    private String url;
-    private List<Categoria> listaCategorias;
-    
-    public Torneos(String url){
-        this.url=url;
-        this.listaCategorias=new ArrayList<Categoria>();
-    }
+	private String url;
+	private List<Categoria> listaCategorias;
 
-    public String getUrl() {
-        return url;
-    }
+	public Torneos(String url) {
+		this.url = url;
+		this.listaCategorias = new ArrayList<Categoria>();
+	}
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public List<Categoria> getListaCategorias() {
-        return listaCategorias;
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public void setListaCategorias(List<Categoria> listaCategorias) {
-        this.listaCategorias = listaCategorias;
-    }
-    
+	public List<Categoria> getListaCategorias() {
+		return listaCategorias;
+	}
 
-    public Categoria getCategoria(String categoriaId) {
-        Categoria categoria=null;
-        for(Categoria categoria_:listaCategorias){
-            if(categoriaId.compareTo(categoria_.getId())==0){
-                categoria=categoria_;
-            }
-        }
-        
-        return categoria;
-    }
+	public void setListaCategorias(List<Categoria> listaCategorias) {
+		this.listaCategorias = listaCategorias;
+	}
+
+	public Categoria getCategoria(String categoriaId) {
+		Categoria categoria = null;
+		for (Categoria categoria_ : listaCategorias) {
+			if (categoriaId.compareTo(categoria_.getId()) == 0) {
+				categoria = categoria_;
+			}
+		}
+
+		return categoria;
+	}
 }

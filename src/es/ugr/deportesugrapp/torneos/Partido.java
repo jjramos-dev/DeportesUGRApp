@@ -33,154 +33,156 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * 
  * @author jjramos
  */
 public class Partido {
-    private Date fecha=null;
-    private String fechaString=null;
-    private String horaString=null;
-    private Date hora=null;
-    private String lugar;
-    private Equipo equipo1;
-    private Equipo equipo2;
-    private String estado;
-    private String resultadoEquipo1=null;
-    private String resultadoEquipo2=null;
-    
+	private Date fecha = null;
+	private String fechaString = null;
+	private String horaString = null;
+	private Date hora = null;
+	private String lugar;
+	private Equipo equipo1;
+	private Equipo equipo2;
+	private String estado;
+	private String resultadoEquipo1 = null;
+	private String resultadoEquipo2 = null;
 
-    public Partido() {
-    }
+	public Partido() {
+	}
 
-    public Date getFecha() {
-    	if(fecha==null){
+	public Date getFecha() {
+		if (fecha == null) {
 
 			Date thedate;
 			try {
 				Calendar mydate = new GregorianCalendar();
 
-				thedate = new SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.getDefault()).parse(fechaString+" "+horaString);
+				thedate = new SimpleDateFormat("dd/MM/yyyy hh:mm",
+						Locale.getDefault()).parse(fechaString + " "
+						+ horaString);
 				mydate.setTime(thedate);
-				fecha=mydate.getTime();
-				
+				fecha = mydate.getTime();
+
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-    	}
-        return fecha;
-    }
 
-    @JsonIgnore
-    void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+		}
+		return fecha;
+	}
 
-    public String getFechaString() {
-        return fechaString;
-    }
+	@JsonIgnore
+	void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 
-    public void setFechaString(String fechaString) {
-        this.fechaString = fechaString;
-    }
+	public String getFechaString() {
+		return fechaString;
+	}
 
-    public String getHoraString() {
-        return horaString;
-    }
+	public void setFechaString(String fechaString) {
+		this.fechaString = fechaString;
+	}
 
-    public void setHoraString(String horaString) {
-        this.horaString = horaString;
-    }
+	public String getHoraString() {
+		return horaString;
+	}
 
-    public Date getHora() {
-        return hora;
-    }
+	public void setHoraString(String horaString) {
+		this.horaString = horaString;
+	}
 
-    @JsonIgnore
-    public void setHora(Date hora) {
-        this.hora = hora;
-    }
+	public Date getHora() {
+		return hora;
+	}
 
-    public Equipo getEquipo1() {
-        return equipo1;
-    }
+	@JsonIgnore
+	public void setHora(Date hora) {
+		this.hora = hora;
+	}
 
-    public void setEquipo1(Equipo equipo1) {
-        this.equipo1 = equipo1;
-    }
+	public Equipo getEquipo1() {
+		return equipo1;
+	}
 
-    public Equipo getEquipo2() {
-        return equipo2;
-    }
+	public void setEquipo1(Equipo equipo1) {
+		this.equipo1 = equipo1;
+	}
 
-    public void setEquipo2(Equipo equipo2) {
-        this.equipo2 = equipo2;
-    }
+	public Equipo getEquipo2() {
+		return equipo2;
+	}
 
-    void setFecha(String text) {
-        
-        this.fechaString=text;
-            
-        try {
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            fecha = formatter.parse(text);
-            
-        } catch (ParseException ex) {
-            //Logger.getLogger(Partido.class.getName()).log(Level.SEVERE, null, ex);
-            fecha=null;
-        }
-    }
+	public void setEquipo2(Equipo equipo2) {
+		this.equipo2 = equipo2;
+	}
 
-    void setHora(String text) {
-        this.horaString=text;
-        
-        try {
-            SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
-            hora = formatter.parse(text);
-        } catch (ParseException ex) {
-            hora=null;
-        }
-    }
+	void setFecha(String text) {
 
-    public void setLugar(String text) {
-        lugar=text;
-    }
+		this.fechaString = text;
 
-    void setEquipo1(String nombre, String url) {
-        equipo1=new Equipo(nombre,url);
-    }
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			fecha = formatter.parse(text);
 
-     void setEquipo2(String nombre, String url) {
-         equipo2=new Equipo(nombre,url);
-    }
+		} catch (ParseException ex) {
+			// Logger.getLogger(Partido.class.getName()).log(Level.SEVERE, null,
+			// ex);
+			fecha = null;
+		}
+	}
 
-    void setEstado(String text) {
-        estado=text;
-    }
+	void setHora(String text) {
+		this.horaString = text;
 
-    void setResultadoEquipo1(String string) {
-        resultadoEquipo1 = string;
-    }
-    
-    void setResultadoEquipo2(String string) {
-        resultadoEquipo2 = string;
-    }
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+			hora = formatter.parse(text);
+		} catch (ParseException ex) {
+			hora = null;
+		}
+	}
 
-    public String getLugar() {
-        return lugar;
-    }
+	public void setLugar(String text) {
+		lugar = text;
+	}
 
-    public String getEstado() {
-        return estado;
-    }
+	void setEquipo1(String nombre, String url) {
+		equipo1 = new Equipo(nombre, url);
+	}
 
-    public String getResultadoEquipo1() {
-       return resultadoEquipo1;
-    }
-    
-    public String getResultadoEquipo2() {
-       return resultadoEquipo2;
-    }
+	void setEquipo2(String nombre, String url) {
+		equipo2 = new Equipo(nombre, url);
+	}
+
+	void setEstado(String text) {
+		estado = text;
+	}
+
+	void setResultadoEquipo1(String string) {
+		resultadoEquipo1 = string;
+	}
+
+	void setResultadoEquipo2(String string) {
+		resultadoEquipo2 = string;
+	}
+
+	public String getLugar() {
+		return lugar;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public String getResultadoEquipo1() {
+		return resultadoEquipo1;
+	}
+
+	public String getResultadoEquipo2() {
+		return resultadoEquipo2;
+	}
 
 }

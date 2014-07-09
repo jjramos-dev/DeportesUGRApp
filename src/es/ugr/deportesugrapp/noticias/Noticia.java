@@ -28,70 +28,67 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
- *
+ * 
  * @author jjramos
  */
 public class Noticia {
-    String url;
-    String titulo="Sin título";
-    String textoHtml;
-    private String imagenURL=null;
-   
-    final static String baseURLNoticias="http://cad.ugr.es/pages/tablon/*";
- 
-    public Noticia(){
-        
-    }
-    
-    public Noticia(String tablon, String noticiaId) {
-        
-        if(noticiaId.startsWith("http")){
-            url=noticiaId;
-        } else {
-            url=baseURLNoticias +"/"+tablon+"/"+noticiaId;
-        } 
-    }
+	String url;
+	String titulo = "Sin título";
+	String textoHtml;
+	private String imagenURL = null;
 
-    private Noticia(String url, String titulo, String pagina) {
-        this.url=url;
-        this.titulo=titulo;
-        this.textoHtml=pagina;
-    }
-    
+	final static String baseURLNoticias = "http://cad.ugr.es/pages/tablon/*";
 
-    public String getImagenURL() {
-        return imagenURL;
-    }
+	public Noticia() {
 
-    public void setImagenURL(String imagenURL) {
-        this.imagenURL = imagenURL;
-    }
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public Noticia(String tablon, String noticiaId) {
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+		if (noticiaId.startsWith("http")) {
+			url = noticiaId;
+		} else {
+			url = baseURLNoticias + "/" + tablon + "/" + noticiaId;
+		}
+	}
 
-    public String getTitulo() {
-        return titulo;
-    }
+	private Noticia(String url, String titulo, String pagina) {
+		this.url = url;
+		this.titulo = titulo;
+		this.textoHtml = pagina;
+	}
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+	public String getImagenURL() {
+		return imagenURL;
+	}
 
-    public String getTextoHtml() {
-        return textoHtml;
-    }
+	public void setImagenURL(String imagenURL) {
+		this.imagenURL = imagenURL;
+	}
 
-    public void setTextoHtml(String textoHtml) {
-        this.textoHtml = textoHtml;
-    }
-    
-    
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getTextoHtml() {
+		return textoHtml;
+	}
+
+	public void setTextoHtml(String textoHtml) {
+		this.textoHtml = textoHtml;
+	}
+
 }

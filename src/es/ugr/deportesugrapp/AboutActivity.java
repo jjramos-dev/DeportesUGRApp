@@ -18,7 +18,6 @@
 //
 package es.ugr.deportesugrapp;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -34,101 +33,123 @@ import android.widget.TextView;
 
 /**
  * Clase para la actividad el "Acerca De"
+ * 
  * @author Namir Sayed-Ahmad Baraza
  * @mail namirsab@gmail.com
- *
+ * 
  */
 
-
-
-
-public class AboutActivity extends ActionBarActivity{
-	//TODO:Sustituya la url del promotor. Para a�adir mas promotores (si los hay) siga el esquema definido
+public class AboutActivity extends ActionBarActivity {
+	// TODO:Sustituya la url del promotor. Para a�adir mas promotores (si los
+	// hay) siga el esquema definido
 	private final String URL_PROMOTOR1 = "http://cevug.ugr.es/";
-	//TODO:Sustituya la url del promotor. Para a�adir mas promotores (si los hay) siga el esquema definido
+	// TODO:Sustituya la url del promotor. Para a�adir mas promotores (si los
+	// hay) siga el esquema definido
 	private final String URL_PROMOTOR2 = "http://csirc.ugr.es/";
-	//TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los hay) siga el esquema definido
+	// TODO:Sustituya la url del promotor. Para a�adir mas promotores (si los
+	// hay) siga el esquema definido
+	private final String URL_CODIGOFUENTE = "https://github.com/jjramos-dev/DeportesUGRApp";
+	// TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los
+	// hay) siga el esquema definido
 	private final String MAIL_PROMOTOR1 = "cevug@ugr.es";
-	//TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los hay) siga el esquema definido
+	// TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los
+	// hay) siga el esquema definido
 	private final String MAIL_PROMOTOR2 = "csirc@ugr.es";
-	//URL AppsUGR
+	// TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los
+	// hay) siga el esquema definido
+	private final String MAIL_NUESTRO = "deporteugrapp@ugr.es";
+	// URL AppsUGR
 	private final String URL_APPS_UGR = "http://apps.ugr.es";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.about_activity_layout);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
+
 		actionBar.setTitle("Acerca de");
-		//actionBar.setSubtitle("");
-		
+		// actionBar.setSubtitle("");
+
 		TextView disclaimer = (TextView) findViewById(R.id.disclaimer);
 		// disclaimer.setTextSize(11);
-		disclaimer.setText("DeportesUGR es una aplicación que permite acceder a la información de la página web del Centro de Actividades Deportivas de la UGR. DeportesUGR y el servidor correspondiente usan software libre (JSoup licencia MIT, Jackson licencia Apache 2.0, RESTlet licencia Apache 2.0).\n \nDescargo de responsabilidad: La Universidad de Granada no se hace responsable del uso de esta aplicación. Este software se proporciona tal cual ('as-is'), sin garantía de ningún tipo, expresa o implícita. En nigún caso los autores o los titulares del copyright serán responsables de ninguna queja, daños u otra responsabilidad que surja en relación al software, su uso, su tratamiento, o el servicio que proporciona.\n\nAutores principales de la app: Luis Carlos Casanova y Juan José Ramos\nDesarroladores del servidor: Juan José Ramos, Juan Manuel López, Jorge Navarro, Pablo Ameigeiras y Jonathan Prados\nIconografía: Diego José Molins \n \nAgradecimientos: \nRosana Montes (CEVUG); Servicio del CAD, especialmente a Jordi Mercadé, Álex Requena, Fernando S. Martínez (CAD); Antonio Muñoz (CSIRC)." +
-				"\n\nSi detecta algún error o tiene alguna sugerencia, escriba al correo: deporteugrapp@ugr.es.");
-		
-	}
-	
-	//Acción al hacer click en la imagen del promotor1. Abre la web.
-	public void onClickPromotor1(View v){
-		Intent webBrowser = new Intent(Intent.ACTION_VIEW,Uri.parse(URL_PROMOTOR1));
-		startActivity(webBrowser);
-		
-	}
-	
-	
-	
-	//Acción al pulsar el botón de contacto del promotor1. Abre un cuadro de diálogo para enviar un email
-	public void onClickBotonContacto1(View v){
-		Intent enviarEmail = new Intent(Intent.ACTION_VIEW,Uri.parse("mailto:"+MAIL_PROMOTOR1));
-		startActivity(enviarEmail);
-		
-		
-		
-	}
-	
-	
-	//Acción al hacer click en la imagen del promotor1. Abre la web.
-	public void onClickPromotor2(View v){
-			Intent webBrowser = new Intent(Intent.ACTION_VIEW,Uri.parse(URL_PROMOTOR2));
-			startActivity(webBrowser);
-				
-	}
-			
-	//Acción al pulsar el botón de contacto del promotor1. Abre un cuadro de diálogo para enviar un email
-	public void onClickBotonContacto2(View v){
-	Intent enviarEmail = new Intent(Intent.ACTION_VIEW,Uri.parse("mailto:"+MAIL_PROMOTOR2));
-	startActivity(enviarEmail);
-				
-				
-				
-	}		
-			
-	
-	//Acción al hacer click en el boton "Ir a Apps UGR"
-	public void onClickAppsUgr(View v){
-		Intent webBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(URL_APPS_UGR));
-		startActivity(webBrowser);
-	}
-	
+		disclaimer
+				.setText("DeportesUGR es una aplicación que permite acceder a la información de la página web del Centro de Actividades Deportivas de la UGR. DeportesUGR y el servidor correspondiente usan software libre (JSoup licencia MIT, Jackson licencia Apache 2.0, RESTlet licencia Apache 2.0).\n \nDescargo de responsabilidad: La Universidad de Granada no se hace responsable del uso de esta aplicación. Este software se proporciona tal cual ('as-is'), sin garantía de ningún tipo, expresa o implícita. En nigún caso los autores o los titulares del copyright serán responsables de ninguna queja, daños u otra responsabilidad que surja en relación al software, su uso, su tratamiento, o el servicio que proporciona.\n\nAutores principales de la app: Luis Carlos Casanova y Juan José Ramos\nDesarroladores del servidor: Juan José Ramos, Juan Manuel López, Jorge Navarro, Pablo Ameigeiras y Jonathan Prados\nIconografía: Diego José Molins \n \nAgradecimientos: \nRosana Montes (CEVUG); Servicio del CAD, especialmente a Jordi Mercadé, Álex Requena, Fernando S. Martínez (CAD); Antonio Muñoz (CSIRC)."
+						+ "\n\nSi detecta algún error o tiene alguna sugerencia, contacte con nosotros.");
 
-	public void onClickLicenciaApache(View v){
-		Intent abrirLicenciaApache = new Intent(this,LicenciaApache.class);
+	}
+
+	// Acción al hacer click en la imagen del promotor1. Abre la web.
+	public void onClickPromotor1(View v) {
+		Intent webBrowser = new Intent(Intent.ACTION_VIEW,
+				Uri.parse(URL_PROMOTOR1));
+		startActivity(webBrowser);
+
+	}
+
+	// Acción al pulsar el botón de contacto del promotor1. Abre un cuadro de
+	// diálogo para enviar un email
+	public void onClickBotonContacto1(View v) {
+		Intent enviarEmail = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:"
+				+ MAIL_PROMOTOR1));
+		startActivity(enviarEmail);
+
+	}
+
+	// Acción al hacer click en la imagen del promotor1. Abre la web.
+	public void onClickPromotor2(View v) {
+		Intent webBrowser = new Intent(Intent.ACTION_VIEW,
+				Uri.parse(URL_PROMOTOR2));
+		startActivity(webBrowser);
+
+	}
+
+	// Acción al pulsar el botón de contacto del promotor1. Abre un cuadro de
+	// diálogo para enviar un email
+	public void onClickBotonContacto2(View v) {
+		Intent enviarEmail = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:"
+				+ MAIL_PROMOTOR2));
+		startActivity(enviarEmail);
+
+	}
+
+	// Acción al hacer click en el boton "Ir a Apps UGR"
+	public void onClickAppsUgr(View v) {
+		Intent webBrowser = new Intent(Intent.ACTION_VIEW,
+				Uri.parse(URL_APPS_UGR));
+		startActivity(webBrowser);
+	}
+
+	public void onClickLicenciaApache(View v) {
+		Intent abrirLicenciaApache = new Intent(this, LicenciaApache.class);
 		startActivity(abrirLicenciaApache);
-		
-		
-		
+
 	}
-	
-	public void onClickLicencia2(View v){
-		Intent abrirLicencia2 = new Intent(this,Licencia2.class);
+
+	public void onClickLicencia2(View v) {
+		Intent abrirLicencia2 = new Intent(this, Licencia2.class);
 		startActivity(abrirLicencia2);
-		
-		
-		
+
 	}
 	
+	public void onClickCodigoFuente(View v) {
+		Intent webBrowser = new Intent(Intent.ACTION_VIEW,
+				Uri.parse(URL_CODIGOFUENTE));
+		startActivity(webBrowser);
+
+	}
+	
+	public void onClickLicenciaGPLV3(View v) {
+		Intent abrirLicenciaGPLV3 = new Intent(this, LicenciaGPLV3.class);
+		startActivity(abrirLicenciaGPLV3);
+
+	}
+	
+	public void onClickBotonContactoNuestro(View v) {
+		Intent enviarEmail = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:"
+				+ MAIL_NUESTRO));
+		startActivity(enviarEmail);
+
+	}
 
 }

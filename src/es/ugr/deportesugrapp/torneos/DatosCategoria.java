@@ -25,68 +25,68 @@
 package es.ugr.deportesugrapp.torneos;
 
 /**
- *
+ * 
  * @author aulas
  */
 public class DatosCategoria {
 
-    String titulo;
-    private String url;
-    private String urlNormativa=null;
-    private String id;
-    private String anio;
+	String titulo;
+	private String url;
+	private String urlNormativa = null;
+	private String id;
+	private String anio;
 
-    public DatosCategoria(){
-        
-    }
+	public DatosCategoria() {
 
-    public DatosCategoria(String id, String titulo, String url,String urlNormativa, String anio) {
-        this.id=id;
-        this.titulo=titulo;
-        this.url=url;
-        this.urlNormativa=urlNormativa;
-        this.anio=anio;
-    }
+	}
 
-    public String getTitulo() {
-        return titulo;
-    }
+	public DatosCategoria(String id, String titulo, String url,
+			String urlNormativa, String anio) {
+		this.id = id;
+		this.titulo = titulo;
+		this.url = url;
+		this.urlNormativa = urlNormativa;
+		this.anio = anio;
+	}
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+	public String getTitulo() {
+		return titulo;
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public String getUrlNormativa() {
-        return urlNormativa;
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public void setUrlNormativa(String urlNormativa) {
-        this.urlNormativa = urlNormativa;
-    }
+	public String getUrlNormativa() {
+		return urlNormativa;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public void setUrlNormativa(String urlNormativa) {
+		this.urlNormativa = urlNormativa;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public String getAnio() {
-        return anio;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public void setAnio(String anio) {
-        this.anio = anio;
-    }
-    
-    
+	public String getAnio() {
+		return anio;
+	}
+
+	public void setAnio(String anio) {
+		this.anio = anio;
+	}
+
 }

@@ -27,22 +27,19 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class EleccionActivity extends ActionBarActivity{
-	
-	
+public class EleccionActivity extends ActionBarActivity {
+
 	String categoriaId;
 	String deporteId;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		// En realidad, casi todas las activities son iguales (de momento) :)
 		setContentView(R.layout.elegir_cal_o_clas);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
-		
 
 		// Extraemos los parámetros de la llamada del intent:
 		Intent intent = getIntent();
@@ -51,51 +48,42 @@ public class EleccionActivity extends ActionBarActivity{
 		deporteId = intent
 				.getStringExtra("com.example.activitydeportes.deporteId");
 
-		
 		actionBar.setTitle("Competiciones");
-		actionBar.setSubtitle(categoriaId+" / "+deporteId);
-		
-		
-	}
-	
+		actionBar.setSubtitle(categoriaId + " / " + deporteId);
 
-	
+	}
+
 	public void onClickCalendario(View arg0) {
 		// Creamos un Intent para llamar a la activity correspondiente:
-		Intent intent=new Intent(EleccionActivity.this,CalendariosActivity.class);
+		Intent intent = new Intent(EleccionActivity.this,
+				CalendariosActivity.class);
 		intent.putExtra("com.example.activitydeportes.categoriaId", categoriaId);
 		intent.putExtra("com.example.activitydeportes.deporteId", deporteId);
-		
+
 		startActivity(intent);
 
 	};
-	
-	
+
 	public void onClickCalendarioMisEquipos(View arg0) {
 		// Creamos un Intent para llamar a la activity correspondiente:
-		Intent intent=new Intent(EleccionActivity.this,CalendariosActivityMisEquipos.class);
+		Intent intent = new Intent(EleccionActivity.this,
+				CalendariosActivityMisEquipos.class);
 		intent.putExtra("com.example.activitydeportes.categoriaId", categoriaId);
 		intent.putExtra("com.example.activitydeportes.deporteId", deporteId);
-		
+
 		startActivity(intent);
 
 	};
-	
-	
-	
+
 	public void onClickClasificacion(View arg0) {
 		// Creamos un Intent para llamar a la activity correspondiente:
-		Intent intent=new Intent(EleccionActivity.this,ClasificacionActivity.class);
+		Intent intent = new Intent(EleccionActivity.this,
+				ClasificacionActivity.class);
 		intent.putExtra("com.example.activitydeportes.categoriaId", categoriaId);
 		intent.putExtra("com.example.activitydeportes.deporteId", deporteId);
-		
+
 		startActivity(intent);
 
 	};
-	
-	
-	
-	
-	
 
 }

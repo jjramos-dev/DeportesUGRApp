@@ -17,101 +17,94 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 package es.ugr.deportesugrapp.instalaciones;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
-
 /**
- *
+ * 
  * @author jjramos
  */
 public class PistaFutbol11 {
-    String pistaId=null;
-    //int numero=13;
-    String nombre = "Futbol 11";
-//    String descripcion;
-    String precioUniSinLuz="40 €";
-    String precioUniLuz="50 €";
-    String precioNoUniSinLuz="66 €";
-    String precioNoUniLuz="78 €";
-    String precioPeniaUniSinLuz="1500 €";
-    String precioPeniaUniLuz="1628 €";
-    String precioPeniaNoUniSinLuz="2600 €";
-    String precioPeniaNoUniLuz="2728 €";
+	String pistaId = null;
+	// int numero=13;
+	String nombre = "Futbol 11";
+	// String descripcion;
+	String precioUniSinLuz = "40 €";
+	String precioUniLuz = "50 €";
+	String precioNoUniSinLuz = "66 €";
+	String precioNoUniLuz = "78 €";
+	String precioPeniaUniSinLuz = "1500 €";
+	String precioPeniaUniLuz = "1628 €";
+	String precioPeniaNoUniSinLuz = "2600 €";
+	String precioPeniaNoUniLuz = "2728 €";
 
-    public PistaFutbol11(){
+	public PistaFutbol11() {
 
-    }
-    
-    public void setPistaId(String id){
-    	this.pistaId=id;
-    }
-    
-    /* public void setNumero(int numero){
-    	this.numero=numero;
-    } */
-    
-    public PistaFutbol11(String pistaId, String nom, String preUniSinLuz, String preUniLuz, String preNoUniSinLuz, String preNoUniLuz, String prePeniaUniSinLuz, String prePeniaUniLuz, String prePeniaNoUniSinLuz, String prePeniaNoUniLuz) {
-        this.pistaId=pistaId;
-       // this.numero=numero;
-        this.nombre=nom;
-        this.precioUniSinLuz=preUniSinLuz;
-    }
+	}
 
-    public String getPistaId() {
-        return pistaId;
-    }
-    
-    /*
-    public int getNumero(){
-        return numero;
-    }
-    
-    */
+	public void setPistaId(String id) {
+		this.pistaId = id;
+	}
 
-	public String getNombre(){
-        return nombre;
-    }
-    
-    public String getPrecioUniversitarioSinLuz(){
-        return precioUniSinLuz;
-    }
-    
-    public String getPrecioUniversitarioLuz(){
-        return precioUniLuz;
-    }
-    
-    public String getPrecioNoUniversitarioSinLuz(){
-        return precioNoUniSinLuz;
-    }
-    
-    public String getPrecioNoUniversitarioLuz(){
-        return precioNoUniLuz;
-    }
-    
-    public String getPrecioPeniaUniversitarioSinLuz(){
-        return precioPeniaUniSinLuz;
-    }
-    
-    public String getPrecioPeniaUniversitarioLuz(){
-        return precioPeniaUniLuz;
-    }
-    
-    public String getPrecioPeniaNoUniversitarioSinLuz(){
-        return precioPeniaNoUniSinLuz;
-    }
-    
-    public String getPrecioPeniaNoUniversitarioLuz(){
-        return precioPeniaNoUniLuz;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+	/*
+	 * public void setNumero(int numero){ this.numero=numero; }
+	 */
+
+	public PistaFutbol11(String pistaId, String nom, String preUniSinLuz,
+			String preUniLuz, String preNoUniSinLuz, String preNoUniLuz,
+			String prePeniaUniSinLuz, String prePeniaUniLuz,
+			String prePeniaNoUniSinLuz, String prePeniaNoUniLuz) {
+		this.pistaId = pistaId;
+		// this.numero=numero;
+		this.nombre = nom;
+		this.precioUniSinLuz = preUniSinLuz;
+	}
+
+	public String getPistaId() {
+		return pistaId;
+	}
+
+	/*
+	 * public int getNumero(){ return numero; }
+	 */
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getPrecioUniversitarioSinLuz() {
+		return precioUniSinLuz;
+	}
+
+	public String getPrecioUniversitarioLuz() {
+		return precioUniLuz;
+	}
+
+	public String getPrecioNoUniversitarioSinLuz() {
+		return precioNoUniSinLuz;
+	}
+
+	public String getPrecioNoUniversitarioLuz() {
+		return precioNoUniLuz;
+	}
+
+	public String getPrecioPeniaUniversitarioSinLuz() {
+		return precioPeniaUniSinLuz;
+	}
+
+	public String getPrecioPeniaUniversitarioLuz() {
+		return precioPeniaUniLuz;
+	}
+
+	public String getPrecioPeniaNoUniversitarioSinLuz() {
+		return precioPeniaNoUniSinLuz;
+	}
+
+	public String getPrecioPeniaNoUniversitarioLuz() {
+		return precioPeniaNoUniLuz;
+	}
+
 }

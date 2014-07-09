@@ -30,7 +30,6 @@ import org.json.JSONObject;
 
 import es.ugr.deportesugrapp.R;
 
-
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -46,68 +45,66 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RssReaderListAdapter extends ArrayAdapter<RssFeedStructure> {
-	public List<RssFeedStructure> imageAndTexts1 =null;
-	
-	
-	
-	
-public RssReaderListAdapter(Activity activity, List<RssFeedStructure> imageAndTexts) {
-super(activity, 0, imageAndTexts);
-imageAndTexts1 = imageAndTexts;
+	public List<RssFeedStructure> imageAndTexts1 = null;
 
- 
-}
+	public RssReaderListAdapter(Activity activity,
+			List<RssFeedStructure> imageAndTexts) {
+		super(activity, 0, imageAndTexts);
+		imageAndTexts1 = imageAndTexts;
 
+	}
 
-@Override
-public View getView(int position, View convertView, ViewGroup parent) {
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
 
-Activity activity = (Activity) getContext();
-LayoutInflater inflater = activity.getLayoutInflater();
+		Activity activity = (Activity) getContext();
+		LayoutInflater inflater = activity.getLayoutInflater();
 
+		View rowView = inflater.inflate(R.layout.rssfeedadapter_layout, null);
+		TextView textView = (TextView) rowView.findViewById(R.id.feed_text);
+		TextView timeFeedText = (TextView) rowView
+				.findViewById(R.id.feed_updatetime);
+		ImageView imageView = (ImageView) rowView.findViewById(R.id.feed_image);
+		// TextView link = (TextView) rowView.findViewById(R.id.textViewLink);
 
-View rowView = inflater.inflate(R.layout.rssfeedadapter_layout, null);
-TextView textView = (TextView) rowView.findViewById(R.id.feed_text);
-TextView timeFeedText = (TextView) rowView.findViewById(R.id.feed_updatetime);
-ImageView imageView = (ImageView) rowView.findViewById(R.id.feed_image);
-//TextView link = (TextView) rowView.findViewById(R.id.textViewLink);
-       
+		// try {
 
-// try {
-        	
-        	//Log.d("rssfeed", "imageAndTexts1.get(position).getImgLink() :: " +imageAndTexts1.get(position).getLink() +" :: " +imageAndTexts1.get(position).getTitle());
-        	textView.setText(imageAndTexts1.get(position).getTitle());
-        	SpannableString content = new SpannableString(imageAndTexts1.get(position).getPubDate());
-        	content.setSpan(new UnderlineSpan(), 0, 31, 0);
+		// Log.d("rssfeed", "imageAndTexts1.get(position).getImgLink() :: "
+		// +imageAndTexts1.get(position).getLink() +" :: "
+		// +imageAndTexts1.get(position).getTitle());
+		textView.setText(imageAndTexts1.get(position).getTitle());
+		SpannableString content = new SpannableString(imageAndTexts1.get(
+				position).getPubDate());
+		content.setSpan(new UnderlineSpan(), 0, 31, 0);
 
-        	timeFeedText.setText(content);
-        	
-        	//link.setText(imageAndTexts1.get(position).getLink());
-        	//if(imageAndTexts1.get(position).getImgLink() !=null){
-        		
-       
-        	//URL feedImage= new URL(imageAndTexts1.get(position).getImgLink().toString());
-        	//if(!feedImage.toString().equalsIgnoreCase("null")){
-        		//HttpURLConnection conn= (HttpURLConnection)feedImage.openConnection();
-            	//InputStream is = conn.getInputStream();
-            	//Bitmap img = BitmapFactory.decodeStream(is);
-            	//imageView.setImageBitmap(img);
-        	//}
-        	 //else{
-             	imageView.setBackgroundResource(R.drawable.flecha_negro25prueba);
-             //}
-        		//}
-       
-        	
-       // } catch (MalformedURLException e) {
-       
-       // }
-        //catch (IOException e) {
-        
-       // }
+		timeFeedText.setText(content);
 
-return rowView;
+		// link.setText(imageAndTexts1.get(position).getLink());
+		// if(imageAndTexts1.get(position).getImgLink() !=null){
 
-}
+		// URL feedImage= new
+		// URL(imageAndTexts1.get(position).getImgLink().toString());
+		// if(!feedImage.toString().equalsIgnoreCase("null")){
+		// HttpURLConnection conn=
+		// (HttpURLConnection)feedImage.openConnection();
+		// InputStream is = conn.getInputStream();
+		// Bitmap img = BitmapFactory.decodeStream(is);
+		// imageView.setImageBitmap(img);
+		// }
+		// else{
+		imageView.setBackgroundResource(R.drawable.flecha_negro25prueba);
+		// }
+		// }
+
+		// } catch (MalformedURLException e) {
+
+		// }
+		// catch (IOException e) {
+
+		// }
+
+		return rowView;
+
+	}
 
 }

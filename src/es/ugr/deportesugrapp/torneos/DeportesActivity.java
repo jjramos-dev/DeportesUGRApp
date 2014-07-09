@@ -47,125 +47,121 @@ public class DeportesActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_deportes);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
-		
-	
-		layout = (LinearLayout) findViewById(R.id.fondo); 
+
+		layout = (LinearLayout) findViewById(R.id.fondo);
 
 		Intent intent = getIntent();
-		categoriaId = intent.getStringExtra("com.example.activitydeportes.categoriaId");
-		
+		categoriaId = intent
+				.getStringExtra("com.example.activitydeportes.categoriaId");
+
 		actionBar.setTitle("Competiciones");
 		actionBar.setSubtitle(categoriaId);
-		
-		SolicitudInfoDeportesTask task = new SolicitudInfoDeportesTask("http://oberon.ugr.es:8080");
+
+		SolicitudInfoDeportesTask task = new SolicitudInfoDeportesTask(
+				"http://oberon.ugr.es:8080");
 		task.execute(categoriaId);
 
 	}
 
-	void crearBoton(Deporte deporte){
-		final String deporteId=deporte.getId();
-		
-		Button boton=new Button(this);		
+	void crearBoton(Deporte deporte) {
+		final String deporteId = deporte.getId();
+
+		Button boton = new Button(this);
 		boton.setText(deporte.getTitulo());
 		boton.setBackgroundColor(Color.argb(0, 0, 0, 0));
-		boton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.flecha_negro25prueba, 0, 0, 0);
+		boton.setCompoundDrawablesWithIntrinsicBounds(
+				R.drawable.flecha_negro25prueba, 0, 0, 0);
 		boton.setBackgroundResource(R.drawable.selector);
 		boton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				// Creamos un Intent para llamar a la activity correspondiente:
-				Intent intent=new Intent(DeportesActivity.this,EleccionActivity.class);
-				intent.putExtra("com.example.activitydeportes.categoriaId", categoriaId);
-				intent.putExtra("com.example.activitydeportes.deporteId", deporteId);
-				
+				Intent intent = new Intent(DeportesActivity.this,
+						EleccionActivity.class);
+				intent.putExtra("com.example.activitydeportes.categoriaId",
+						categoriaId);
+				intent.putExtra("com.example.activitydeportes.deporteId",
+						deporteId);
+
 				startActivity(intent);
 
-			}});
-		
-		layout.addView(boton);
-		
+			}
+		});
 
-		
-		View ruler = new View(this); 
-		
+		layout.addView(boton);
+
+		View ruler = new View(this);
+
 		ruler.setBackgroundColor(0xFF000000);
-		
-		
-		
-		layout.addView (ruler,
-		 new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, 2));
+
+		layout.addView(ruler, new ViewGroup.LayoutParams(
+				ViewGroup.LayoutParams.MATCH_PARENT, 2));
 	}
-	
-	public class SolicitudInfoDeportesTask extends AsyncTask<String, Integer, List<Deporte>>{
-		
-		String respuesta="no";
+
+	public class SolicitudInfoDeportesTask extends
+			AsyncTask<String, Integer, List<Deporte>> {
+
+		String respuesta = "no";
 		private ProgressDialog Dialog;
 		// Objeto para hacer las peticiones web:
 		private DeporteUGRClient api;
-	
-		SolicitudInfoDeportesTask(String base){
-			api=new DeporteUGRClient();
+
+		SolicitudInfoDeportesTask(String base) {
+			api = new DeporteUGRClient();
 		}
-	
+
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(DeportesActivity.this);
 			Dialog.setMessage("Cargando deportes...");
 			Dialog.show();
-		
-		}	
-		
-	@Override
-	protected List<Deporte> doInBackground(String... arg0) {
-		List<Deporte> deportes=null;	
-		String categoriaId=arg0[0];
-		
-	   
-		deportes=api.obtenerDeportes(categoriaId);
-		
-		return deportes;
-	}
-	
-	protected void onPostExecute(List<Deporte> deportes) {
-		
-		// Existe algún deporte?
-		
-				if (deportes != null) {
-						if(!deportes.isEmpty()){					
-						for(Deporte deporte:deportes){
-							crearBoton(deporte);
 
-						}}
-						else {
-							mostrarError("No se definieron deportes para este torneo.");
-						}
-						
+		}
+
+		@Override
+		protected List<Deporte> doInBackground(String... arg0) {
+			List<Deporte> deportes = null;
+			String categoriaId = arg0[0];
+
+			deportes = api.obtenerDeportes(categoriaId);
+
+			return deportes;
+		}
+
+		protected void onPostExecute(List<Deporte> deportes) {
+
+			// Existe algún deporte?
+
+			if (deportes != null) {
+				if (!deportes.isEmpty()) {
+					for (Deporte deporte : deportes) {
+						crearBoton(deporte);
+
+					}
 				} else {
-						
-					mostrarError("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
-					
+					mostrarError("No se definieron deportes para este torneo.");
 				}
-				
-		
-		
-	
-		Dialog.dismiss();
+
+			} else {
+
+				mostrarError("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
+
+			}
+
+			Dialog.dismiss();
+		}
+
 	}
-	
-	
-	}
-	
+
 	private void mostrarError(String string) {
-		TextView tv=new TextView(this);
+		TextView tv = new TextView(this);
 		tv.setText(string);
 		tv.setTextSize(20);
 		tv.setPadding(15, 20, 0, 0);
 		layout.addView(tv);
-	
-	}
 
+	}
 
 }

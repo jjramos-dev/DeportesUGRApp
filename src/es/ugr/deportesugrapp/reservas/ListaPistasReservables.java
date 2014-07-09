@@ -31,20 +31,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * 
  * @author jjramos
  */
 public class ListaPistasReservables {
-     private String baseURL;
-    private List<PistaReservable> listaPistasReservables;
+	private String baseURL;
+	private List<PistaReservable> listaPistasReservables;
 
-    public ListaPistasReservables(String string) {
-        this.baseURL=string;     
-        listaPistasReservables=null;
-    }
+	public ListaPistasReservables(String string) {
+		this.baseURL = string;
+		listaPistasReservables = null;
+	}
 
-    public List<PistaReservable> getListaPistasReservables() {
-        
-        return listaPistasReservables;
-    }
+	public List<PistaReservable> getListaPistasReservables() {
+
+		return listaPistasReservables;
+	}
 }

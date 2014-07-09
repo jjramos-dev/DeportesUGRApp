@@ -46,23 +46,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
 public class InstaMainRugby extends ActionBarActivity {
-	
-	
-	//private final LatLng UGR1 = new LatLng(37.1903709, -3.5988309);
 
-	//private GoogleMap mapa;
-	
+	// private final LatLng UGR1 = new LatLng(37.1903709, -3.5988309);
+
+	// private GoogleMap mapa;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rugby);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
+
 		actionBar.setTitle("Instalaciones");
 		actionBar.setSubtitle("Campo de Rugby");
-		
+
 	}
 
 }

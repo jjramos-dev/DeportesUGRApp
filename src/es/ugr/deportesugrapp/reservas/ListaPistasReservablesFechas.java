@@ -35,19 +35,16 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
- *
+ * 
  * @author jjramos
  */
 public class ListaPistasReservablesFechas {
-    private String baseURL;
-    private List<PistaReservable> listaPistasReservables;
+	private String baseURL;
+	private List<PistaReservable> listaPistasReservables;
 
-    public ListaPistasReservablesFechas(String string) {
-        this.baseURL=string;     
-        listaPistasReservables=null;
-    }
-} 
-
-
+	public ListaPistasReservablesFechas(String string) {
+		this.baseURL = string;
+		listaPistasReservables = null;
+	}
+}

@@ -44,132 +44,125 @@ import android.widget.TextView;
 public class TorneoActivity extends ActionBarActivity {
 
 	LinearLayout layout;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_torneo);
-		
-		ActionBar actionBar = getSupportActionBar();
-		
-		actionBar.setTitle("Competiciones");
-		//actionBar.setSubtitle("");
-	
-		layout = (LinearLayout) findViewById(R.id.fondo); 
 
-		SolicitudInfoTorneosTask task = new SolicitudInfoTorneosTask("http://oberon.ugr.es:8080");
+		ActionBar actionBar = getSupportActionBar();
+
+		actionBar.setTitle("Competiciones");
+		// actionBar.setSubtitle("");
+
+		layout = (LinearLayout) findViewById(R.id.fondo);
+
+		SolicitudInfoTorneosTask task = new SolicitudInfoTorneosTask(
+				"http://oberon.ugr.es:8080");
 		task.execute("2013");
 	}
-	
+
 	/*
-	private void mostrarCategoriaId(String categoriaId) {
-		TextView texto = (TextView) findViewById(R.id.texto);
-		texto.setText(categoriaId);
-		
-	}
+	 * private void mostrarCategoriaId(String categoriaId) { TextView texto =
+	 * (TextView) findViewById(R.id.texto); texto.setText(categoriaId);
+	 * 
+	 * }
 	 */
-	
-	void crearBoton(DatosCategoria categoria){
-		
-		final String categoriaId=categoria.getId();
-		
-		Button boton=new Button(this);	
+
+	void crearBoton(DatosCategoria categoria) {
+
+		final String categoriaId = categoria.getId();
+
+		Button boton = new Button(this);
 		boton.setBackgroundColor(Color.argb(0, 0, 0, 0));
 		boton.setText(categoria.getTitulo());
-		boton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.flecha_negro25prueba, 0, 0, 0);
+		boton.setCompoundDrawablesWithIntrinsicBounds(
+				R.drawable.flecha_negro25prueba, 0, 0, 0);
 		boton.setBackgroundResource(R.drawable.selector);
 		boton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Intent intent=new Intent(TorneoActivity.this,DeportesActivity.class);
-				intent.putExtra("com.example.activitydeportes.categoriaId", categoriaId);
-				
-				//mostrarCategoriaId(categoriaId);
-				
+				Intent intent = new Intent(TorneoActivity.this,
+						DeportesActivity.class);
+				intent.putExtra("com.example.activitydeportes.categoriaId",
+						categoriaId);
+
+				// mostrarCategoriaId(categoriaId);
+
 				startActivity(intent);
 			}
 		});
-			
-		
-		
+
 		layout.addView(boton);
-		
-		View ruler = new View(this); 
-		
+
+		View ruler = new View(this);
+
 		ruler.setBackgroundColor(0xFF000000);
-		
-		
-		
-		layout.addView(ruler,
-		 new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, 2));
-				
+
+		layout.addView(ruler, new ViewGroup.LayoutParams(
+				ViewGroup.LayoutParams.MATCH_PARENT, 2));
+
 	}
-	
-	public class SolicitudInfoTorneosTask extends AsyncTask<String, Integer, List<DatosCategoria>>{
-	
-		String respuesta="no";
+
+	public class SolicitudInfoTorneosTask extends
+			AsyncTask<String, Integer, List<DatosCategoria>> {
+
+		String respuesta = "no";
 		private ProgressDialog Dialog;
 		// Objeto para hacer las peticiones web:
 		private DeporteUGRClient api;
-	
-		SolicitudInfoTorneosTask(String base){
-			api=new DeporteUGRClient();
+
+		SolicitudInfoTorneosTask(String base) {
+			api = new DeporteUGRClient();
 		}
-	
+
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(TorneoActivity.this);
 			Dialog.setMessage("Cargando torneos...");
 			Dialog.show();
-		
-		}	
-		
-	@Override
-	protected List<DatosCategoria> doInBackground(String... arg0) {
-		List<DatosCategoria> categorias=null;	
-		String anio=arg0[0];
-		
-	   
-		categorias=api.obtenerTorneos(anio);
-		
-		return categorias;
-	}
-	
-	protected void onPostExecute(List<DatosCategoria> categorias) {
-			
-		if(categorias != null){
-			
-			for(DatosCategoria categoria:categorias){
-//				Button boton=new Button(actividad);
-//				
-//				boton.setText(categoria.getTitulo());
-//				
-//				layout.addView(boton);
-				
-				crearBoton(categoria);
+
+		}
+
+		@Override
+		protected List<DatosCategoria> doInBackground(String... arg0) {
+			List<DatosCategoria> categorias = null;
+			String anio = arg0[0];
+
+			categorias = api.obtenerTorneos(anio);
+
+			return categorias;
+		}
+
+		protected void onPostExecute(List<DatosCategoria> categorias) {
+
+			if (categorias != null) {
+
+				for (DatosCategoria categoria : categorias) {
+					// Button boton=new Button(actividad);
+					//
+					// boton.setText(categoria.getTitulo());
+					//
+					// layout.addView(boton);
+
+					crearBoton(categoria);
+				}
+
+			} else {
+
+				mostrarError("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
 			}
 
-			
-		}else{
-			
-			mostrarError("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
+			Dialog.dismiss();
 		}
-			
-			
-			
-		
-		
-		
-		Dialog.dismiss();
-	}
 	}
 
 	private void mostrarError(String string) {
-		TextView tv=new TextView(this);
+		TextView tv = new TextView(this);
 		tv.setText(string);
 		tv.setTextSize(20);
 		tv.setPadding(15, 20, 0, 0);
 		layout.addView(tv);
 	}
-	
+
 }

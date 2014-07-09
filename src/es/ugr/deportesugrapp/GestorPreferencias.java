@@ -41,41 +41,41 @@ public class GestorPreferencias {
 	private ObjectMapper mapper;
 	private SharedPreferences preferencias;
 
-	static final String MIS_EQUIPOS="misEquiposs";
+	static final String MIS_EQUIPOS = "misEquiposs";
 
 	public GestorPreferencias(ActionBarActivity activity) {
-		preferencias=PreferenceManager.getDefaultSharedPreferences(activity);
-		
-		mapper=new ObjectMapper(); 
-		// Para que no falle aunque no tenga un constructtor vacío, ni getter y setters públicos:
+		preferencias = PreferenceManager.getDefaultSharedPreferences(activity);
+
+		mapper = new ObjectMapper();
+		// Para que no falle aunque no tenga un constructtor vacío, ni getter y
+		// setters públicos:
 		mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 	}
-	
-	public int guardarMisEquipos(List<Equipo> listaElegidos){
-		int error=0;
-	// Guardamos las preferencias
-	
-	SharedPreferences.Editor editor = preferencias.edit();
-					
-	/////////////////jjramos/////////////////////////
-	// Creamos un string con los equipos::
-	String equiposElegidosString=preferencias.getString(MIS_EQUIPOS, "*");
-	
-	// listaElegidos=mezclarListaEquipos(deserializarListaEquipos(equiposElegidosString),listaElegidos);
-	
-	equiposElegidosString=serializaListaEquipos(listaElegidos);
-	editor.putString(MIS_EQUIPOS,equiposElegidosString);
-	editor.commit();
-	
-	
-	/////////////////////////////
-	return error;
+
+	public int guardarMisEquipos(List<Equipo> listaElegidos) {
+		int error = 0;
+		// Guardamos las preferencias
+
+		SharedPreferences.Editor editor = preferencias.edit();
+
+		// ///////////////jjramos/////////////////////////
+		// Creamos un string con los equipos::
+		String equiposElegidosString = preferencias.getString(MIS_EQUIPOS, "*");
+
+		// listaElegidos=mezclarListaEquipos(deserializarListaEquipos(equiposElegidosString),listaElegidos);
+
+		equiposElegidosString = serializaListaEquipos(listaElegidos);
+		editor.putString(MIS_EQUIPOS, equiposElegidosString);
+		editor.commit();
+
+		// ///////////////////////////
+		return error;
 	}
-	
-	String serializaListaEquipos(List<Equipo> listaEquipos){
-		String json="";
-		 try {
-			json=mapper.writeValueAsString(listaEquipos);
+
+	String serializaListaEquipos(List<Equipo> listaEquipos) {
+		String json = "";
+		try {
+			json = mapper.writeValueAsString(listaEquipos);
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -84,21 +84,23 @@ public class GestorPreferencias {
 	}
 
 	public List<Equipo> getListaEquiposEscogidos() {
-		List<Equipo> lista=null;
-		
-		String serializado=preferencias.getString(MIS_EQUIPOS, "");
-		
+		List<Equipo> lista = null;
+
+		String serializado = preferencias.getString(MIS_EQUIPOS, "");
+
 		try {
-			
-			if(serializado!=null&&serializado.compareTo("")!=0){
-				lista= mapper.readValue(serializado, new TypeReference<List<Equipo>>() {});
+
+			if (serializado != null && serializado.compareTo("") != 0) {
+				lista = mapper.readValue(serializado,
+						new TypeReference<List<Equipo>>() {
+						});
 			}
-			
+
 			// Devolvemos una lista vacía:
-			if(lista==null){
-				lista=new ArrayList<Equipo>();
+			if (lista == null) {
+				lista = new ArrayList<Equipo>();
 			}
-			
+
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -109,7 +111,7 @@ public class GestorPreferencias {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return lista;
 	}
 }

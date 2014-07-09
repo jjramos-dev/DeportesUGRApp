@@ -42,122 +42,114 @@ import android.view.View;
 import android.widget.TextView;
 
 public class InstaMainPiscina extends ActionBarActivity {
-	
-	
-	
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_piscina);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-		
+
 		actionBar.setTitle("Instalaciones");
 		actionBar.setSubtitle("Piscina Olímpica");
 
-		
 		// Las funciones de red hay que lanzarlas en backgronud:
-		int progreso=0;
-		
+		int progreso = 0;
+
 		new SolicitudInfoPistaTask().execute(8);
-		
-		
+
 	}
-	
-	
-	public void onClickMasInfoPiscina(View v){
+
+	public void onClickMasInfoPiscina(View v) {
 		String url = "http://cad.ugr.es/pages/piscina";
 		Intent i = new Intent(Intent.ACTION_VIEW);
 		i.setData(Uri.parse(url));
 		startActivity(i);
 	}
-	
 
-// Mirar : http://developer.android.com/reference/android/os/AsyncTask.html
-//										Parámetros, unidades de progreso, resultado
-public class SolicitudInfoPistaTask extends AsyncTask<Integer, Integer, Piscina>{
-	Piscina pista=null;
-	String respuesta="no";
-	private ProgressDialog Dialog;
-	
-	@Override
-	protected void onPreExecute() {
-		Dialog = new ProgressDialog(InstaMainPiscina.this);
-		Dialog.setMessage("Cargando información...");
-		Dialog.show();
-	
-	}
-	
-	
-@Override
-protected Piscina doInBackground(Integer... params) {
-	
-	int pistaId=params[0];
-	//float precio=params[0];
-	//int numero=params[0];
-	
-	// Hay que formar la dirección del recurso del servicio:
-	String url="http://oberon.ugr.es:8080/pista/"+pistaId;
-	
-	try {
-		// Hacemos una petición HTTP GET... Esto sólo sirve para cosultar! de momento no modificamos nada:
-		URL servicio = new URL(url);
-	   URLConnection conexion = servicio.openConnection();
-	   BufferedReader in = new BufferedReader(new InputStreamReader(
-                                conexion.getInputStream()));
-    
-	   // Recibimos la respuesta línea a línea (el JSON):
-    respuesta="";
-    String inputLine;
-    
-    while ((inputLine = in.readLine()) != null){        
-    	// System.out.println(inputLine);
-    	respuesta=respuesta+inputLine;        
-    }
-    in.close();
-    
-    // Intentamos interpertarlo con jackson:
-    ObjectMapper mapper=new ObjectMapper(); 
-    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    pista=mapper.readValue(respuesta, Piscina.class);
-   
-    
-	} catch (MalformedURLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-	return pista;
-}
+	// Mirar : http://developer.android.com/reference/android/os/AsyncTask.html
+	// Parámetros, unidades de progreso, resultado
+	public class SolicitudInfoPistaTask extends
+			AsyncTask<Integer, Integer, Piscina> {
+		Piscina pista = null;
+		String respuesta = "no";
+		private ProgressDialog Dialog;
 
-@Override
+		@Override
+		protected void onPreExecute() {
+			Dialog = new ProgressDialog(InstaMainPiscina.this);
+			Dialog.setMessage("Cargando información...");
+			Dialog.show();
+
+		}
+
+		@Override
+		protected Piscina doInBackground(Integer... params) {
+
+			int pistaId = params[0];
+			// float precio=params[0];
+			// int numero=params[0];
+
+			// Hay que formar la dirección del recurso del servicio:
+			String url = "http://oberon.ugr.es:8080/pista/" + pistaId;
+
+			try {
+				// Hacemos una petición HTTP GET... Esto sólo sirve para
+				// cosultar! de momento no modificamos nada:
+				URL servicio = new URL(url);
+				URLConnection conexion = servicio.openConnection();
+				BufferedReader in = new BufferedReader(new InputStreamReader(
+						conexion.getInputStream()));
+
+				// Recibimos la respuesta línea a línea (el JSON):
+				respuesta = "";
+				String inputLine;
+
+				while ((inputLine = in.readLine()) != null) {
+					// System.out.println(inputLine);
+					respuesta = respuesta + inputLine;
+				}
+				in.close();
+
+				// Intentamos interpertarlo con jackson:
+				ObjectMapper mapper = new ObjectMapper();
+				mapper.configure(
+						DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
+						false);
+				pista = mapper.readValue(respuesta, Piscina.class);
+
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			return pista;
+		}
+
+		@Override
 		protected void onPostExecute(Piscina pista2) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(pista);
-			
-			TextView nombrePista=(TextView)findViewById(R.id.nombrePista);
-			TextView libreUni=(TextView)findViewById(R.id.precioLibreUni);
-			TextView libreNoUni=(TextView)findViewById(R.id.precioLibreNoUni);
-			TextView adultoDiarioUni=(TextView)findViewById(R.id.precioAdultosDiarioUni);
-			TextView adultoDiarioNoUni=(TextView)findViewById(R.id.precioAdultoDiarioNoUni);
-			TextView adultoFindeUni=(TextView)findViewById(R.id.precioAdultosFindeUni);
-			TextView adultoFindeNoUni=(TextView)findViewById(R.id.precioAdultosFindeNoUni);
-			TextView niniosJubDiarioUni=(TextView)findViewById(R.id.precioNiniosJubDiarioUni);
-			TextView niniosJubDiarioNoUni=(TextView)findViewById(R.id.precioNiniosJubDiarioNoUni);
-			TextView niniosJubFindesUni=(TextView)findViewById(R.id.precioNiniosJubFindesUni);
-			TextView niniosJubFindesNoUni=(TextView)findViewById(R.id.precioNiniosJubFindesNoUni);
-			
-			
-			if(pista!=null){
-				
-				
-				//nombrePista.setText("Pista Pabellones Cubiertos");
-				
+
+			TextView nombrePista = (TextView) findViewById(R.id.nombrePista);
+			TextView libreUni = (TextView) findViewById(R.id.precioLibreUni);
+			TextView libreNoUni = (TextView) findViewById(R.id.precioLibreNoUni);
+			TextView adultoDiarioUni = (TextView) findViewById(R.id.precioAdultosDiarioUni);
+			TextView adultoDiarioNoUni = (TextView) findViewById(R.id.precioAdultoDiarioNoUni);
+			TextView adultoFindeUni = (TextView) findViewById(R.id.precioAdultosFindeUni);
+			TextView adultoFindeNoUni = (TextView) findViewById(R.id.precioAdultosFindeNoUni);
+			TextView niniosJubDiarioUni = (TextView) findViewById(R.id.precioNiniosJubDiarioUni);
+			TextView niniosJubDiarioNoUni = (TextView) findViewById(R.id.precioNiniosJubDiarioNoUni);
+			TextView niniosJubFindesUni = (TextView) findViewById(R.id.precioNiniosJubFindesUni);
+			TextView niniosJubFindesNoUni = (TextView) findViewById(R.id.precioNiniosJubFindesNoUni);
+
+			if (pista != null) {
+
+				// nombrePista.setText("Pista Pabellones Cubiertos");
+
 				libreUni.setText(pista.getPrecioLibreUni());
 				libreNoUni.setText(pista.getPrecioLibreNoUni());
 				adultoDiarioUni.setText(pista.getPrecioAdultosDiarioUni());
@@ -165,19 +157,21 @@ protected Piscina doInBackground(Integer... params) {
 				adultoFindeUni.setText(pista.getPrecioAdultosFindeUni());
 				adultoFindeNoUni.setText(pista.getPrecioAdultosFindeNoUni());
 				niniosJubDiarioUni.setText(pista.getPrecioNiniosJubDiarioUni());
-				niniosJubDiarioNoUni.setText(pista.getPrecioNiniosJubDiarioNoUni());
+				niniosJubDiarioNoUni.setText(pista
+						.getPrecioNiniosJubDiarioNoUni());
 				niniosJubFindesUni.setText(pista.getPrecioNiniosJubFindeUni());
-				niniosJubFindesNoUni.setText(pista.getPrecioNiniosJubFindeNoUni());
-				
-				 
+				niniosJubFindesNoUni.setText(pista
+						.getPrecioNiniosJubFindeNoUni());
+
 			} else {
 				nombrePista.setTextSize(20);
 				nombrePista.setPadding(15, 20, 0, 0);
-				nombrePista.setText("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
+				nombrePista
+						.setText("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
 			}
-			
+
 			Dialog.dismiss();
 		}
-}
+	}
 
 }

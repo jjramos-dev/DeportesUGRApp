@@ -18,51 +18,45 @@
 //
 package es.ugr.deportesugrapp.noticias;
 
-
 import es.ugr.deportesugrapp.client.DeporteUGRClient;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
-public class CargadorNoticia extends AsyncTask<String, Integer, Noticia>{
+public class CargadorNoticia extends AsyncTask<String, Integer, Noticia> {
 
 	private LeerNoticia padre;
 	private DeporteUGRClient deporteUGRApi;
 	private ProgressDialog Dialog;
-	
-	
-	
-	public CargadorNoticia(LeerNoticia actividadVistaWeb, DeporteUGRClient deporteUGRApi) {
-		padre=actividadVistaWeb;
-		this.deporteUGRApi=deporteUGRApi;
+
+	public CargadorNoticia(LeerNoticia actividadVistaWeb,
+			DeporteUGRClient deporteUGRApi) {
+		padre = actividadVistaWeb;
+		this.deporteUGRApi = deporteUGRApi;
 	}
-	
-	
+
 	@Override
 	protected void onPreExecute() {
 		Dialog = new ProgressDialog(padre);
 		Dialog.setMessage("Cargando noticia...");
 		Dialog.show();
-	
-	}	
+
+	}
 
 	@Override
 	protected Noticia doInBackground(String... params) {
-		Noticia noticia=null;
-		
-		noticia=deporteUGRApi.obtenerNoticia(params[0], params[1]);
-		
+		Noticia noticia = null;
+
+		noticia = deporteUGRApi.obtenerNoticia(params[0], params[1]);
+
 		return noticia;
 	}
-	
-	  protected void onPostExecute(Noticia noticia) {
-		  //padre.cargarPaginaWeb("Downloaded " + tabla.length() + " bytes");
 
-		  padre.cargarNoticia(noticia);
-		  
-		  Dialog.dismiss();
-	  }
-	  
-	  
+	protected void onPostExecute(Noticia noticia) {
+		// padre.cargarPaginaWeb("Downloaded " + tabla.length() + " bytes");
 
+		padre.cargarNoticia(noticia);
+
+		Dialog.dismiss();
+	}
 
 }

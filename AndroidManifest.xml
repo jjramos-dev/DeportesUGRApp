@@ -173,6 +173,10 @@
             android:name="es.ugr.deportesugrapp.Licencia2"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         </activity>
+        <activity
+            android:name="es.ugr.deportesugrapp.LicenciaGPLV3"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+        </activity>
         
         <activity
             android:name="es.ugr.deportesugrapp.SplashActivity"

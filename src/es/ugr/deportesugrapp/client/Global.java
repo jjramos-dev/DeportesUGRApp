@@ -19,5 +19,5 @@
 package es.ugr.deportesugrapp.client;
 
 public class Global {
-	public static final String baseURLServidorNice="http://oberon.ugr.es:8080";
+	public static final String baseURLServidorNice = "http://app-deporte.ugr.es:8080";
 }

@@ -28,40 +28,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * 
  * @author jjramos
  */
 public class Ronda {
-    private String titulo;
-    private List<Partido> partidos;
+	private String titulo;
+	private List<Partido> partidos;
 
-    Ronda(){
-        
-    }
-    
-    Ronda(String text) {
-        this.titulo=text;
-        this.partidos=new ArrayList<Partido>();
-    }
+	Ronda() {
 
-    void add(Partido partido) {
-        partidos.add(partido);
-    }
+	}
 
-    public String getTitulo() {
-        return titulo;
-    }
+	Ronda(String text) {
+		this.titulo = text;
+		this.partidos = new ArrayList<Partido>();
+	}
 
-    public List<Partido> getPartidos() {
-        return partidos;
-    }
+	void add(Partido partido) {
+		partidos.add(partido);
+	}
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+	public String getTitulo() {
+		return titulo;
+	}
 
-    public void setPartidos(List<Partido> partidos) {
-        this.partidos = partidos;
-    }
-    
+	public List<Partido> getPartidos() {
+		return partidos;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public void setPartidos(List<Partido> partidos) {
+		this.partidos = partidos;
+	}
+
 }
