@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="protected" additionalparam="-format RTF&#10;-nodialog&#10;-launchviewer=false&#10;" classpath="../../appcompat_v7/libs/android-support-v4.jar:../../appcompat_v7/bin/appcompat_v7.jar:../../appcompat_v7/libs/android-support-v7-appcompat.jar:libs/com.fasterxml.jackson.databind.jar:libs/com.fasterxml.jackson.core.jar:../../google-play-services_lib/libs/google-play-services.jar:libs/jackson-annotations-2.2.2.jar:libs/org.restlet-2.0.5.jar:../../google-play-services_lib/bin/google-play-services_lib.jar" packagenames="es.ugr.deportesugrapp.misequipos,es.ugr.deportesugrapp.reservas,es.ugr.deportesugrapp.client,es.ugr.deportesugrapp.noticias,es.ugr.deportesugrapp.instalaciones,es.ugr.deportesugrapp.torneos" sourcefiles="src/es/ugr/deportesugrapp/GestorPreferencias.java,src/es/ugr/deportesugrapp/MapsFuentenueva.java,src/es/ugr/deportesugrapp/LicenciaApache.java,src/es/ugr/deportesugrapp/MisEquipos.java,src/es/ugr/deportesugrapp/AboutActivity.java,src/es/ugr/deportesugrapp/MapsCartuja.java,src/es/ugr/deportesugrapp/Instalaciones.java,src/es/ugr/deportesugrapp/Licencia2.java,src/es/ugr/deportesugrapp/MainActivity.java,src/es/ugr/deportesugrapp/InfoContacto.java,src/es/ugr/deportesugrapp/Noticias.java,src/es/ugr/deportesugrapp/SplashActivity.java,src/es/ugr/deportesugrapp/LicenciaGPLV3.java" sourcepath="gen:src">
+            <doclet name="com.docflex.javadoc.Doclet" path="/home/jjramos/lib/docflex-doclet-1.6.1/lib/docflex-doclet.jar"/>
+        </javadoc>
+    </target>
+</project>

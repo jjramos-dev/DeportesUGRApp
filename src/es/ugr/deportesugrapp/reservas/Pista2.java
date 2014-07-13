@@ -81,7 +81,7 @@ public class Pista2 {
 
 	/**
 	 * Metodo que permite obtener el precio de de la pista
-	 * @return
+	 * @return Devuelve el precio por hora.
 	 */
 	public float getPrecio() {
 		return precioPorHora;
