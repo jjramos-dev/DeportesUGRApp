@@ -37,6 +37,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.os.Build;
 
+/**
+ * Activity que permite mostrar la noticia entera, no solo el titulo
+ */
 public class LeerNoticia extends ActionBarActivity {
 
 	private TextView titulo;
@@ -46,6 +49,9 @@ public class LeerNoticia extends ActionBarActivity {
 	private DeporteUGRClient deporteUGRApi;
 	private String linkNot;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -94,6 +100,10 @@ public class LeerNoticia extends ActionBarActivity {
 		new CargadorNoticia(this, deporteUGRApi).execute(tablon, noticiaId);
 	}
 
+	/**
+	 * Metodo que carga erl contenido de la noticia y lo muestra
+	 * @param noticia Variable de la clase Noticia que contiene la noticia a mostrar
+	 */
 	public void cargarNoticia(Noticia noticia) {
 		String titulo_ = "<h1>¡Ha habido un problema!</h1>";
 		String cuerpo_ = "Lo sentimos, no se puede encontrar la noticia solictada.";

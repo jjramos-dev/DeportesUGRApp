@@ -41,10 +41,17 @@ import es.ugr.deportesugrapp.client.DeporteUGRClient;
 import es.ugr.deportesugrapp.client.Global;
 import es.ugr.deportesugrapp.reservas.PistaReservable;
 
+/**
+ * Activity que carga la lista de pistas disponibles para alquilar
+ *
+ */
 public class ReservasActivity extends ActionBarActivity {
 
 	LinearLayout layout;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -62,15 +69,16 @@ public class ReservasActivity extends ActionBarActivity {
 		task.execute("2013");
 	}
 
-	// private void mostrarPistaCodigo(String codigoPista) {
-	// TextView texto = (TextView) findViewById(R.id.texto);
-	// texto.setText(codigoPista);
 
-	// }
 
+	/**
+	 * Metodo que nos muestra en forma de lista de botones todas las isntalaciones disponibles para su consulta de disponibilidad
+	 * @param pistas Variable que contiene la informacion de las pistas
+	 */
 	void crearBoton(PistaReservable pistas) {
 
 		final String codigoPista = pistas.getCodigo();
+		final String nombrePista = pistas.getTitulo();
 
 		Button boton = new Button(this);
 		boton.setText(pistas.getTitulo());
@@ -83,6 +91,7 @@ public class ReservasActivity extends ActionBarActivity {
 			public void onClick(View arg0) {
 				Intent intent = new Intent(ReservasActivity.this,
 						FechasActivity.class);
+				intent.putExtra("com.example.activitydeportes.nombrePista", nombrePista);
 				intent.putExtra("com.example.activitydeportes.codigoPista",
 						codigoPista);
 
@@ -105,6 +114,11 @@ public class ReservasActivity extends ActionBarActivity {
 
 	}
 
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
 	public class SolicitudInfoPistasTask extends
 			AsyncTask<String, Integer, List<PistaReservable>> {
 
@@ -117,6 +131,9 @@ public class ReservasActivity extends ActionBarActivity {
 			api = new DeporteUGRClient();
 		}
 
+		/**
+		 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+		 */
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(ReservasActivity.this);
@@ -125,6 +142,9 @@ public class ReservasActivity extends ActionBarActivity {
 
 		}
 
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
 		protected List<PistaReservable> doInBackground(String... arg0) {
 			List<PistaReservable> pistas = null;
@@ -135,6 +155,9 @@ public class ReservasActivity extends ActionBarActivity {
 			return pistas;
 		}
 
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		protected void onPostExecute(List<PistaReservable> pistas) {
 
 			if (pistas != null) {
@@ -158,6 +181,10 @@ public class ReservasActivity extends ActionBarActivity {
 		}
 	}
 
+	/**
+	 * Metodo que permite mostrar un mensaje cuando se produce algun error (Conexion o ausencia de equipos registrados)
+	 * @param string String que contendra el mensaje a mostrar
+	 */
 	private void mostrarError(String string) {
 		TextView tv = new TextView(this);
 		tv.setText(string);

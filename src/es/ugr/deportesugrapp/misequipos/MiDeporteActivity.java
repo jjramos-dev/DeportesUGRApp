@@ -42,11 +42,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+/**
+ * Activity que nos permite elegir el deporte de mi equipo
+ *
+ */
 public class MiDeporteActivity extends ActionBarActivity {
 
 	private LinearLayout layout;
 	private String categoriaId;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -69,6 +76,11 @@ public class MiDeporteActivity extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que carga todos los deportes disponibles  en la competicion previamente seleccionada, 
+	 * en forma de boton para que selecciones uno
+	 * @param deporte Variable que contiene la informacion del deporte
+	 */
 	void crearBoton(Deporte deporte) {
 		final String deporteId = deporte.getId();
 
@@ -106,6 +118,11 @@ public class MiDeporteActivity extends ActionBarActivity {
 				1));
 	}
 
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
 	public class SolicitudInfoDeportesTask extends
 			AsyncTask<String, Integer, List<Deporte>> {
 
@@ -118,6 +135,9 @@ public class MiDeporteActivity extends ActionBarActivity {
 			api = new DeporteUGRClient();
 		}
 
+		/**
+		 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+		 */
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(MiDeporteActivity.this);
@@ -126,6 +146,9 @@ public class MiDeporteActivity extends ActionBarActivity {
 
 		}
 
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
 		protected List<Deporte> doInBackground(String... arg0) {
 			List<Deporte> deportes = null;
@@ -136,22 +159,12 @@ public class MiDeporteActivity extends ActionBarActivity {
 			return deportes;
 		}
 
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		protected void onPostExecute(List<Deporte> deportes) {
 
-			// Existe algún deporte?
-
-			// if (deportes != null) {
-			//
-			//
-			// for(Deporte deporte:deportes){
-			// crearBoton(deporte);
-			//
-			// }
-			// } else {
-			//
-			// mostrarError("No ha sido posible establecer la conexión con el servidor. Inténtelo de nuevo más tarde.");
-			//
-			// }
+			
 
 			if (deportes != null) {
 				if (!deportes.isEmpty()) {
@@ -173,6 +186,10 @@ public class MiDeporteActivity extends ActionBarActivity {
 		}
 	}
 
+	/**
+	 * Metodo que permite mostrar un mensaje cuando se produce algun error (Conexion o ausencia de equipos registrados)
+	 * @param string String que contendra el mensaje a mostrar
+	 */
 	void mostrarError(String string) {
 		TextView tv = new TextView(this);
 		tv.setText(string);

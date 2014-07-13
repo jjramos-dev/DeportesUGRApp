@@ -29,35 +29,59 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
- * @author jjramos
+ * Clase que permite obtener informacion sobre las clasificaciones
+ *
  */
 public class Clasificaciones {
 	String url;
 	private Deporte deporte;
 	List<Fase> fases;
 
+	/**
+	 * Constructor de la clase con argumentos
+	 * @param url URL que contiene la informacion
+	 */
 	Clasificaciones(String url) {
 		this.url = url;
 		fases = new ArrayList<Fase>();
 	}
 
+	/**
+	 * Metodo para asignar el deporte
+	 * @param deporte Deporte a asignar
+	 */
 	void setDeporte(Deporte deporte) {
 		this.deporte = deporte;
 	}
 
+	/**
+	 * Metodo para obtener el deporte
+	 * @return Devuelve el deporte
+	 */
 	Deporte getDeporte() {
 		return deporte;
 	}
 
+	/**
+	 * Metodo para obtener las fases
+	 * @return Devuelve las fases
+	 */
 	List<Fase> getFases() {
 		return fases;
 	}
 
+	/**
+	 * Metodo para obtener la URL
+	 * @return Devuelve la URL
+	 */
 	public String getUrl() {
 		return url;
 	}
 
+	/**
+	 * Metodo para asignar la URL 
+	 * @param url URL
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}

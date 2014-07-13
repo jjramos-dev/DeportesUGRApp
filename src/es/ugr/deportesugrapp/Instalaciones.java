@@ -26,8 +26,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
+/**
+ * Activity que muestra la lista de instalaciones por cada campus
+ */
 public class Instalaciones extends ActionBarActivity {
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,6 +46,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickPabellonesFuentenueva(View v) {
 		Intent webPabFuente = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainPabellon.class);
@@ -47,6 +57,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickPistasPolideportivas(View v) {
 		Intent webPistasPoli = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainPistaPolidep.class);
@@ -54,6 +68,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickPistasVoleyPlaya(View v) {
 		Intent webPlaya = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainVoleyPlaya.class);
@@ -61,6 +79,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickFutbol11Fuente(View v) {
 		Intent webFutbol11Fuente = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainFutbol11.class);
@@ -68,6 +90,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickCampoRugby(View v) {
 		Intent webRugby = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainRugby.class);
@@ -75,6 +101,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickPiscina(View v) {
 		Intent webPiscina = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainPiscina.class);
@@ -82,6 +112,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickPabellonCartuja(View v) {
 		Intent webPabCartuja = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainPabellon.class);
@@ -89,6 +123,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickPistaCesped(View v) {
 		Intent webPistaCesped = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainFutsalCesped.class);
@@ -96,6 +134,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickFutbol11Cartuja(View v) {
 		Intent webFutbol11Cartuja = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainFutbol11.class);
@@ -103,6 +145,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickPistasPadel(View v) {
 		Intent webPadel = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainPadel.class);
@@ -110,6 +156,10 @@ public class Instalaciones extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity que nos muestra la informacion de dicha instalacion
+	 * @param v
+	 */
 	public void onClickPistasTenis(View v) {
 		Intent webTenis = new Intent(this,
 				es.ugr.deportesugrapp.instalaciones.InstaMainTenis.class);

@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/ugr_background" >
+    android:background="@drawable/ugr_background"
+    tools:context=".MainActivity" >
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -53,7 +53,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                
                 android:background="@drawable/selector"
                 android:drawableTop="@drawable/ayuda_azul70prueba"
                 android:onClick="onClickAcercaDe"
@@ -90,8 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="33dp"
                 android:layout_alignTop="@+id/botonMisEquipos"
+                android:layout_marginRight="33dp"
                 android:background="@drawable/selector"
                 android:drawableTop="@drawable/info_azul70prueba"
                 android:onClick="onClickInfo"
@@ -104,16 +103,14 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="33dp"
                 android:layout_marginRight="47dp"
+                android:layout_marginTop="33dp"
                 android:background="@drawable/selector"
                 android:drawableTop="@drawable/calendario_azul70prueba"
                 android:onClick="onClickReservas"
                 android:text="@string/boton_reservas"
                 android:textSize="20sp" />
-
         </RelativeLayout>
-
     </ScrollView>
-    
+
 </RelativeLayout>

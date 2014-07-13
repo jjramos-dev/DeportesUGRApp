@@ -23,34 +23,58 @@
 package es.ugr.deportesugrapp.torneos;
 
 /**
- * 
- * @author jjramos
+ * Clase que permite obtener informacion sobre los equipos
+ *
  */
 public class Equipo {
 	private String nombre;
 	private String url;
 
+	/**
+	 * Constructor de la clase
+	 */
 	Equipo() {
 
 	}
 
+	/**
+	 * Constructor de la clase con argumentos
+	 * @param nombre Nombre del equipo
+	 * @param url URL asociada al equipo
+	 */
 	public Equipo(String nombre, String url) {
 		this.nombre = nombre;
 		this.url = url;
 	}
 
+	/**
+	 * Metodo para obtener el nombre del equipo
+	 * @return Devuelve el nombre del equipo
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	 * Metodo para obtener la URL asociada al equipo
+	 * @return Devuelve la URL asociada
+	 */
 	public String getUrl() {
 		return url;
 	}
 
+	/**
+	 * Metodo para asignar el nombre al equipo
+	 * @param nombre Nombre del equipo
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+	/**
+	 * Metodo para asignar la URL al equipo
+	 * @param url URL del equipo
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}

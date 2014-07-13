@@ -3,47 +3,27 @@
     android:layout_height="fill_parent"
     android:background="@drawable/ugr_background" >
 
-
-<LinearLayout 
-    android:id="@+id/layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    
-    >
-
-      
-            
-            
-    <TextView
-        android:id="@+id/equiposRegistrados"
+    <LinearLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/equiposInscritos"
-        android:textSize="20sp"
-        android:textStyle="bold" 
-        android:paddingTop="10dp"
-        android:paddingLeft="5dp"
-        android:paddingBottom="20dp"
-        />
+        android:orientation="vertical" >
 
-    <View
-        android:layout_width="fill_parent"
-		android:layout_height="1dip"
-		android:background="#000000"
-		
-		/>
-    
-    
-    
-    
-    
-    
+        <TextView
+            android:id="@+id/equiposRegistrados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:text="@string/equiposInscritos"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    
-    
-    
-
-</LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#000000" />
+    </LinearLayout>
 
 </ScrollView>

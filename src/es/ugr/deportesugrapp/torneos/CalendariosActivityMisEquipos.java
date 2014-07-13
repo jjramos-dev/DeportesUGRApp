@@ -51,6 +51,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+/**
+ * Activity que muestra los calendarios de mis equipos
+ *
+ */
 public class CalendariosActivityMisEquipos extends ActionBarActivity {
 
 	private LinearLayout layout;
@@ -59,7 +63,9 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 	private String categoriaId;
 	private String deporteId;
 
-	// El método para crear la Activity...
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -95,10 +101,11 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 
 	}
 
-	// ----------------------------------------------------------
-	//
-	// Tarea asíncrona para obtener los calendarios:
-	//
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
 	public class SolicitudCalendariosTask extends
 			AsyncTask<String, Integer, List<Fase>> {
 
@@ -111,11 +118,18 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 		// En el constructor creamos un objeto de la clase CadApi. Si fuera
 		// posible, deberíamos pasarla como
 		// argumento entre activities, quizás...
+		/**
+		 * Constructor con argumentos
+		 * @param base 
+		 */
 		SolicitudCalendariosTask(String base) {
 			// Objeto para hacer las solicitudes web.
 			api = new DeporteUGRClient();
 		}
 
+		/**
+		 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+		 */
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(CalendariosActivityMisEquipos.this);
@@ -124,7 +138,9 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 
 		}
 
-		// Tarea en background
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
 		protected List<Fase> doInBackground(String... arg0) {
 			List<Fase> fases = null;
@@ -140,9 +156,12 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 			return fases;
 		}
 
-		// Cuando se termina el "doInBackground", se llama a este método.
+		
 		// Es el método desde el que se puede cambiar cosas de la UI con
 		// garantías.
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		protected void onPostExecute(List<Fase> fases) {
 
 			if (fases != null) {
@@ -169,6 +188,10 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que permite mostrar un mensaje cuando se produce algun error (Conexion o ausencia de equipos registrados)
+	 * @param string String que contendra el mensaje a mostrar
+	 */
 	private void mostrarError(String string) {
 		TextView tv = new TextView(this);
 		tv.setText(string);
@@ -182,6 +205,10 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 	// podría
 	// hacerse más elegante, o con más activities... pero como mínimo, demos
 	// toda la info en esta Activity:
+	/**
+	 * Metodo que muestra el calendario de partidos de mis equipos seleccionados en 'Mis Equipos' 
+	 * @param fase Variable que contiene la informacion de las fases del calendario
+	 */
 	void crearBoton(Fase fase) {
 
 		// Para comparar rápidamente los equipos:
@@ -350,6 +377,11 @@ public class CalendariosActivityMisEquipos extends ActionBarActivity {
 		}
 	}
 
+	/**
+	 * Metodo que permite comprobar si se ha jugado un partido
+	 * @param resultadoEquipo1 Variable para comprobar si el resultado es un numero, y por tanto se ha disputado
+	 * @return Devuelve si es un numero o no
+	 */
 	private boolean esNumero(String resultadoEquipo1) {
 		boolean esNum = false;
 

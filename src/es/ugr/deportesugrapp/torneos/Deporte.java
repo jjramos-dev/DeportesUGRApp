@@ -23,18 +23,26 @@
 package es.ugr.deportesugrapp.torneos;
 
 /**
- * 
- * @author jjramos
+ * Clase que permite obtener informacion sobre los deportes
+ *
  */
 public class Deporte {
 	private String titulo;
 	private String url;
 	private String id;
 
+	/**
+	 * Constructor de la clase
+	 */
 	public Deporte() {
 
 	}
 
+	/**
+	 * Constructor de la clase con argumentos
+	 * @param titulo Nombre del deporte
+	 * @param url URL del deporte
+	 */
 	public Deporte(String titulo, String url) {
 		this.titulo = titulo;
 		this.url = url;
@@ -52,18 +60,34 @@ public class Deporte {
 		System.out.println("Deporte: " + titulo + " -> " + id);
 	}
 
+	/**
+	 * Metodo para obtener el nombre del deporte
+	 * @return Devuelve el nombre del deporte
+	 */
 	public String getTitulo() {
 		return titulo;
 	}
 
+	/**
+	 * Metodo para obtener la URL del deporte
+	 * @return Devuelve la URL del deporte
+	 */
 	public String getUrl() {
 		return url;
 	}
 
+	/**
+	 * Metodo para obtener la ID del deporte
+	 * @return Devuelve la ID del deporte
+	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * Metodo para asignar la ID del deporte
+	 * @param id
+	 */
 	public void setId(String id) {
 		this.id = id;
 	}

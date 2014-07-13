@@ -25,13 +25,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 
-/**
- * Clase inicial puramente estetica. Muestra un splash durante 2 segundos
- * 
- * @author Namir Sayed-Ahmad Baraza
- * @mail namirsab@gmail.com
- * 
- */
+
 public class SplashActivity extends Activity {
 	// Tiempo de splash en milisegundos
 	private int splashTime = 2000;

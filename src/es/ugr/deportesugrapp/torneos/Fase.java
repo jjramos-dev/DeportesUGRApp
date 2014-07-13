@@ -26,18 +26,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
- * @author jjramos
+ * Clase que permite obtener informacion sobre las fases
+ *
  */
 public class Fase {
 	private String titulo;
 	// private List<Partido> partidos;
 	private List<Ronda> rondas;
 
+	/**
+	 * Constructor de la clase
+	 */
 	Fase() {
 
 	}
 
+	/**
+	 * Constructor de la clase con argumentos
+	 * @param fase Fase de la competicion y deporte seleccionado
+	 */
 	public Fase(String fase) {
 		this.titulo = fase;
 		// this.partidos=new ArrayList<Partido>();
@@ -52,14 +59,26 @@ public class Fase {
 	// return partidos;
 	// }
 
+	/**
+	 * Metodo para añadir una ronda a la fase
+	 * @param ronda Ronda de la fase
+	 */
 	void addRonda(Ronda ronda) {
 		rondas.add(ronda);
 	}
 
+	/**
+	 * Metodo para obtener el nombre de la fase
+	 * @return Devuelve el nombre de la fase
+	 */
 	public String getTitulo() {
 		return titulo;
 	}
 
+	/** 
+	 * Metodo para obtener la lista de rondas disponibles
+	 * @return Devuelve la lista de rondas disponibles
+	 */
 	public List<Ronda> getRondas() {
 		return rondas;
 	}

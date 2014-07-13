@@ -36,46 +36,63 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 
+/**
+ * Clase para gestionar las preferencias
+ */
 public class GestorPreferencias {
 
 	private ObjectMapper mapper;
 	private SharedPreferences preferencias;
 
-	static final String MIS_EQUIPOS = "misEquiposs";
+	static final String MIS_EQUIPOS="misEquiposs";
 
+	/**
+	 * Metodo constructor de la clase
+	 * @param activity Activity sobre la que se usará el metodo
+	 */
 	public GestorPreferencias(ActionBarActivity activity) {
-		preferencias = PreferenceManager.getDefaultSharedPreferences(activity);
-
-		mapper = new ObjectMapper();
-		// Para que no falle aunque no tenga un constructtor vacío, ni getter y
-		// setters públicos:
+		preferencias=PreferenceManager.getDefaultSharedPreferences(activity);
+		
+		mapper=new ObjectMapper(); 
+		// Para que no falle aunque no tenga un constructtor vacío, ni getter y setters públicos:
 		mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 	}
-
-	public int guardarMisEquipos(List<Equipo> listaElegidos) {
-		int error = 0;
-		// Guardamos las preferencias
-
-		SharedPreferences.Editor editor = preferencias.edit();
-
-		// ///////////////jjramos/////////////////////////
-		// Creamos un string con los equipos::
-		String equiposElegidosString = preferencias.getString(MIS_EQUIPOS, "*");
-
-		// listaElegidos=mezclarListaEquipos(deserializarListaEquipos(equiposElegidosString),listaElegidos);
-
-		equiposElegidosString = serializaListaEquipos(listaElegidos);
-		editor.putString(MIS_EQUIPOS, equiposElegidosString);
-		editor.commit();
-
-		// ///////////////////////////
-		return error;
+	
+	/**
+	 * Metodo que nos permite almacenar en una Lista los equipos seleccionados
+	 * @param listaElegidos Variable que es una Lista de la clase Equipo
+	 * @return Devuelve un entero
+	 */
+	public int guardarMisEquipos(List<Equipo> listaElegidos){
+		int error=0;
+	// Guardamos las preferencias
+	
+	SharedPreferences.Editor editor = preferencias.edit();
+					
+	/////////////////jjramos/////////////////////////
+	// Creamos un string con los equipos::
+	String equiposElegidosString=preferencias.getString(MIS_EQUIPOS, "*");
+	
+	// listaElegidos=mezclarListaEquipos(deserializarListaEquipos(equiposElegidosString),listaElegidos);
+	
+	equiposElegidosString=serializaListaEquipos(listaElegidos);
+	editor.putString(MIS_EQUIPOS,equiposElegidosString);
+	editor.commit();
+	
+	
+	/////////////////////////////
+	return error;
 	}
-
-	String serializaListaEquipos(List<Equipo> listaEquipos) {
-		String json = "";
-		try {
-			json = mapper.writeValueAsString(listaEquipos);
+	
+	/**
+	 * Metodo para serializar la lista de equipos
+	 * @param listaEquipos Variable que contiene la lista de equipos
+	 * @return Devuevelve un String con la lista de equipos
+	 */
+	String serializaListaEquipos(List<Equipo> listaEquipos){
+		String json="";
+		 try {
+			json=mapper.writeValueAsString(listaEquipos);
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -83,24 +100,26 @@ public class GestorPreferencias {
 		return json;
 	}
 
+	/**
+	 * Metodo que nos devuelve la lista de mis equipos seleccionados
+	 * @return Devuelve una Lista con los equipos seleccionados
+	 */
 	public List<Equipo> getListaEquiposEscogidos() {
-		List<Equipo> lista = null;
-
-		String serializado = preferencias.getString(MIS_EQUIPOS, "");
-
+		List<Equipo> lista=null;
+		
+		String serializado=preferencias.getString(MIS_EQUIPOS, "");
+		
 		try {
-
-			if (serializado != null && serializado.compareTo("") != 0) {
-				lista = mapper.readValue(serializado,
-						new TypeReference<List<Equipo>>() {
-						});
+			
+			if(serializado!=null&&serializado.compareTo("")!=0){
+				lista= mapper.readValue(serializado, new TypeReference<List<Equipo>>() {});
 			}
-
+			
 			// Devolvemos una lista vacía:
-			if (lista == null) {
-				lista = new ArrayList<Equipo>();
+			if(lista==null){
+				lista=new ArrayList<Equipo>();
 			}
-
+			
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,7 +130,7 @@ public class GestorPreferencias {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 		return lista;
 	}
 }

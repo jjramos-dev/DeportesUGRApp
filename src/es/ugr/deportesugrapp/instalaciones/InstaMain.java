@@ -29,34 +29,28 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import es.ugr.deportesugrapp.R;
-
+import es.ugr.deportesugrapp.client.Global;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * Activity que muestra la informacion de una pista en general
+ */
 public class InstaMain extends Activity {
 
+	String baseURL = Global.baseURLServidorNice;
+	
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.prueba_instala);
 
-		/*
-		 * Bundle extras = getIntent().getExtras();
-		 * 
-		 * 
-		 * String pistaId = extras.getString("pistaId"); String nombre =
-		 * extras.getString("nombre"); float preUniSinLuz =
-		 * extras.getFloat("preUniSinLuz"); float preUniLuz =
-		 * extras.getFloat("preUniLuz"); float preNoUniSinLuz =
-		 * extras.getFloat("preNoUniSinLuz"); float preNoUniLuz =
-		 * extras.getFloat("preNoUniLuz"); float prePeñaUniSinLuz =
-		 * extras.getFloat("prePeñaUniSinLuz"); float prePeñaUniLuz =
-		 * extras.getFloat("prePeñaUniLuz"); float prePeñaNoUniSinLuz =
-		 * extras.getFloat("prePeñaNoUniSinLuz"); float prePeñaNoUniLuz =
-		 * extras.getFloat("prePeñaNoUniLuz");
-		 */
+		
 		// Las funciones de red hay que lanzarlas en backgronud:
 		int progreso = 0;
 
@@ -64,13 +58,19 @@ public class InstaMain extends Activity {
 
 	}
 
-	// Mirar : http://developer.android.com/reference/android/os/AsyncTask.html
-	// Parámetros, unidades de progreso, resultado
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
 	public class SolicitudInfoPistaTask extends
 			AsyncTask<Integer, Integer, Pista> {
 		Pista pista = null;
 		String respuesta = "no";
 
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
 		protected Pista doInBackground(Integer... params) {
 
@@ -79,7 +79,7 @@ public class InstaMain extends Activity {
 			// int numero=params[0];
 
 			// Hay que formar la dirección del recurso del servicio:
-			String url = "http://oberon.ugr.es:8080/pista/" + pistaId;
+			String url = Global.baseURLServidorNice+"/pista/" + pistaId;
 
 			try {
 				// Hacemos una petición HTTP GET... Esto sólo sirve para
@@ -117,6 +117,9 @@ public class InstaMain extends Activity {
 			return pista;
 		}
 
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		@Override
 		protected void onPostExecute(Pista pista2) {
 			// TODO Auto-generated method stub
@@ -136,17 +139,17 @@ public class InstaMain extends Activity {
 						+ pista.getPrecioNoUniversitarioSinLuz()
 						+ " \n Precio Pista No Universitario Con Luz: "
 						+ pista.getPrecioNoUniversitarioLuz()
-						+ " \n Precio Pista Peña Universitario Sin Luz: "
-						+ pista.getPrecioPeñaUniversitarioSinLuz()
-						+ " \n Precio Pista Peña Universitario Con Luz: "
-						+ pista.getPrecioPeñaUniversitarioLuz()
-						+ " \n Precio Pista Peña No Universitario Sin Luz: "
-						+ pista.getPrecioPeñaNoUniversitarioSinLuz()
-						+ " \n Precio Pista Peña No Universitario Con Luz: "
-						+ pista.getPrecioPeñaNoUniversitarioLuz());
+						+ " \n Precio Pista Penia Universitario Sin Luz: "
+						+ pista.getPrecioPeniaUniversitarioSinLuz()
+						+ " \n Precio Pista Penia Universitario Con Luz: "
+						+ pista.getPrecioPeniaUniversitarioLuz()
+						+ " \n Precio Pista Penia No Universitario Sin Luz: "
+						+ pista.getPrecioPeniaNoUniversitarioSinLuz()
+						+ " \n Precio Pista Penia No Universitario Con Luz: "
+						+ pista.getPrecioPeniaNoUniversitarioLuz());
 			} else {
 				// ¿Qué tipo de error? Esto habrá que refinarlo...
-				texto.setText("Error al obtener la informaciñn de la pista");
+				texto.setText("Error al obtener la informacion de la pista");
 			}
 		}
 	}

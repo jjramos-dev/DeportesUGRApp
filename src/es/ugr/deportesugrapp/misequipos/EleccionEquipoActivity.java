@@ -51,6 +51,10 @@ import android.widget.ToggleButton;
 import android.os.Build;
 import android.preference.PreferenceManager;
 
+/**
+ * Activity que nos permite elegir mis equipos
+ *
+ */
 public class EleccionEquipoActivity extends ActionBarActivity {
 	private DeporteUGRClient deporteUGRApi;
 	LinearLayout layout;
@@ -62,6 +66,9 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 	private GestorPreferencias gestorPreferencias;
 	private HashMap<String, Equipo> mapaElegidos;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_eleccion_misequipos);
@@ -92,6 +99,11 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 				.execute(categoriaId, deporteId);
 	}
 
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
 	public class CargadorEquipos extends
 			AsyncTask<String, Integer, List<Equipo>> {
 
@@ -99,12 +111,22 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 		private DeporteUGRClient deporteUGRApi;
 		private ProgressDialog Dialog;
 
+		
+		/**
+		 * Metodo que carga los equipos disponibles
+		 * @param actividadVistaWeb activity en la que cargar los equipos
+		 * @param deporteUGRApi permite cargar la informacion de la pagina web
+		 */
 		public CargadorEquipos(EleccionEquipoActivity actividadVistaWeb,
 				DeporteUGRClient deporteUGRApi) {
 			padre = actividadVistaWeb;
 			this.deporteUGRApi = deporteUGRApi;
 		}
 
+
+		/**
+		 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+		 */
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(padre);
@@ -113,6 +135,10 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 
 		}
 
+
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
 		protected List<Equipo> doInBackground(String... params) {
 			List<Equipo> listaEquipos = null;
@@ -122,7 +148,9 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 			return listaEquipos;
 		}
 
-		@SuppressWarnings("unused")
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		protected void onPostExecute(List<Equipo> listaEquipos) {
 			// padre.cargarPaginaWeb("Downloaded " + tabla.length() + " bytes");
 
@@ -143,6 +171,10 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que carga la lista de equipos elegidos
+	 * @return no devuelve nada
+	 */
 	private List<Equipo> cargarListaElegidos() {
 		// Los cargamos de las preferencias:
 		List<Equipo> listaGuardada = gestorPreferencias
@@ -159,6 +191,10 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 		return null;
 	}
 
+	/**
+	 * Metodo que muestra la lista de equipos seleccionables, indicando con el icono flecha si estra seleccionado o no
+	 * @param listaEquipos Variable que contiene la lista de equipos seleccionable
+	 */
 	public void cargarEquipos(List<Equipo> listaEquipos) {
 
 		// Si hay alguna lista:
@@ -220,6 +256,10 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 		// }
 	}
 
+	/**
+	 * Metodo que permite mostrar un mensaje cuando se produce algun error (Conexion o ausencia de equipos registrados)
+	 * @param string String que contendra el mensaje a mostrar
+	 */
 	private void mostrarError(String string) {
 		// TODO Auto-generated method stub
 		TextView textoError = (TextView) findViewById(R.id.equiposRegistrados);
@@ -229,6 +269,10 @@ public class EleccionEquipoActivity extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que actualiza la lista de equipos elegidos
+	 * @param equipo Variable que contiene la informacion del equipo en cuestion
+	 */
 	public void actualizarListaElegidos(Equipo equipo) {
 		String cadena = "";
 

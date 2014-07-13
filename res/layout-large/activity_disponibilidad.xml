@@ -1,11 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ugr_background"
-    android:id="@+id/fondo"
-    android:orientation="vertical"
-     >
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/textView1"
@@ -16,8 +15,6 @@
     <WebView
         android:id="@+id/webView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-         />
+        android:layout_height="match_parent" />
 
 </LinearLayout>
-

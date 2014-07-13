@@ -29,12 +29,21 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * Avtivity que carga en un mapa la ubicacion de Cartuja
+ *
+ *
+ */
 public class MapsCartuja extends FragmentActivity implements OnMapClickListener {
 
-	private final LatLng UGR1 = new LatLng(37.1903709, -3.5988309);
+	private final LatLng UGR1 = new LatLng(37.190073, -3.599085);
 
 	private GoogleMap mapa;
 
+	
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 

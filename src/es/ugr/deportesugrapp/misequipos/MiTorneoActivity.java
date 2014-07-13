@@ -44,10 +44,17 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
+/**
+ * Activity que nos permite elegir la competicion de mi equipo
+ *
+ */
 public class MiTorneoActivity extends ActionBarActivity {
 
 	LinearLayout layout;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -78,13 +85,12 @@ public class MiTorneoActivity extends ActionBarActivity {
 		task.execute("" + curso);
 	}
 
-	/*
-	 * private void mostrarCategoriaId(String categoriaId) { TextView texto =
-	 * (TextView) findViewById(R.id.texto); texto.setText(categoriaId);
-	 * 
-	 * }
-	 */
+	
 
+	/**
+	 * Metodo que carga todos las competiciones disponibles en forma de boton para que selecciones uno
+	 * @param categoria Variable que contiene la informacion de la competicion
+	 */
 	void crearBoton(DatosCategoria categoria) {
 
 		final String categoriaId = categoria.getId();
@@ -122,6 +128,11 @@ public class MiTorneoActivity extends ActionBarActivity {
 
 	}
 
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
 	public class SolicitudInfoTorneosTask extends
 			AsyncTask<String, Integer, List<DatosCategoria>> {
 
@@ -134,6 +145,9 @@ public class MiTorneoActivity extends ActionBarActivity {
 			api = new DeporteUGRClient();
 		}
 
+		/**
+		 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+		 */
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(MiTorneoActivity.this);
@@ -142,6 +156,9 @@ public class MiTorneoActivity extends ActionBarActivity {
 
 		}
 
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
 		protected List<DatosCategoria> doInBackground(String... arg0) {
 			List<DatosCategoria> categorias = null;
@@ -152,6 +169,9 @@ public class MiTorneoActivity extends ActionBarActivity {
 			return categorias;
 		}
 
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		protected void onPostExecute(List<DatosCategoria> categorias) {
 
 			if (categorias != null) {
@@ -170,7 +190,11 @@ public class MiTorneoActivity extends ActionBarActivity {
 		}
 	}
 
-	private void mostrarError(String string) {
+	/**
+	 * Metodo que permite mostrar un mensaje cuando se produce algun error (Conexion o ausencia de equipos registrados)
+	 * @param string String que contendra el mensaje a mostrar
+	 */
+	public void mostrarError(String string) {
 		TextView tv = new TextView(this);
 		tv.setText(string);
 		tv.setTextSize(20);

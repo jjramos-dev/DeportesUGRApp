@@ -44,15 +44,26 @@ import es.ugr.deportesugrapp.torneos.Deporte;
 import es.ugr.deportesugrapp.torneos.Equipo;
 import es.ugr.deportesugrapp.torneos.Fase;
 
+/**
+ * Clase que permite leer las url, y realizar otra serie de tareas
+ */
 public class DeporteUGRClient {
 
 	// String baseURL="http://oberon.ugr.es:8080";
 	String baseURL = Global.baseURLServidorNice;
 
+	/**
+	 * Metodo constructor
+	 */
 	public DeporteUGRClient() {
 
 	}
 
+	/**
+	 * Metodo que nos permite leer la URL de la pagina de interes
+	 * @param url String que contendra la direccion URL sobre la que trabajaremos
+	 * @return String que devuelve la respuesta linea a linea
+	 */
 	public String leerURL(String url) {
 		String respuesta = "";
 		URL servicio;
@@ -87,6 +98,10 @@ public class DeporteUGRClient {
 		return respuesta;
 	}
 
+	/**
+	 * Metodo que nos permite obtener la lista de pistas reservables
+	 * @return Devuelve una Lista con las pistas reservables
+	 */
 	public List<PistaReservable> obtenerListaPistasReservables() {
 		List<PistaReservable> listaPistasReservables = null;
 
@@ -114,6 +129,16 @@ public class DeporteUGRClient {
 		return listaPistasReservables;
 	}
 
+	
+	
+	/**
+	 * Metodo que nos permite obtener la tabla de reservas de la pista en cuestion y para una fecha determinada
+	 * @param codigo String que contiene el codigo de la pista en la que estamos interesados
+	 * @param titulo String que contiene el nombre de la pista en la que estamos interesados
+	 * @param fecha String que contiene la fecha en la que estamos interesados
+	 * @return Devuelve un String con los datos sobre la disponibilidad de la pista deseada
+	 */
+	
 	public String obtenerTablaReservasFecha(String codigo, String titulo,
 			String fecha) {
 		String tablaHTML = null;
@@ -148,8 +173,16 @@ public class DeporteUGRClient {
 		}
 
 		return tablaHTML;
-	}
+	} 
 
+	/**
+	 * Metodo que nos permite obtener la disponibilidad de una pista en funcion de su fecha
+	 * @param codigo String que contiene el codigo de identificacion de la pista deseada
+	 * @param dia String que contiene el dia que queremos reservar la pista
+	 * @param mes String que contiene el dia que queremos reservar la pista
+	 * @param anio String que contiene el dia que queremos reservar la pista
+	 * @return Devuelve un String con los datos sobre la disponibilidad de la pista deseada
+	 */
 	public String obtenerTablaReservasFecha(String codigo, String dia,
 			String mes, String anio) {
 		String tablaHTML = null;
@@ -184,6 +217,12 @@ public class DeporteUGRClient {
 		return tablaHTML;
 	}
 
+	/**
+	 * Metodo que nos permite leer la informacion de una noticia dada
+	 * @param tablon String que forma parte de la URL de la noticia
+	 * @param noticiaId String que indica la identificacion de una noticia determinada
+	 * @return Devuelve la informacion contenida clase Noticia (Url, titulo, contenido)
+	 */
 	public Noticia obtenerNoticia(String tablon, String noticiaId) {
 		Noticia noticia = null;
 
@@ -217,6 +256,12 @@ public class DeporteUGRClient {
 		return noticia;
 	}
 
+	/**
+	 * Metodo que permite obtener una lista de equipos ordenada alfabeticamente
+	 * @param trofeoId String que contiene la competicion a la que pertenecen los equipos que se mostraran en la lista
+	 * @param deporteId String que contiene el deporte al que pertenecen los equipos que se mostraran en la lista
+	 * @return Devuelve una lista con los equipos ordenados alfabeticamente
+	 */
 	public List<Equipo> obtenerEquipo(String trofeoId, String deporteId) {
 		List<Equipo> listaEquipos = null;
 
@@ -268,6 +313,11 @@ public class DeporteUGRClient {
 		return listaEquipos;
 	}
 
+	/**
+	 * Metodo que permite obtener las competiciones existentes para un año en concreto
+	 * @param anio String que contiene el año del que se cargaran las competiciones
+	 * @return Devuelve una lista con las diferentes competiciones existentes en el año introducido
+	 */
 	public List<DatosCategoria> obtenerTorneos(String anio) {
 		List<DatosCategoria> listaCategorias = null;
 
@@ -301,6 +351,11 @@ public class DeporteUGRClient {
 
 	//
 	//
+	/**
+	 * Metodo que permite obtener una lista con los deportes pertenecientes a una competicion en concreto
+	 * @param id String que contiene la competicion de la cual queremos cargar los deportes existentes
+	 * @return Devuelve una lista con los deportes obtenidos para dicha competicion
+	 */
 	public List<Deporte> obtenerDeportes(String id) {
 		List<Deporte> listaDeportes = null;
 
@@ -339,6 +394,12 @@ public class DeporteUGRClient {
 
 	//
 	//
+	/**
+	 * Metodo que nos permite obtener el calendario de un determinado deporte y competicion
+	 * @param categoriaId String que contiene la competicion sobre la que queremos obtener el calendario
+	 * @param deporteId String que contiene el deporte sobre el que queremos obtener el calendario
+	 * @return Devuelve una lista de fases (calendario) para la competicion y deporte introducidos
+	 */
 	public List<Fase> obtenerFases(String categoriaId, String deporteId) {
 		List<Fase> listaFases = null;
 

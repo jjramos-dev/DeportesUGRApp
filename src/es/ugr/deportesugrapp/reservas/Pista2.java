@@ -23,8 +23,8 @@
 package es.ugr.deportesugrapp.reservas;
 
 /**
- * 
- * @author jjramos
+ * Clase que contiene informacion de la pista
+ *
  */
 public class Pista2 {
 	String pistaId;
@@ -33,10 +33,20 @@ public class Pista2 {
 	// String descripcion;
 	float precioPorHora;
 
+	/**
+	 * Constructor de la clase
+	 */
 	public Pista2() {
 		pistaId = "";
 	}
 
+	/** 
+	 * Constructor de la clase con argumentos
+	 * @param pistaId Identificacion de la pista
+	 * @param numero Numero de la pista
+	 * @param nom Nombre de la pista
+	 * @param pre Precio de la pista
+	 */
 	public Pista2(String pistaId, int numero, String nom, float pre) {
 		this.pistaId = pistaId;
 		this.numero = numero;
@@ -45,18 +55,34 @@ public class Pista2 {
 
 	}
 
+	/**
+	 * Metodo que nos permite obtener la ID de la pista
+	 * @return Devuelve la ID de la pista
+	 */
 	public String getPistaId() {
 		return pistaId;
 	}
 
+	/**
+	 * Metodo que permite obtener el numero de la pista
+	 * @return Devuelve el numero de la pista
+	 */
 	public int getNumero() {
 		return numero;
 	}
 
+	/**
+	 * Metodo que permite obtener el nombre de la pista
+	 * @return Devuelve el nombre de la pista
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	 * Metodo que permite obtener el precio de de la pista
+	 * @return
+	 */
 	public float getPrecio() {
 		return precioPorHora;
 	}

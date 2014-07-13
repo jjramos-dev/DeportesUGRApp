@@ -48,6 +48,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+/**
+ * Activity que muestra el calendario de para la competicion y deporte seleccionado
+ *
+ */
 public class CalendariosActivity extends ActionBarActivity {
 
 	private LinearLayout layout;
@@ -56,7 +60,9 @@ public class CalendariosActivity extends ActionBarActivity {
 	private String categoriaId;
 	private String deporteId;
 
-	// El método para crear la Activity...
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -91,10 +97,11 @@ public class CalendariosActivity extends ActionBarActivity {
 
 	}
 
-	// ----------------------------------------------------------
-	//
-	// Tarea asíncrona para obtener los calendarios:
-	//
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
 	public class SolicitudCalendariosTask extends
 			AsyncTask<String, Integer, List<Fase>> {
 
@@ -112,6 +119,9 @@ public class CalendariosActivity extends ActionBarActivity {
 			api = new DeporteUGRClient();
 		}
 
+		/**
+		 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+		 */
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(CalendariosActivity.this);
@@ -120,7 +130,9 @@ public class CalendariosActivity extends ActionBarActivity {
 
 		}
 
-		// Tarea en background
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
 		protected List<Fase> doInBackground(String... arg0) {
 			List<Fase> fases = null;
@@ -136,9 +148,12 @@ public class CalendariosActivity extends ActionBarActivity {
 			return fases;
 		}
 
-		// Cuando se termina el "doInBackground", se llama a este método.
+		
 		// Es el método desde el que se puede cambiar cosas de la UI con
 		// garantías.
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		protected void onPostExecute(List<Fase> fases) {
 
 			if (fases != null) {
@@ -164,6 +179,10 @@ public class CalendariosActivity extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que permite mostrar un mensaje cuando se produce algun error (Conexion o ausencia de equipos registrados)
+	 * @param string String que contendra el mensaje a mostrar
+	 */
 	private void mostrarError(String string) {
 		TextView tv = new TextView(this);
 		tv.setText(string);
@@ -177,6 +196,11 @@ public class CalendariosActivity extends ActionBarActivity {
 	// podría
 	// hacerse más elegante, o con más activities... pero como mínimo, demos
 	// toda la info en esta Activity:
+	/**
+	 * Metodo que muestra el calendario de partidos para la competicion y el deporte seleccionado. Tambien se mostrara en rojo los 
+	 * equipos que esten en 'Mis equipos'
+	 * @param fase Variable que contiene la informacion de las fases del calendario
+	 */
 	void crearBoton(Fase fase) {
 
 		// Para comparar rápidamente los equipos:
@@ -187,9 +211,6 @@ public class CalendariosActivity extends ActionBarActivity {
 				mapaEquipos.put(equipo.getUrl(), equipo);
 		}
 
-		// Creamos un TextView por cada entrada... Lo suyo será hacerlo con
-		// listasa expandibles:
-		// http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/
 
 		TextView tv = new TextView(this);
 		tv.setText(Html.fromHtml(fase.getTitulo()));

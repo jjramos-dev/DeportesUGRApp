@@ -35,17 +35,26 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
- * @author jjramos
+ * Clase que contiene la URL de las reservas
+ *
  */
 public class Reservas {
 	List<Pista2> listaPistas;
 	private final String urlReservasPrincipal;
 
+	/** 
+	 * Constructor de la clase con argumentos
+	 * @param urlReservasPrincipal URL principal
+	 */
 	Reservas(String urlReservasPrincipal) {
 		this.urlReservasPrincipal = urlReservasPrincipal;
 	}
 
+	/**
+	 * Metodo constructor de la clase con argumentos
+	 * @param urlBase URL base de la pagina web
+	 * @param dni DNI necesario para poder acceder a la informacion
+	 */
 	Reservas(String urlBase, String dni) {
 		this.urlReservasPrincipal = "https://oficinavirtual.ugr.es/CarneUniversitario/TarjetasDeportes.jsp?textoXML=<xml><numero_PIU></numero_PIU><solicitud><dni>"
 				+ dni

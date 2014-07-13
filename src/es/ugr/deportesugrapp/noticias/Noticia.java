@@ -18,19 +18,14 @@
 //
 package es.ugr.deportesugrapp.noticias;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
- * 
- * @author jjramos
+ * Clase para obtener datos de la noticia
  */
 public class Noticia {
 	String url;
@@ -40,10 +35,16 @@ public class Noticia {
 
 	final static String baseURLNoticias = "http://cad.ugr.es/pages/tablon/*";
 
+	/**
+	 * Constructor
+	 */
 	public Noticia() {
 
 	}
 
+	/**
+	 * Constructor con argumentos
+	 */
 	public Noticia(String tablon, String noticiaId) {
 
 		if (noticiaId.startsWith("http")) {
@@ -53,40 +54,67 @@ public class Noticia {
 		}
 	}
 
+	/**
+	 * Constructor con argumentos
+	 */
 	private Noticia(String url, String titulo, String pagina) {
 		this.url = url;
 		this.titulo = titulo;
 		this.textoHtml = pagina;
 	}
 
+	/**
+	 * Metodo para obtener la URL de la imagen
+	 */
 	public String getImagenURL() {
 		return imagenURL;
 	}
 
+	/**
+	 * Metodo para asignar la URL de la imagen
+	 */
 	public void setImagenURL(String imagenURL) {
 		this.imagenURL = imagenURL;
 	}
 
+	/**
+	 * Metodo para obtener la URL de la noticia
+	 */
 	public String getUrl() {
 		return url;
 	}
 
+	/**
+	 * Metodo para asignar la URL de la noticia
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 
+	/**
+	 * Metodo para obtener el titulo de la noticia
+	 */
 	public String getTitulo() {
 		return titulo;
 	}
 
+	/**
+	 * Metodo para asignar el titulo de la noticia
+	 */
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
+	/**
+	 * Metodo para obtener el cuerpo de la noticia
+	 */
 	public String getTextoHtml() {
 		return textoHtml;
 	}
 
+	/**
+	 * Metodo para asignar el cuerpo de la noticia
+	 */
 	public void setTextoHtml(String textoHtml) {
 		this.textoHtml = textoHtml;
 	}

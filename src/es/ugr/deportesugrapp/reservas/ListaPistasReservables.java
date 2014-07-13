@@ -31,18 +31,26 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
- * @author jjramos
+ * Clase que carga la lista de pistas reservables
+ *
  */
 public class ListaPistasReservables {
 	private String baseURL;
 	private List<PistaReservable> listaPistasReservables;
 
+	/**
+	 * Metodo constructor de la clase
+	 * @param string String de las pistas reservables
+	 */
 	public ListaPistasReservables(String string) {
 		this.baseURL = string;
 		listaPistasReservables = null;
 	}
 
+	/**
+	 * Metodo que obtiene la lista de pistas reservables
+	 * @return Devuelve la lista de pista reservables
+	 */
 	public List<PistaReservable> getListaPistasReservables() {
 
 		return listaPistasReservables;

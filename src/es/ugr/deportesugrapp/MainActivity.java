@@ -30,28 +30,17 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * Actividad principal. Esta actividad se puede cambiar completamente. Sólo es
- * obligatorio enlazar de alguna manera con la actividad "AboutActivity"
  * 
- * @author Namir Sayed-Ahmad Baraza
- * @mail namirsab@gmail.com
+ * Activity  principal, desde aqui, comienza la app.
+ * 
  */
 
 public class MainActivity extends ActionBarActivity {
 
-	Button botonAcercaDe;
-	Button botonCampeonatos;
-	Button botonNoticias;
-	Button botonInstalaciones;
-	Button botonInfo;
-	Button botonMisEquipos;
-	Button botonReservas;
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see android.support.v7.app.ActionBarActivity#onCreate(android.os.Bundle)
+	/**
+	 * Metodo que crea/inicializa la activity
 	 */
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -64,36 +53,64 @@ public class MainActivity extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity con el Acerca de
+	 * @param v
+	 */
 	public void onClickAcercaDe(View v) {
 		Intent acercaDeIntent = new Intent(this, AboutActivity.class);
 		startActivity(acercaDeIntent);
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity con las competiciones disponibles
+	 * @param v
+	 */
 	public void onClickCompeticiones(View v) {
 		Intent torneosIntent = new Intent(this, TorneoActivity.class);
 		startActivity(torneosIntent);
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity con las noticias disponibles
+	 * @param v
+	 */
 	public void onClickNoticias(View v) {
 		Intent noticiasIntent = new Intent(this, Noticias.class);
 		startActivity(noticiasIntent);
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity con las instalaciones de los diferentes campus
+	 * @param v
+	 */
 	public void onClickInstalaciones(View v) {
 		Intent instalacionesIntent = new Intent(this, Instalaciones.class);
 		startActivity(instalacionesIntent);
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity con la informacion de contacto
+	 * @param v
+	 */
 	public void onClickInfo(View v) {
 		Intent infoIntent = new Intent(this, InfoContacto.class);
 		startActivity(infoIntent);
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity para la eleccion de mis equipos
+	 * @param v
+	 */
 	public void onClickMisEquipos(View v) {
 		Intent perfilIntent = new Intent(this, MisEquipos.class);
 		startActivity(perfilIntent);
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity para ver la disponibilidad de las instalaciones
+	 * @param v
+	 */
 	public void onClickReservas(View v) {
 		Intent reservasIntent = new Intent(this, ReservasActivity.class);
 		startActivity(reservasIntent);

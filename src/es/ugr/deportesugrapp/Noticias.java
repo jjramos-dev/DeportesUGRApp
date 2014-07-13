@@ -23,65 +23,68 @@ import java.util.List;
 import org.json.JSONObject;
 
 import es.ugr.deportesugrapp.noticias.LeerNoticia;
-import es.ugr.deportesugrapp.noticias.RssFeedStructure;
-import es.ugr.deportesugrapp.noticias.RssReaderListAdapter;
-import es.ugr.deportesugrapp.noticias.XmlHandler;
+import es.ugr.deportesugrapp.noticias.NoticiasEstructura;
+import es.ugr.deportesugrapp.noticias.ListAdapter;
+import es.ugr.deportesugrapp.noticias.Handler;
 import android.app.ProgressDialog;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.content.Loader;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * Activity que carga la lista de noticias
+ *
+ */
 public class Noticias extends ActionBarActivity {
-	/** Called when the activity is first created. */
+	
 
-	ListView _rssFeedListView;
-	List<JSONObject> jobs;
-	List<RssFeedStructure> rssStr;
-	private RssReaderListAdapter _adapter;
-	String sorti = "";
-	String mode = "";
+	ListView listView;
+	//List<JSONObject> jobs;
+	List<NoticiasEstructura> notStruc;
+	private ListAdapter adaptador;
 	private LinearLayout layout;
 
+	
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.rssfeedreaderactivity);
+		setContentView(R.layout.activity_noticias);
 
 		ActionBar actionBar = getSupportActionBar();
 
 		actionBar.setTitle("Noticias");
 		// actionBar.setSubtitle("");
 
-		_rssFeedListView = (ListView) findViewById(R.id.rssfeed_listview);
+		listView = (ListView) findViewById(R.id.listview1);
 		layout = (LinearLayout) findViewById(R.id.fondo);
 
-		RssFeedTask rssTask = new RssFeedTask();
-		rssTask.execute();
+		NoticiasTask notTask = new NoticiasTask();
+		notTask.execute();
 	}
 
-	private class RssFeedTask extends
-			AsyncTask<String, Void, List<RssFeedStructure>> {
-		// private String Content;
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
+	private class NoticiasTask extends AsyncTask<String, Void, List<NoticiasEstructura>> {
+		
 		private ProgressDialog Dialog;
-		String response = "";
+		
 
+		/**
+		 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+		 */
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(Noticias.this);
@@ -90,14 +93,17 @@ public class Noticias extends ActionBarActivity {
 
 		}
 
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
-		protected List<RssFeedStructure> doInBackground(String... urls) {
+		protected List<NoticiasEstructura> doInBackground(String... urls) {
 			try {
-				// String feed = "http://feeds.nytimes.com/nyt/rss/HomePage";
+				
 
-				String feed = "http://cad.ugr.es/pages/tablon/*/rss";
-				XmlHandler rh = new XmlHandler();
-				rssStr = rh.getLatestArticles(feed);
+				String url = "http://cad.ugr.es/pages/tablon/*/rss";
+				Handler hand = new Handler();
+				notStruc = hand.obtenerNoticias(url);
 			} catch (Exception e) {
 			}
 
@@ -105,43 +111,33 @@ public class Noticias extends ActionBarActivity {
 
 		}
 
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		@Override
-		protected void onPostExecute(List<RssFeedStructure> result) {
+		protected void onPostExecute(List<NoticiasEstructura> result) {
 
-			if (rssStr != null && !rssStr.isEmpty()) {
-				_adapter = new RssReaderListAdapter(Noticias.this, rssStr);
-				_rssFeedListView.setAdapter(_adapter);
-				// _rssFeedListView.setOnItemClickListener(new
-				// ListListener(result, local));
-
-				_rssFeedListView
-						.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			if (notStruc != null && !notStruc.isEmpty()) {
+				adaptador = new ListAdapter(Noticias.this, notStruc);
+				listView.setAdapter(adaptador);
+				
+				listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 							@Override
-							public void onItemClick(AdapterView<?> parent,
-									View listItemView, int pos, long idOfItem) {
-								// Here you put what you want to do when a
-								// listItem is clicked
+							public void onItemClick(AdapterView<?> parent, View listItemView, int pos, long idOfItem) {
+								
 
-								// Log.d("My POSITION",""+pos);
-
-								listItemView
-										.setBackgroundResource(R.drawable.selector);
-								Intent intent = new Intent(Noticias.this,
-										LeerNoticia.class);
-								String linkNot = rssStr.get(pos).getLink();
+								listItemView.setBackgroundResource(R.drawable.selector);
+								Intent intent = new Intent(Noticias.this, LeerNoticia.class);
+								String linkNot = notStruc.get(pos).getLink();
 								intent.putExtra("linkNoticias", linkNot);
 
 								startActivity(intent);
 
-								// k.setData(Uri.parse(rssStr.get(pos).getLink()));
-
-								// startActivity(k);
-
+								
 							}
 						});
-				// _rssFeedListView.setOnItemClickListener(new
-				// ListListener(result, RssFeedReaderActivity.this));
+				
 
 			} else {
 
@@ -152,6 +148,10 @@ public class Noticias extends ActionBarActivity {
 		}
 	}
 
+	/** 
+	 * Metodo que permite mostrar un mensaje cuando se produce algun error (Conexion o ausencia de equipos registrados)
+	 * @param string String que contendra el mensaje a mostrar
+	 */
 	private void mostrarError(String string) {
 		TextView tv = new TextView(this);
 		tv.setText(string);

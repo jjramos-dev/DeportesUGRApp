@@ -18,14 +18,9 @@
 //
 package es.ugr.deportesugrapp.instalaciones;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * 
- * @author jjramos
+ * Clase que contiene la informacion de la piscina
+ *
  */
 public class Piscina {
 	String pistaId = null;
@@ -43,16 +38,23 @@ public class Piscina {
 	String precioNiniosJubFindeUni = "3,5 €";
 	String precioNiniosJubFindeNoUni = "6 €";
 
+	/**
+	 * Constructor
+	 */
 	public Piscina() {
 
 	}
 
+	/**
+	 * Metodo para asignar una ID a la pista
+	 * @param id
+	 */
 	public void setPistaId(String id) {
 		this.pistaId = id;
 	}
 
-	/*
-	 * public void setNumero(int numero){ this.numero=numero; }
+	/**
+	 * Constructor con argumentos
 	 */
 
 	public Piscina(String pistaId, String nom, String preLibreUni,
@@ -67,54 +69,86 @@ public class Piscina {
 		this.precioLibreUni = preLibreUni;
 	}
 
+	/**
+	 * Metodo para obtener la id de la pista
+	 */
 	public String getPistaId() {
 		return pistaId;
 	}
 
-	/*
-	 * public int getNumero(){ return numero; }
+	/**
+	 * Metodo para obtener el nombre de la pista
 	 */
-
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	 * Metodo para obtener el precio de la natacion libre para universitarios 
+	 */
 	public String getPrecioLibreUni() {
 		return precioLibreUni;
 	}
 
+	/**
+	 * Metodo para obtener el precio de la natacion libre para no universitarios 
+	 */
 	public String getPrecioLibreNoUni() {
 		return precioLibreNoUni;
 	}
 
+	/**
+	 * Metodo para obtener el precio de la natacion recreativa para universitarios 
+	 */
 	public String getPrecioAdultosDiarioUni() {
 		return precioAdultosDiarioUni;
 	}
 
+	/**
+	 * Metodo para obtener el precio de la natacion recreativa para no universitarios 
+	 */
 	public String getPrecioAdultosDiarioNoUni() {
 		return precioAdultosDiarioNoUni;
 	}
 
+	/**
+	 * Metodo para obtener el precio de la natacion recreativa findes para universitarios 
+	 */
 	public String getPrecioAdultosFindeUni() {
 		return precioAdultosFindeUni;
 	}
 
+	/**
+	 * Metodo para obtener el precio de la natacion recreativa findes para no universitarios 
+	 */
 	public String getPrecioAdultosFindeNoUni() {
 		return precioAdultosFindeNoUni;
 	}
 
+	/**
+	 * Metodo para obtener el precio de la natacion recreativa para niños y jubilados  de la comunidad universitaria
+	 */
 	public String getPrecioNiniosJubDiarioUni() {
 		return precioNiniosJubDiarioUni;
 	}
 
+	/**
+	 * Metodo para obtener el precio de la natacion recreativa para niños y jubilados  de la comunidad no universitaria
+	 */
 	public String getPrecioNiniosJubDiarioNoUni() {
 		return precioNiniosJubDiarioNoUni;
 	}
 
+	/**
+	 * Metodo para obtener el precio de la natacion recreativa para niños y jubilados findes de la comunidad universitaria
+	 */
 	public String getPrecioNiniosJubFindeUni() {
 		return precioNiniosJubFindeUni;
 	}
 
+	/**
+	 * Metodo para obtener el precio de la natacion recreativa para niños y jubilados findes de la comunidad no universitaria
+	 */
 	public String getPrecioNiniosJubFindeNoUni() {
 		return precioNiniosJubFindeNoUni;
 	}

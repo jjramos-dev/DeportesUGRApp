@@ -27,8 +27,15 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
+
+/**
+ * Activity que carga la licencia MIT
+ */
 public class Licencia2 extends ActionBarActivity {
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +53,10 @@ public class Licencia2 extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que lee el fichero de licencia
+	 * @return Devuelve la cadena de caracteres leidos en el fichero
+	 */
 	private String readText() {
 
 		InputStream inputStream = getResources().openRawResource(

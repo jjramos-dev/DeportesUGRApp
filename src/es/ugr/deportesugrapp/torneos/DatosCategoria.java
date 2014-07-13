@@ -25,8 +25,8 @@
 package es.ugr.deportesugrapp.torneos;
 
 /**
- * 
- * @author aulas
+ * Clase que permite obtener informacion sobre las categorias
+ *
  */
 public class DatosCategoria {
 
@@ -36,10 +36,21 @@ public class DatosCategoria {
 	private String id;
 	private String anio;
 
+	/**
+	 * Constructor de la clase
+	 */
 	public DatosCategoria() {
 
 	}
 
+	/**
+	 * Constructor de la clase con argumentos
+	 * @param id ID de la competicion
+	 * @param titulo Titulo de la competicion
+	 * @param url URL de la competicion
+	 * @param urlNormativa URL de la normativa de la competicion
+	 * @param anio Año de la competicion
+	 */
 	public DatosCategoria(String id, String titulo, String url,
 			String urlNormativa, String anio) {
 		this.id = id;
@@ -49,42 +60,81 @@ public class DatosCategoria {
 		this.anio = anio;
 	}
 
+	/**
+	 * Metodo para obtener el titulo de la competicion
+	 * @return DEvuelve el titulo de la competicion
+	 */
 	public String getTitulo() {
 		return titulo;
 	}
 
+	/**
+	 * Metodo para asignar el titulo de la competicion
+	 * @param titulo Titulo de la competicion
+	 */
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
+	/**
+	 * Metodo para obtener la URL de la competicion
+	 * @return Devuelve la URL de la competicion
+	 */
 	public String getUrl() {
 		return url;
 	}
 
+	/**
+	 * Metodo para asignar la URL de la competicion
+	 * @param url URL de la competicion
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 
+	/**
+	 * Metodo para obtener la URL de la nomrativa de la competicion
+	 * @return Devuelve la URL de la normativa de la competicion
+	 */
 	public String getUrlNormativa() {
 		return urlNormativa;
 	}
 
+	/**Metodo para asignar la URL de la normativa de la competicion
+	 * @param urlNormativa URL de la normativa de la competicion
+	 */
 	public void setUrlNormativa(String urlNormativa) {
 		this.urlNormativa = urlNormativa;
 	}
 
+	/**
+	 * Metodo para obtener la ID de la competicion
+	 * @return Devuelve la ID de la competicion
+	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * Metodo para asignar la ID de la competicion
+	 * @param id ID de la competicion
+	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 
+	/**
+	 * Metodo para obtener el año de la competicion
+	 * @return Devuelve el año de la competicion
+	 */
 	public String getAnio() {
 		return anio;
 	}
 
+	/**
+	 * Metodo para asignar el año de la competicion
+	 * @param anio Año de la competicion
+	 */
 	public void setAnio(String anio) {
 		this.anio = anio;
 	}

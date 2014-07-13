@@ -3,10 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/ugr_background" 
-    
-    android:orientation="vertical">
+    android:background="@drawable/ugr_background"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -14,10 +13,10 @@
         android:layout_height="match_parent" >
 
         <LinearLayout
+            android:id="@+id/estructura"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-			android:id="@+id/estructura">
+            android:orientation="vertical" >
         </LinearLayout>
     </ScrollView>
 

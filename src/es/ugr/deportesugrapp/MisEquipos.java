@@ -44,6 +44,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * 
+ * Activity que muestra la lista de mis equipos seleccionados o nos permite añadir o quitar equipos de la lista
+ *
+ */
 public class MisEquipos extends ActionBarActivity {
 
 	private LinearLayout layout;
@@ -51,6 +56,9 @@ public class MisEquipos extends ActionBarActivity {
 	private SharedPreferences preferencias;
 	private int botones;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mis_equipos);
@@ -76,7 +84,11 @@ public class MisEquipos extends ActionBarActivity {
 		mostrarListadoEquipos(layout);
 	}
 
-	// ////////jjramos////////////////////
+	
+	/**
+	 * Metodo que muestra en el layout la lista de mis equipos, en el cual al pulsar sobre cada uno me redirecciona al calendario de dicho equipo
+	 * @param layout2 Variable de tipo LinearLayout para mostrar los resultados
+	 */
 	private void mostrarListadoEquipos(LinearLayout layout2) {
 		List<Equipo> listadoEquipos = gestorPreferencias
 				.getListaEquiposEscogidos();
@@ -128,7 +140,7 @@ public class MisEquipos extends ActionBarActivity {
 				layout.addView(bt);
 
 				layout.addView(ruler, new ViewGroup.LayoutParams(
-						ViewGroup.LayoutParams.FILL_PARENT, 1));
+						ViewGroup.LayoutParams.MATCH_PARENT, 1));
 
 			}
 		} else {
@@ -136,6 +148,10 @@ public class MisEquipos extends ActionBarActivity {
 		}
 	}
 
+	/**
+	 * Metodo que permite mostrar un mensaje cuando se produce algun error (Conexion o ausencia de equipos registrados)
+	 * @param string String que contendra el mensaje a mostrar
+	 */
 	private void mostrarError(String string) {
 		TextView tv = new TextView(this);
 		tv.setText(string);
@@ -143,6 +159,11 @@ public class MisEquipos extends ActionBarActivity {
 		layout.addView(tv);
 	}
 
+	/**
+	 * Metodo que obtiene el deporte al que pertenece el equipo
+	 * @param equipo Variable de la clase Equipo que será el equipo del que queremos obtener el deporte al que pertenece
+	 * @return String que devuelve el deporte al que pertenece el equipo en cuestion
+	 */
 	String obtenerDeporteId(Equipo equipo) {
 		String deporte = "";
 
@@ -160,6 +181,11 @@ public class MisEquipos extends ActionBarActivity {
 		return deporte;
 	}
 
+	/**
+	 * Metodo que obtiene el torneo al que pertenece el equipo
+	 * @param equipo Variable de la clase Equipo que será el equipo del que queremos obtener el torneo al que pertenece
+	 * @return String que devuelve el torneo al que pertenece el equipo en cuestion
+	 */
 	String obtenerTorneoId(Equipo equipo) {
 		String torneo = "";
 
@@ -177,6 +203,11 @@ public class MisEquipos extends ActionBarActivity {
 		return torneo;
 	}
 
+	/**
+	 * Metodo que nos permite obtener la abreviatura a mostrar del equipo (Competicion y Deporte) que obtendremos mediante su URL
+	 * @param url String a partir del cual obtenemos la abreviatura
+	 * @return String que devuelve la abreviatura obtenida
+	 */
 	private String obtenerAbrevTorneoDeporte(String url) {
 		String abrev = "";
 		String trofeoId = "";
@@ -196,6 +227,11 @@ public class MisEquipos extends ActionBarActivity {
 		return abrev;
 	}
 
+	/**
+	 * Metodo que permite obtener por separado el deporte y la competicion a la que pertenece el equipo
+	 * @param trofeoId String que hay que obtener (competicion o deporte)
+	 * @return String que devuelve la informacion obtenida
+	 */
 	private String abreviaId(String trofeoId) {
 		String abrev = "";
 		String[] tokens = trofeoId.split("-");
@@ -211,6 +247,10 @@ public class MisEquipos extends ActionBarActivity {
 		return abrev;
 	}
 
+	/**
+	 * Metodo que al pulsar el boton nos abre una nueva activity donde elegiremos el torneo al que pertenece mi equipo
+	 * @param v
+	 */
 	public void onClickAgregarEquipo(View v) {
 		Intent misEquiposIntent = new Intent(this, MiTorneoActivity.class);
 		startActivity(misEquiposIntent);

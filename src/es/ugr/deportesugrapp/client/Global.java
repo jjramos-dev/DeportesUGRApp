@@ -18,6 +18,9 @@
 //
 package es.ugr.deportesugrapp.client;
 
+/**
+ * Clase de referencia a la direccion del servidor
+ */
 public class Global {
 	public static final String baseURLServidorNice = "http://app-deporte.ugr.es:8080";
 }

@@ -22,6 +22,7 @@ import java.util.List;
 
 import es.ugr.deportesugrapp.R;
 import es.ugr.deportesugrapp.client.DeporteUGRClient;
+import es.ugr.deportesugrapp.client.Global;
 import es.ugr.deportesugrapp.reservas.ReservasActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -41,10 +42,17 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
+/**
+ * Activity que carga la lista de competiciones disponibles
+ *
+ */
 public class TorneoActivity extends ActionBarActivity {
 
 	LinearLayout layout;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,17 +66,16 @@ public class TorneoActivity extends ActionBarActivity {
 		layout = (LinearLayout) findViewById(R.id.fondo);
 
 		SolicitudInfoTorneosTask task = new SolicitudInfoTorneosTask(
-				"http://oberon.ugr.es:8080");
+				Global.baseURLServidorNice);
 		task.execute("2013");
 	}
 
-	/*
-	 * private void mostrarCategoriaId(String categoriaId) { TextView texto =
-	 * (TextView) findViewById(R.id.texto); texto.setText(categoriaId);
-	 * 
-	 * }
-	 */
+	
 
+	/**
+	 * Metodo que mostrara en forma de botones las diferentes competiciones disponibles
+	 * @param categoria Variable que contiene la informacion de cada competicion
+	 */
 	void crearBoton(DatosCategoria categoria) {
 
 		final String categoriaId = categoria.getId();
@@ -104,6 +111,11 @@ public class TorneoActivity extends ActionBarActivity {
 
 	}
 
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
 	public class SolicitudInfoTorneosTask extends
 			AsyncTask<String, Integer, List<DatosCategoria>> {
 
@@ -116,6 +128,9 @@ public class TorneoActivity extends ActionBarActivity {
 			api = new DeporteUGRClient();
 		}
 
+		/**
+		 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+		 */
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(TorneoActivity.this);
@@ -124,6 +139,9 @@ public class TorneoActivity extends ActionBarActivity {
 
 		}
 
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
 		protected List<DatosCategoria> doInBackground(String... arg0) {
 			List<DatosCategoria> categorias = null;
@@ -134,6 +152,9 @@ public class TorneoActivity extends ActionBarActivity {
 			return categorias;
 		}
 
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		protected void onPostExecute(List<DatosCategoria> categorias) {
 
 			if (categorias != null) {
@@ -157,6 +178,10 @@ public class TorneoActivity extends ActionBarActivity {
 		}
 	}
 
+	/**
+	 * Metodo que permite mostrar un mensaje cuando se produce algun error (Conexion o ausencia de equipos registrados)
+	 * @param string String que contendra el mensaje a mostrar
+	 */
 	private void mostrarError(String string) {
 		TextView tv = new TextView(this);
 		tv.setText(string);

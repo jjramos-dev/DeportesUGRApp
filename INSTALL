@@ -1,0 +1,18 @@
+
+Requisitos de compilación
+=========================
+
+ * Para poder compilar la, es necesario descargar al directorio libs/ las siguientes bibliotecas y paquetes:
+ - De la biblioteca RESTlet (http://restlet.com/), la biblioteca básica, versión 2.0.5+ para Android. Concretamente:
+    - org.restlet.jar
+ - De la biblioteca Jackson (http://jackson.codehaus.org/), la versión 2.2.2+ de "annotations", "core" y "databind". Concretamente:
+    - jackson-annotations-2.2.2.jar  
+    - com.fasterxml.jackson.core.jar (distribuidas con RESTlet)
+    - com.fasterxml.jackson.databind.jar (distribuidas con RESTlet)
+
+ * Además, hay que añadir al workspace la biblioteca de Google Play Services para que funcionen los mapas. Para añadirlos, seguir los pasos descritos en: https://docs.google.com/document/pub?id=19nQzvKP-CVLd7_VrpwnHfl-AE9fjbJySowONZZtNHzw.
+
+ * Hay que añadir las librerías de soporte appcompat. Eclipse con adt las añade automáticamente al crear una nueva App de Android. Cualquiera de ellas se puede añadiral proyecto. Más información en: http://stackoverflow.com/questions/22261288/why-eclipse-automatically-adds-appcompat-v7-library-support-whenever-i-create-a
+ 
+
+ En Eclipse, para que todo lo anterior se configure en el proyecto, es necesario añadirlos en: Proyecto -> propiedades -> Android. 

@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/ugr_background" >
+    android:background="@drawable/ugr_background"
+    android:orientation="vertical" >
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -13,73 +13,63 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true" >
-        
-        <LinearLayout android:id="@+id/fondo"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-	>
-    <Button
-        android:id="@+id/boton_elegir_calendario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        
-        
-        android:layout_marginLeft="10dp"
-        android:drawablePadding="10dp"
-        android:drawableLeft="@drawable/flecha_negro25prueba"
-        android:onClick="onClickCalendario"
-        android:text="@string/boton_elegir_calendario"
-        android:background="@drawable/selector" />
-    
-    <View
-        android:layout_width="fill_parent"
-		android:layout_height="1dip"
-		android:background="#000000"
-		 />
-    
-    
-    <Button
-        android:id="@+id/boton_elegir_calendario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        
-        
-        android:layout_marginLeft="10dp"
-        android:drawablePadding="10dp"
-        android:drawableLeft="@drawable/flecha_negro25prueba"
-        android:onClick="onClickCalendarioMisEquipos"
-        android:text="@string/boton_elegir_calendarioMisEquipos"
-        android:background="@drawable/selector" />
-    
-    <View
-        android:layout_width="fill_parent"
-		android:layout_height="1dip"
-		android:background="#000000"
-		 />
 
-    <Button
-        android:id="@+id/boton_elegir_clasificacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        
-        android:layout_marginLeft="10dp"
-        android:drawablePadding="10dp"
-        android:drawableLeft="@drawable/flecha_negro25prueba"
-        android:onClick="onClickClasificacion"
-        android:text="@string/boton_elegir_clasificacion"
-        android:background="@drawable/selector"  />
-    
-    <View
-        android:layout_width="fill_parent"
-		android:layout_height="1dip"
-		android:background="#000000"
-		 />
+        <LinearLayout
+            android:id="@+id/fondo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-    
-    </LinearLayout>
+            <Button
+                android:id="@+id/boton_elegir_calendario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/flecha_negro25prueba"
+                android:drawablePadding="10dp"
+                android:onClick="onClickCalendario"
+                android:text="@string/boton_elegir_calendario" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#000000" />
+
+            <Button
+                android:id="@+id/boton_elegir_calendario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/flecha_negro25prueba"
+                android:drawablePadding="10dp"
+                android:onClick="onClickCalendarioMisEquipos"
+                android:text="@string/boton_elegir_calendarioMisEquipos" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#000000" />
+
+            <Button
+                android:id="@+id/boton_elegir_clasificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/flecha_negro25prueba"
+                android:drawablePadding="10dp"
+                android:onClick="onClickClasificacion"
+                android:text="@string/boton_elegir_clasificacion" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#000000" />
+        </LinearLayout>
     </ScrollView>
-    
+
 </LinearLayout>

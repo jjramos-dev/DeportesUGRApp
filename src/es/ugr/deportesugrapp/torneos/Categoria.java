@@ -29,8 +29,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
- * @author jjramos
+ * Clase que permite obtener informacion sobre la categoria
+ *
  */
 public class Categoria {
 	String titulo;
@@ -41,20 +41,35 @@ public class Categoria {
 	private String id;
 	private String anio;
 
+	/**
+	 * Constructor de la clase con argumentos
+	 * @param url String de la URL donde esta la informacion
+	 */
 	public Categoria(String url) {
 		this.url = url;
 		listaDeportes = new ArrayList<Deporte>();
 		listaClasificaciones = new ArrayList<Clasificaciones>();
 	}
 
+	/**
+	 * Metodo para obtener la ID de la competicion
+	 * @return Devuelve la ID
+	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * Metodo para asignar la ID de la acompeticion
+	 * @param id ID de la competicion
+	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 
+	/**
+	 * Metodo que muestra informacion sobre la competicion seleccionada
+	 */
 	void mostrar() {
 
 		System.out.println("Normativa: " + this.urlNormativa);
@@ -97,43 +112,84 @@ public class Categoria {
 		}
 	}
 
+	/**
+	 * Metodo para obtener la URL de la competicion
+	 * @return Devuelve la URL
+	 */
 	public String getUrl() {
 		return url;
 	}
 
+	/**
+	 * Metodo para asignar la URL
+	 * @param url URL de la competicion
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 
+	/**
+	 * Metodo para obtener la URL de la normativa de la competicion
+	 * @return Devuelve la URL de la normativa
+	 */
 	public String getUrlNormativa() {
 		return urlNormativa;
 	}
 
+	/**
+	 * Metodo para asignar la URL de la normativa de la competicion
+	 * @param urlNormativa URL de la normativa
+	 */
 	public void setUrlNormativa(String urlNormativa) {
 		this.urlNormativa = urlNormativa;
 	}
 
+	/**
+	 * Metodo para obtner la lista de deporte de la competicion
+	 * @return Devuelve la lista de deportes de dicha competicion
+	 */
 	public List<Deporte> getListaDeportes() {
 		return listaDeportes;
 	}
 
+	/**
+	 * Metodo para asignar la lista de deportes de la competicion
+	 * @param listaDeportes Variable que contiene la lista de deportes
+	 */
 	public void setListaDeportes(List<Deporte> listaDeportes) {
 		this.listaDeportes = listaDeportes;
 	}
 
+	/**
+	 * Metodo para obtener las listas clasificaciones
+	 * @return Devuelve las listas de clasificaciones
+	 */
 	public List<Clasificaciones> getListaClasificaciones() {
 		return listaClasificaciones;
 	}
 
+	/**
+	 * Metodo para asignar la lista de clasificaciones
+	 * @param listaClasificaciones Lista de clasificaciones
+	 */
 	public void setListaClasificaciones(
 			List<Clasificaciones> listaClasificaciones) {
 		this.listaClasificaciones = listaClasificaciones;
 	}
 
+	/**
+	 * Metodo para obtener el Titulo de la competicion
+	 * @return Devuelve el titulo de la competicion
+	 */
 	public String getTitulo() {
 		return titulo;
 	}
 
+	/**
+	 * Metodo que permite obtener las fases de un deporte dado
+	 * @param deporteId Deporte del que queremos obtener las fases
+	 * @return Devuelve las fases
+	 */
 	public List<Fase> getFases(String deporteId) {
 
 		List<Fase> fases = null;
@@ -151,14 +207,26 @@ public class Categoria {
 		return fases;
 	}
 
+	/**
+	 * Metodo para asignar el titulo de la competicion
+	 * @param text Titulo de la competicion
+	 */
 	void setTitulo(String text) {
 		titulo = text;
 	}
 
+	/**
+	 * Metodo para asignar el año de la competicion
+	 * @param anio Año de la competicion
+	 */
 	void setAnio(String anio) {
 		this.anio = anio;
 	}
 
+	/**
+	 * Metodo para obtener el año de la competicion
+	 * @return Devuelve el año de la competicion
+	 */
 	public String getAnio() {
 		return anio;
 	}

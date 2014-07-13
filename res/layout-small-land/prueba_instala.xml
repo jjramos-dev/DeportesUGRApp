@@ -3,15 +3,14 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="@drawable/ugr_background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
 
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-         >
+        android:layout_height="match_parent" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,25 +22,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-                
-
                 <TableRow
                     android:id="@+id/tableRow1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" 
-                    >
+                    android:layout_height="wrap_content" >
 
                     <TextView
                         android:id="@+id/alquilerPuntual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
                         android:text="@string/alquilerPuntual"
                         android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:paddingTop="10dp"
-                    	android:paddingBottom="10dp"
-                    	android:gravity="center"
-                         />
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -53,13 +48,12 @@
                         android:id="@+id/comunidadUniversitaria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
                         android:text="@string/comunidadUniversitaria"
                         android:textSize="19sp"
-                        android:textStyle="bold" 
-                        android:paddingTop="10dp"
-                    	android:paddingBottom="10dp"
-                    	android:paddingLeft="5dp"
-                    	/>
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -71,21 +65,21 @@
                         android:id="@+id/sinLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="5dp"
                         android:text="@string/sinLuz"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/conLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/conLuz" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp" />
+                        android:paddingLeft="5dp"
+                        android:text="@string/conLuz"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -97,17 +91,17 @@
                         android:id="@+id/precioUniSinLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=""
-                    	android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="5dp"
+                        android:text="" />
 
                     <TextView
                         android:id="@+id/precioUniLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="" 
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="" />
                 </TableRow>
 
                 <TableRow
@@ -119,12 +113,12 @@
                         android:id="@+id/comunidadNoUniversitaria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
                         android:text="@string/comunidadNoUniversitaria"
                         android:textSize="19sp"
-                        android:textStyle="bold" 
-                        android:paddingTop="10dp"
-                    	android:paddingBottom="10dp"
-                    	android:paddingLeft="5dp"/>
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -136,21 +130,21 @@
                         android:id="@+id/sinLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/sinLuz" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="@string/sinLuz"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/conLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/conLuz" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="@string/conLuz"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -162,17 +156,17 @@
                         android:id="@+id/precioNoUniSinLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="" 
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="" />
 
                     <TextView
                         android:id="@+id/precioNoUniLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="" 
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="" />
                 </TableRow>
 
                 <TableRow
@@ -184,12 +178,12 @@
                         android:id="@+id/penas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="25dp"
                         android:text="@string/penasDeportivas"
                         android:textSize="25sp"
-                        android:textStyle="bold" 
-                        android:paddingTop="25dp"
-                    	android:paddingBottom="10dp"
-                    	android:layout_gravity="center"/>
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -201,12 +195,12 @@
                         android:id="@+id/comunidadUniversitaria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
                         android:text="@string/comunidadUniversitaria"
                         android:textSize="19sp"
-                        android:textStyle="bold" 
-                        android:paddingTop="10dp"
-                    	android:paddingBottom="10dp"
-                    	android:paddingLeft="5dp"/>
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -218,21 +212,21 @@
                         android:id="@+id/sinLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/sinLuz" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="@string/sinLuz"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/conLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/conLuz" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="@string/conLuz"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -244,17 +238,17 @@
                         android:id="@+id/precioPenasUniSinLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="" 
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="" />
 
                     <TextView
                         android:id="@+id/precioPenasUniLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="" 
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="" />
                 </TableRow>
 
                 <TableRow
@@ -266,12 +260,12 @@
                         android:id="@+id/comunidadNoUniversitaria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
                         android:text="@string/comunidadNoUniversitaria"
                         android:textSize="19sp"
-                        android:textStyle="bold" 
-                        android:paddingTop="10dp"
-                    	android:paddingBottom="10dp"
-                    	android:paddingLeft="5dp"/>
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -283,21 +277,21 @@
                         android:id="@+id/sinLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="5dp"
                         android:text="@string/sinLuz"
                         android:textSize="16sp"
-                        android:textStyle="bold" 
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/conLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/conLuz" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="@string/conLuz"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -305,36 +299,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" >
 
-                    
-
                     <TextView
                         android:id="@+id/precioPenasNoUniSinLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="" 
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="" />
 
                     <TextView
                         android:id="@+id/precioPenasNoUniLuz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="" 
                         android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:text="" />
                 </TableRow>
             </TableLayout>
-            
+
             <TextView
-                        android:id="@+id/nombrePista"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
-            
-            
-            
+                android:id="@+id/nombrePista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
-	
-	</ScrollView>
+    </ScrollView>
+
 </LinearLayout>

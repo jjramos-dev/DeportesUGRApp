@@ -27,6 +27,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.Window;
 
+/**
+ * Activity que muestra la informacion de contacto
+ */
 public class InfoContacto extends ActionBarActivity {
 
 	// TODO:Sustituya el email del promotor. Para a�adir mas promotores (si los
@@ -41,6 +44,9 @@ public class InfoContacto extends ActionBarActivity {
 	// hay) siga el esquema definido
 	private final String TEL_CARTUJA = "958242892";
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,39 +59,54 @@ public class InfoContacto extends ActionBarActivity {
 
 	}
 
-	// Acción al pulsar el botón de contacto de la oficina de fuentenueva.
-	// Realiza la llamada
+	
+	/**
+	 * Metodo que al pulsar el boton nos inicializa una llamada con Fuentenueva
+	 * @param v
+	 */
 	public void onClickBotonContactoFuentenueva(View v) {
 		Intent llamarFuentenueva = new Intent(Intent.ACTION_DIAL,
 				Uri.parse("tel:" + TEL_FUENTENUEVA1));
 		startActivity(llamarFuentenueva);
 	}
 
-	// Acción al pulsar el botón de contacto de la oficina de fuentenueva.
-	// Realiza la llamada
+	
+	/**
+	 * Metodo que al pulsar el boton nos inicializa una llamada con Fuentenueva
+	 * @param v
+	 */
 	public void onClickBotonContactoFuentenueva2(View v) {
 		Intent llamarFuentenueva = new Intent(Intent.ACTION_DIAL,
 				Uri.parse("tel:" + TEL_FUENTENUEVA2));
 		startActivity(llamarFuentenueva);
 	}
 
-	// Acción al pulsar el botón de contacto de la oficina de fuentenueva.
-	// Realiza la llamada
+	
+	/**
+	 * Metodo que al pulsar el boton abre una activity nueva donde nos muestra mediante Google Maps la ubicacion del campus de Fuentenueva
+	 * @param v
+	 */
 	public void onClickBotonMapFuentenueva(View v) {
 		Intent mapFuentenueva = new Intent(this, MapsFuentenueva.class);
 		startActivity(mapFuentenueva);
 	}
 
-	// Acción al pulsar el botón de contacto de la oficina de cartuja. Realiza
-	// la llamada
+	
+	/**
+	 * Metodo que al pulsar el boton nos inicializa una llamada con Cartuja
+	 * @param v
+	 */
 	public void onClickBotonContactoCartuja(View v) {
 		Intent llamarCartuja = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"
 				+ TEL_CARTUJA));
 		startActivity(llamarCartuja);
 	}
 
-	// Acción al pulsar el botón de contacto de la oficina de fuentenueva.
-	// Realiza la llamada
+	
+	/**
+	 * Metodo que al pulsar el boton abre una activity nueva donde nos muestra mediante Google Maps la ubicacion del campus de Cartuja
+	 * @param v
+	 */
 	public void onClickBotonMapCartuja(View v) {
 		Intent mapCartuja = new Intent(this, MapsCartuja.class);
 		startActivity(mapCartuja);

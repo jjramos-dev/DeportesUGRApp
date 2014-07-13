@@ -18,14 +18,9 @@
 //
 package es.ugr.deportesugrapp.instalaciones;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
- * 
- * @author jjramos
+ * Clase con la informacion de la pista de voley playa
  */
 public class PistaVoleyPlaya {
 	String pistaId = null;
@@ -41,18 +36,25 @@ public class PistaVoleyPlaya {
 	String precioPeniaNoUniSinLuz = "-";
 	String precioPeniaNoUniLuz = "-";
 
+	/**
+	 * Constructor
+	 */
 	public PistaVoleyPlaya() {
 
 	}
 
+	/**
+	 * Metodo que asigna una ID
+	 */
 	public void setPistaId(String id) {
 		this.pistaId = id;
 	}
 
-	/*
-	 * public void setNumero(int numero){ this.numero=numero; }
-	 */
+	
 
+	/**
+	 * Constructor con arguumentos
+	 */
 	public PistaVoleyPlaya(String pistaId, String nom, String preUniSinLuz,
 			String preUniLuz, String preNoUniSinLuz, String preNoUniLuz,
 			String prePeniaUniSinLuz, String prePeniaUniLuz,
@@ -63,46 +65,72 @@ public class PistaVoleyPlaya {
 		this.precioUniSinLuz = preUniSinLuz;
 	}
 
+	/**
+	 * Metodo para obtener la ID de la pista
+	 */
 	public String getPistaId() {
 		return pistaId;
 	}
 
-	/*
-	 * public int getNumero(){ return numero; }
+	/**
+	 * Metodo para obtener el nombre de la pista
 	 */
-
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	 * Metodo para obtener el precio para universitarios sin luz
+	 */
 	public String getPrecioUniversitarioSinLuz() {
 		return precioUniSinLuz;
 	}
 
+	/**
+	 * Metodo para obtener el precio para universitarios con luz
+	 */
 	public String getPrecioUniversitarioLuz() {
 		return precioUniLuz;
 	}
 
+	/**
+	 * Metodo para obtener el precio para no universitarios sin luz
+	 */
 	public String getPrecioNoUniversitarioSinLuz() {
 		return precioNoUniSinLuz;
 	}
 
+	/**
+	 * Metodo para obtener el precio para nouniversitarios con luz
+	 */
 	public String getPrecioNoUniversitarioLuz() {
 		return precioNoUniLuz;
 	}
 
+	/**
+	 * Metodo para obtener el precio para penias universitarias sin luz
+	 */
 	public String getPrecioPeniaUniversitarioSinLuz() {
 		return precioPeniaUniSinLuz;
 	}
 
+	/**
+	 * Metodo para obtener el precio para penias universitarias con luz
+	 */
 	public String getPrecioPeniaUniversitarioLuz() {
 		return precioPeniaUniLuz;
 	}
 
+	/**
+	 * Metodo para obtener el precio para penias no universitarias sin luz
+	 */
 	public String getPrecioPeniaNoUniversitarioSinLuz() {
 		return precioPeniaNoUniSinLuz;
 	}
 
+	/**
+	 * Metodo para obtener el precio para penias no universitarias con luz
+	 */
 	public String getPrecioPeniaNoUniversitarioLuz() {
 		return precioPeniaNoUniLuz;
 	}

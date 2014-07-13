@@ -29,7 +29,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import es.ugr.deportesugrapp.R;
-
+import es.ugr.deportesugrapp.client.Global;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -38,8 +38,15 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
+/**
+ * Activity que carga la informacion de las pistas polideportivas
+ *
+ */
 public class InstaMainPistaPolidep extends ActionBarActivity {
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,14 +64,20 @@ public class InstaMainPistaPolidep extends ActionBarActivity {
 
 	}
 
-	// Mirar : http://developer.android.com/reference/android/os/AsyncTask.html
-	// Parámetros, unidades de progreso, resultado
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
 	public class SolicitudInfoPistaTask extends
 			AsyncTask<Integer, Integer, PistaPolidep> {
 		PistaPolidep pista = null;
 		String respuesta = "no";
 		private ProgressDialog Dialog;
 
+		/**
+		 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+		 */
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(InstaMainPistaPolidep.this);
@@ -73,6 +86,9 @@ public class InstaMainPistaPolidep extends ActionBarActivity {
 
 		}
 
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
 		protected PistaPolidep doInBackground(Integer... params) {
 
@@ -81,7 +97,7 @@ public class InstaMainPistaPolidep extends ActionBarActivity {
 			// int numero=params[0];
 
 			// Hay que formar la dirección del recurso del servicio:
-			String url = "http://oberon.ugr.es:8080/pista/" + pistaId;
+			String url = Global.baseURLServidorNice+"/pista/" + pistaId;
 
 			try {
 				// Hacemos una petición HTTP GET... Esto sólo sirve para
@@ -119,6 +135,9 @@ public class InstaMainPistaPolidep extends ActionBarActivity {
 			return pista;
 		}
 
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		@Override
 		protected void onPostExecute(PistaPolidep pista2) {
 			// TODO Auto-generated method stub

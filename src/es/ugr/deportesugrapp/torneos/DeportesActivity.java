@@ -22,6 +22,7 @@ import java.util.List;
 
 import es.ugr.deportesugrapp.R;
 import es.ugr.deportesugrapp.client.DeporteUGRClient;
+import es.ugr.deportesugrapp.client.Global;
 import es.ugr.deportesugrapp.reservas.ReservasActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -38,11 +39,18 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * Activity que carga la de deportes pertenecientes a la competicion elegida
+ *
+ */
 public class DeportesActivity extends ActionBarActivity {
 
 	private LinearLayout layout;
 	private String categoriaId;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,11 +68,15 @@ public class DeportesActivity extends ActionBarActivity {
 		actionBar.setSubtitle(categoriaId);
 
 		SolicitudInfoDeportesTask task = new SolicitudInfoDeportesTask(
-				"http://oberon.ugr.es:8080");
+				Global.baseURLServidorNice);
 		task.execute(categoriaId);
 
 	}
 
+	/**
+	 * Metodo que nos mostrara en forma de botones los diferentes deportes disponibles para la competicion seleccionada
+	 * @param deporte Variable que contiene la informacion de cada deporte
+	 */
 	void crearBoton(Deporte deporte) {
 		final String deporteId = deporte.getId();
 
@@ -100,6 +112,11 @@ public class DeportesActivity extends ActionBarActivity {
 				ViewGroup.LayoutParams.MATCH_PARENT, 2));
 	}
 
+	/**
+	 * 
+	 * Clase que permite ejecutar una tarea en segundo plano
+	 *
+	 */
 	public class SolicitudInfoDeportesTask extends
 			AsyncTask<String, Integer, List<Deporte>> {
 
@@ -112,6 +129,9 @@ public class DeportesActivity extends ActionBarActivity {
 			api = new DeporteUGRClient();
 		}
 
+		/**
+		 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+		 */
 		@Override
 		protected void onPreExecute() {
 			Dialog = new ProgressDialog(DeportesActivity.this);
@@ -120,6 +140,9 @@ public class DeportesActivity extends ActionBarActivity {
 
 		}
 
+		/**
+		 * Metodo que ejecuta la tarea en segundo plano
+		 */
 		@Override
 		protected List<Deporte> doInBackground(String... arg0) {
 			List<Deporte> deportes = null;
@@ -130,6 +153,9 @@ public class DeportesActivity extends ActionBarActivity {
 			return deportes;
 		}
 
+		/**
+		 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+		 */
 		protected void onPostExecute(List<Deporte> deportes) {
 
 			// Existe algún deporte?
@@ -155,6 +181,10 @@ public class DeportesActivity extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que permite mostrar un mensaje cuando se produce algun error (Conexion o ausencia de equipos registrados)
+	 * @param string String que contendra el mensaje a mostrar
+	 */
 	private void mostrarError(String string) {
 		TextView tv = new TextView(this);
 		tv.setText(string);

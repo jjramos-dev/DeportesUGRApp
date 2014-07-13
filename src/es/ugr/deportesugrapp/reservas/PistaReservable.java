@@ -24,35 +24,59 @@
 package es.ugr.deportesugrapp.reservas;
 
 /**
- * 
- * @author jjramos
+ * Clase que contiene los datos de interes de las pistas reservables
+ *
  */
 public class PistaReservable {
 
 	private String codigo = null;
 	private String titulo = null;
 
+	/**
+	 * Constructor de la clase
+	 */
 	PistaReservable() {
 
 	}
 
+	/**
+	 * Constructor de la clase con argumentos
+	 * @param codigoPista Codigo de la pista
+	 * @param pista Nombre de la pista
+	 */
 	PistaReservable(String codigoPista, String pista) {
 		this.codigo = codigoPista;
 		this.titulo = pista;
 	}
 
+	/**
+	 * Metodo que nos permite obtener el codigo de la pista
+	 * @return Devuelve el codigo de la pista
+	 */
 	public String getCodigo() {
 		return codigo;
 	}
 
+	/**
+	 * Metodo que nos permite obtener el Nombre de la instalacion
+	 * @return Devuelve el nombre de la pista
+	 */
 	public String getTitulo() {
 		return titulo;
 	}
 
+	/**
+	 * Metodo que nos permite asignar el codigo de la pista
+	 * @param codigo Codigo de la pista
+	 */
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
+	/**
+	 * Metodo que nos permite asignar el nombre de la pista
+	 * @param titulo Nombre de la pista
+	 */
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}

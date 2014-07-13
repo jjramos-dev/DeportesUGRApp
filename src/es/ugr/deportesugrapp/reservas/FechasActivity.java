@@ -38,12 +38,20 @@ import es.ugr.deportesugrapp.R;
 import es.ugr.deportesugrapp.torneos.DeportesActivity;
 import es.ugr.deportesugrapp.torneos.EleccionActivity;
 
+/**
+ * Activity que muestra un calendario para elegir la fecha deseada
+ *
+ */
 public class FechasActivity extends ActionBarActivity {
 
 	String codigoPista;
+	String nombrePista;
 
 	LinearLayout layout;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,11 +61,14 @@ public class FechasActivity extends ActionBarActivity {
 
 		// Extraemos los parámetros de la llamada del intent:
 		Intent intent = getIntent();
+		
+		nombrePista = intent
+				.getStringExtra("com.example.activitydeportes.nombrePista");
 		codigoPista = intent
 				.getStringExtra("com.example.activitydeportes.codigoPista");
 
 		actionBar.setTitle("Reservas");
-		actionBar.setSubtitle(codigoPista);
+		actionBar.setSubtitle(nombrePista);
 
 		final CalendarView calendario;
 
@@ -71,15 +82,7 @@ public class FechasActivity extends ActionBarActivity {
 
 				mes = mes + 1;
 
-				// SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-				// String dia2 = sdf.format(new Date(calendario.getDate()));
-
-				// Formatter dia2 =new Formatter();
-				// Formatter mes2 =new Formatter();
-
-				// dia2.format("%02d", dia);
-				// mes2.format("%02d", mes);
-
+				
 				String dia2 = String.format("%02d", dia);
 				String mes2 = String.format("%02d", mes);
 
@@ -95,6 +98,8 @@ public class FechasActivity extends ActionBarActivity {
 				intent.putExtra("com.example.activitydeportes.dia2", dia2);
 				intent.putExtra("com.example.activitydeportes.codigoPista",
 						codigoPista);
+				intent.putExtra("com.example.activitydeportes.nombrePista",
+						nombrePista);
 
 				startActivity(intent);
 

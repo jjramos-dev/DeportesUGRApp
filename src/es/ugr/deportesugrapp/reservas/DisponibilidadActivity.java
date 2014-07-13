@@ -46,16 +46,23 @@ import es.ugr.deportesugrapp.torneos.Partido;
 import es.ugr.deportesugrapp.torneos.Ronda;
 import es.ugr.deportesugrapp.torneos.CalendariosActivity.SolicitudCalendariosTask;
 
+/**
+ * Activity que carga y muestra la tabla de disponibilidad
+ *
+ */
 public class DisponibilidadActivity extends ActionBarActivity {
 
 	public String anioSt;
 	public String mesSt;
 	public String diaSt;
+	public String nombrePista;
 	public String codigoPista;
 	private WebView webview;
 	private DeporteUGRClient cadApi2;
 
-	// El método para crear la Activity...
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,16 +86,17 @@ public class DisponibilidadActivity extends ActionBarActivity {
 		String dia = intent.getStringExtra("com.example.activitydeportes.dia2");
 		codigoPista = intent
 				.getStringExtra("com.example.activitydeportes.codigoPista");
-
+		nombrePista = intent
+				.getStringExtra("com.example.activitydeportes.nombrePista");
+		
 		anioSt = String.valueOf(anio);
-		// mesSt= String.valueOf(mes);
-		// diaSt= String.valueOf(dia);
+		
 
 		mesSt = mes;
 		diaSt = dia;
 
 		actionBar.setTitle("Reservas");
-		actionBar.setSubtitle(codigoPista + " Fecha: " + dia + " / " + mes
+		actionBar.setSubtitle(nombrePista + " Fecha: " + dia + " / " + mes
 				+ " / " + anio);
 
 		/*
@@ -116,10 +124,14 @@ public class DisponibilidadActivity extends ActionBarActivity {
 
 	}
 
+	/**
+	 * Metodo que carga la informacion sobre la disponiblidad de la instalacion seleccionada para la fecha elegida
+	 * @param contenido Contenido de la tabla que muestra las reservas
+	 */
 	public void cargarPaginaWeb(String contenido) {
 
 		if (contenido == null) {
-			contenido = "<b>Lo sentimos, no se pudo contactar con el servidor. Por favor, intent&eacute;ntelo m&aacute;s tarde.</b>";
+			contenido = "<b>Lo sentimos, no se pudo contactar con el servidor. Por favor, inténtelo de nuevo más tarde.</b>";
 		}
 
 		webview.loadDataWithBaseURL(null, contenido, "text/html", "utf-8", null);

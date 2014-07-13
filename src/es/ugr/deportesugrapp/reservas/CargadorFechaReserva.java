@@ -25,11 +25,21 @@ import es.ugr.deportesugrapp.instalaciones.InstaMainFutsalCesped;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
+/**
+ * 
+ * Clase que permite ejecutar una tarea en segundo plano
+ *
+ */
 public class CargadorFechaReserva extends AsyncTask<String, Integer, String> {
 
 	private DisponibilidadActivity padre;
 	private DeporteUGRClient cadApi2;
 
+	/**
+	 * Metodo que carga la disponibilidad segun la fecha
+	 * @param disponibilidadActivity Activity en la que se mostrara la disponibilidad
+	 * @param cadApi2 Permite cargar la informacion de la pagina web
+	 */
 	public CargadorFechaReserva(DisponibilidadActivity disponibilidadActivity,
 			DeporteUGRClient cadApi2) {
 		padre = disponibilidadActivity;
@@ -38,6 +48,9 @@ public class CargadorFechaReserva extends AsyncTask<String, Integer, String> {
 
 	private ProgressDialog Dialog;
 
+	/**
+	 * Metodo que se ejecuta antes de ejecutar la tarea. Muestra el mensaje de 'Cargando...'
+	 */
 	@Override
 	protected void onPreExecute() {
 		Dialog = new ProgressDialog(padre);
@@ -46,6 +59,9 @@ public class CargadorFechaReserva extends AsyncTask<String, Integer, String> {
 
 	}
 
+	/**
+	 * Metodo que ejecuta la tarea en segundo plano
+	 */
 	@Override
 	protected String doInBackground(String... params) {
 		String tabla = "<H1>No se pudo obtener la información</H1>";
@@ -56,6 +72,9 @@ public class CargadorFechaReserva extends AsyncTask<String, Integer, String> {
 		return tabla;
 	}
 
+	/**
+	 * Metodo que se ejecuta tras el doInBackground, recibiendo el parametro que devuelve. Realizando su tarea correspondiente
+	 */
 	protected void onPostExecute(String tabla) {
 		// padre.cargarPaginaWeb("Downloaded " + tabla.length() + " bytes");
 

@@ -18,15 +18,7 @@
 //
 package es.ugr.deportesugrapp.instalaciones;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * 
- * @author jjramos
- */
 public class Pista {
 	String pistaId = null;
 	// int numero=13;
@@ -36,10 +28,10 @@ public class Pista {
 	float precioUniLuz = 2;
 	float precioNoUniSinLuz = 3;
 	float precioNoUniLuz = 4;
-	float precioPeñaUniSinLuz = 5;
-	float precioPeñaUniLuz = 6;
-	float precioPeñaNoUniSinLuz = 7;
-	float precioPeñaNoUniLuz = 8;
+	float precioPeniaUniSinLuz = 5;
+	float precioPeniaUniLuz = 6;
+	float precioPeniaNoUniSinLuz = 7;
+	float precioPeniaNoUniLuz = 8;
 
 	public Pista() {
 
@@ -49,14 +41,12 @@ public class Pista {
 		this.pistaId = id;
 	}
 
-	/*
-	 * public void setNumero(int numero){ this.numero=numero; }
-	 */
+	
 
 	public Pista(String pistaId, String nom, float preUniSinLuz,
 			float preUniLuz, float preNoUniSinLuz, float preNoUniLuz,
-			float prePeñaUniSinLuz, float prePeñaUniLuz,
-			float prePeñaNoUniSinLuz, float prePeñaNoUniLuz) {
+			float prePeniaUniSinLuz, float prePeniaUniLuz,
+			float prePeniaNoUniSinLuz, float prePeniaNoUniLuz) {
 		this.pistaId = pistaId;
 		// this.numero=numero;
 		this.nombre = nom;
@@ -91,20 +81,20 @@ public class Pista {
 		return precioNoUniLuz;
 	}
 
-	public float getPrecioPeñaUniversitarioSinLuz() {
-		return precioPeñaUniSinLuz;
+	public float getPrecioPeniaUniversitarioSinLuz() {
+		return precioPeniaUniSinLuz;
 	}
 
-	public float getPrecioPeñaUniversitarioLuz() {
-		return precioPeñaUniLuz;
+	public float getPrecioPeniaUniversitarioLuz() {
+		return precioPeniaUniLuz;
 	}
 
-	public float getPrecioPeñaNoUniversitarioSinLuz() {
-		return precioPeñaNoUniSinLuz;
+	public float getPrecioPeniaNoUniversitarioSinLuz() {
+		return precioPeniaNoUniSinLuz;
 	}
 
-	public float getPrecioPeñaNoUniversitarioLuz() {
-		return precioPeñaUniLuz;
+	public float getPrecioPeniaNoUniversitarioLuz() {
+		return precioPeniaUniLuz;
 	}
 
 }

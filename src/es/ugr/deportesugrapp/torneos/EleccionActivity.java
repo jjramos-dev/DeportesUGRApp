@@ -27,16 +27,23 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
+/**
+ * Activity en la que tendremos que elegir entre mis calendarios, calendarios generales o clasificacion
+ *
+ */
 public class EleccionActivity extends ActionBarActivity {
 
 	String categoriaId;
 	String deporteId;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// En realidad, casi todas las activities son iguales (de momento) :)
+		
 		setContentView(R.layout.elegir_cal_o_clas);
 
 		ActionBar actionBar = getSupportActionBar();
@@ -53,6 +60,11 @@ public class EleccionActivity extends ActionBarActivity {
 
 	}
 
+	/** 
+	 * Metodo que al pulsar el boton se abre una nueva activity donde nos mostrara el calendario del deporte y competicion seleccionado,
+	 * y que pasamos como intent
+	 * @param arg0
+	 */
 	public void onClickCalendario(View arg0) {
 		// Creamos un Intent para llamar a la activity correspondiente:
 		Intent intent = new Intent(EleccionActivity.this,
@@ -64,6 +76,11 @@ public class EleccionActivity extends ActionBarActivity {
 
 	};
 
+	/**
+	 * Metodo que al pulsar el boton se abre una nueva activity donde nos mostrara el calendario mis equipos, del deporte y competicion seleccionado,
+	 * y que pasamos como intent
+	 * @param arg0
+	 */
 	public void onClickCalendarioMisEquipos(View arg0) {
 		// Creamos un Intent para llamar a la activity correspondiente:
 		Intent intent = new Intent(EleccionActivity.this,
@@ -75,6 +92,11 @@ public class EleccionActivity extends ActionBarActivity {
 
 	};
 
+	/**
+	 * Metodo que al pulsar el boton se abre una nueva activity donde nos mostrara la clasificacion del deporte y competicion seleccionado,
+	 * y que pasamos como intent
+	 * @param arg0
+	 */
 	public void onClickClasificacion(View arg0) {
 		// Creamos un Intent para llamar a la activity correspondiente:
 		Intent intent = new Intent(EleccionActivity.this,

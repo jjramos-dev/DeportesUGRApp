@@ -43,6 +43,10 @@ public class ListaPistasReservablesFechas {
 	private String baseURL;
 	private List<PistaReservable> listaPistasReservables;
 
+	/**
+	 * Constructor de la clase
+	 * @param string String de las pistas reservables
+	 */
 	public ListaPistasReservablesFechas(String string) {
 		this.baseURL = string;
 		listaPistasReservables = null;

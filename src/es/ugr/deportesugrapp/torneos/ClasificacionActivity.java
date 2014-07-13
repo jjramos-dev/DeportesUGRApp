@@ -29,6 +29,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+/**
+ * Activity que carga en un webview la clasificacion para la competicion y deporte introducidos
+ *
+ */
 public class ClasificacionActivity extends ActionBarActivity {
 
 	String categoriaId;
@@ -37,11 +41,14 @@ public class ClasificacionActivity extends ActionBarActivity {
 	String URL;
 	private ProgressBar progressBar;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// En realidad, casi todas las activities son iguales (de momento) :)
+		
 		setContentView(R.layout.activity_clasificacion);
 
 		ActionBar actionBar = getSupportActionBar();

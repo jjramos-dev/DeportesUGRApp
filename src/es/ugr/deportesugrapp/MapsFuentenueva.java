@@ -29,13 +29,23 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+
+/**
+ * Avtivity que carga en un mapa la ubicacion de Fuentenueva
+ *
+ *
+ */
 public class MapsFuentenueva extends FragmentActivity implements
 		OnMapClickListener {
 
-	private final LatLng UGR1 = new LatLng(37.1820297, -3.6091333);
+	private final LatLng UGR1 = new LatLng(37.182261, -3.608441);
 
 	private GoogleMap mapa;
 
+	/**
+	 * Metodo que crea/inicializa la activity
+	 */
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 

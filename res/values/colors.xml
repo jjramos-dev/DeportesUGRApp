@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Autor: Namir Sayed-Ahmad Baraza
-	 mail: namirsab@gmail.com -->
+<!--
+     Autor: Namir Sayed-Ahmad Baraza
+	 mail: namirsab@gmail.com
+-->
 <resources>
 
     <color name="boton_normal">#00FFFFFF</color>

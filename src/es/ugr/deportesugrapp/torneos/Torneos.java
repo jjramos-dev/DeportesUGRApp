@@ -31,34 +31,59 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
- * @author jjramos
+ * Clase para obtener informacion sobre los torneos
+ *
  */
 public class Torneos {
 	private String url;
 	private List<Categoria> listaCategorias;
 
+	/**
+	 * Constructor de la clase con argumentos
+	 * @param url URL del kla competicion
+	 */
 	public Torneos(String url) {
 		this.url = url;
 		this.listaCategorias = new ArrayList<Categoria>();
 	}
 
+	/**
+	 * Metodo para obtener la URL de la competicion
+	 * @return Devuelve la URL de la competicion
+	 */
 	public String getUrl() {
 		return url;
 	}
 
+	/**
+	 * Metodo para asignar la URL de la competicion
+	 * @param url URL de la competicion
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 
+	/**
+	 * Metodo para obtener la lista de competiciones disponibles
+	 * @return Devuelve una lista con las competiciones disponibles
+	 */
 	public List<Categoria> getListaCategorias() {
 		return listaCategorias;
 	}
 
+	/**
+	 * Metodo para asignar una lista de competiciones
+	 * @param listaCategorias Lista de competiciones
+	 */
 	public void setListaCategorias(List<Categoria> listaCategorias) {
 		this.listaCategorias = listaCategorias;
 	}
 
+	/**
+	 * Metodo para obtener la categoria
+	 * @param categoriaId ID de la categoria
+	 * @return Devuelve la categoria
+	 */
 	public Categoria getCategoria(String categoriaId) {
 		Categoria categoria = null;
 		for (Categoria categoria_ : listaCategorias) {

@@ -3,9 +3,9 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="@drawable/ugr_background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView1"
@@ -16,390 +16,371 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
-        
 
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-            <TableLayout
-                android:id="@+id/tableLayout1"
+            <ScrollView
+                android:id="@+id/scrollView1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true" >
 
-                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
 
-                <TableRow
-                    android:id="@+id/tableRow1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                    <TableLayout
+                        android:id="@+id/tableLayout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TableRow
+                            android:id="@+id/tableRow1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/natacionLibre"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"
+                                android:text="@string/natacionLibre"
+                                android:textSize="25sp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/universitario"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="@string/comUniversitaria"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/noUniversitario"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="@string/comNoUniversitaria"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/precioLibreUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/precioLibreNoUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/natacionRecreativa"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="25dp"
+                                android:text="@string/natacionRecreativa"
+                                android:textSize="25sp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/diario"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="10dp"
+                                android:paddingLeft="5dp"
+                                android:paddingTop="10dp"
+                                android:text="@string/diario"
+                                android:textSize="19sp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/adultosUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="@string/adultosUni"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/adultosNoUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="@string/adultosNoUni"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/precioAdultosDiarioUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/precioAdultoDiarioNoUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/niniosJubUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="@string/niniosJubUni"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/niniosJubNoUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="@string/niniosJubNoUni"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/precioNiniosJubDiarioUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/precioNiniosJubDiarioNoUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/findes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="10dp"
+                                android:paddingLeft="5dp"
+                                android:paddingTop="10dp"
+                                android:text="@string/findes"
+                                android:textSize="19sp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/adultosUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="@string/adultosUni"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/adultosNoUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="@string/adultosNoUni"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/precioAdultosFindeUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/precioAdultosFindeNoUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/niniosJubUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="@string/niniosJubUni"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/niniosJubNoUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="@string/niniosJubNoUni"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/precioNiniosJubFindesUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/precioNiniosJubFindesNoUni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:text="" />
+                        </TableRow>
+                    </TableLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:background="#000000" />
+
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/selector"
+                        android:drawableLeft="@drawable/flecha_negro25prueba"
+                        android:drawablePadding="5dp"
+                        android:onClick="onClickMasInfoPiscina"
+                        android:text="@string/masInfoPiscina" />
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:background="#000000" />
 
                     <TextView
-                        android:id="@+id/natacionLibre"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/natacionLibre"
-                        android:textSize="25sp"
-                        android:textStyle="bold" 
-                        android:paddingTop="10dp"
-                    	android:paddingBottom="10dp"
-                    	android:gravity="center"/>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/universitario"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/comUniversitaria"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp" />
-
-                    <TextView
-                        android:id="@+id/noUniversitario"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/comNoUniversitaria"
-                        android:textSize="16sp"
-                        android:textStyle="bold" 
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/precioLibreUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp" />
-
-                    <TextView
-                        android:id="@+id/precioLibreNoUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/natacionRecreativa"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/natacionRecreativa"
-                        android:textSize="25sp"
-                        android:textStyle="bold" 
-                        android:paddingTop="25dp"
-                    	android:paddingBottom="10dp"
-                    	android:gravity="center"/>
-                </TableRow>
-
-
-
-                <TableRow
-                    android:id="@+id/tableRow9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/diario"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/diario"
-                        android:textSize="19sp"
-                        android:textStyle="bold" 
-                        android:paddingTop="10dp"
-                    	android:paddingBottom="10dp"
-                    	android:paddingLeft="5dp"/>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/adultosUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/adultosUni"
-                        android:textSize="16sp"
-                        android:textStyle="bold" 
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-
-                    <TextView
-                        android:id="@+id/adultosNoUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/adultosNoUni" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/precioAdultosDiarioUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp" />
-
-                    <TextView
-                        android:id="@+id/precioAdultoDiarioNoUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="" 
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/niniosJubUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/niniosJubUni" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-
-                    <TextView
-                        android:id="@+id/niniosJubNoUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/niniosJubNoUni" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/precioNiniosJubDiarioUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp" />
-
-                    <TextView
-                        android:id="@+id/precioNiniosJubDiarioNoUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="" 
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-                </TableRow>
-                
-                
-                
-                <TableRow
-                    android:id="@+id/tableRow12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/findes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/findes"
-                        android:textSize="19sp"
-                        android:textStyle="bold"
-                        android:paddingTop="10dp"
-                    	android:paddingBottom="10dp"
-                    	android:paddingLeft="5dp" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/adultosUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/adultosUni" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-
-                    <TextView
-                        android:id="@+id/adultosNoUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/adultosNoUni" 
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/precioAdultosFindeUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="" 
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-
-                    <TextView
-                        android:id="@+id/precioAdultosFindeNoUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/niniosJubUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/niniosJubUni"
-                        android:textSize="16sp"
-                        android:textStyle="bold" 
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-
-                    <TextView
-                        android:id="@+id/niniosJubNoUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/niniosJubNoUni"
-                        android:textSize="16sp"
-                        android:textStyle="bold" 
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp"/>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/precioNiniosJubFindesUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp" />
-
-                    <TextView
-                        android:id="@+id/precioNiniosJubFindesNoUni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:paddingBottom="5dp"
-                    	android:paddingLeft="5dp" />
-                </TableRow>
-            </TableLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dip"
-                
-                android:background="#000000" />
-
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/selector"
-                android:drawableLeft="@drawable/flecha_negro25prueba"
-                android:layout_marginLeft="10dp"
-                android:drawablePadding="5dp"
-                
-                
-                android:onClick="onClickMasInfoPiscina"
-                android:text="@string/masInfoPiscina" />
-            
-            <View
-        android:layout_width="fill_parent"
-		android:layout_height="1dip"
-		android:background="#000000"
-		 />
-            
-            <TextView
                         android:id="@+id/nombrePista"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textAppearance="?android:attr/textAppearanceLarge" />
-            
-            
-           
-            
+                </LinearLayout>
+            </ScrollView>
         </LinearLayout>
-	
-	</ScrollView>
-	
-    </LinearLayout>
     </HorizontalScrollView>
-    
+
 </LinearLayout>

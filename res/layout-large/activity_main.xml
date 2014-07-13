@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/ugr_background" >
+    android:background="@drawable/ugr_background"
+    tools:context=".MainActivity" >
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -55,8 +55,6 @@
                 android:layout_below="@+id/botonInstalaciones"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="29dp"
-                
-                
                 android:background="@drawable/selector"
                 android:drawableTop="@drawable/calendario_azul70prueba"
                 android:onClick="onClickReservas"
@@ -68,12 +66,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="30dp"
                 android:layout_below="@+id/botonMisEquipos"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/selector"
                 android:drawableTop="@drawable/info_azul70prueba"
                 android:onClick="onClickInfo"
-                android:background="@drawable/selector"
                 android:text="@string/boton_info"
                 android:textSize="20sp" />
 
@@ -83,8 +81,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop ="37dp"
                 android:layout_marginRight="15dp"
+                android:layout_marginTop="37dp"
                 android:background="@drawable/selector"
                 android:drawableTop="@drawable/copa_color70prueba"
                 android:onClick="onClickCompeticiones"
@@ -96,9 +94,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="21dp"
-                android:layout_marginRight="30dp"
                 android:layout_below="@+id/botonCampeonatos"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="21dp"
                 android:background="@drawable/selector"
                 android:drawableTop="@drawable/persona_azul70prueba"
                 android:onClick="onClickMisEquipos"
@@ -116,9 +114,7 @@
                 android:onClick="onClickAcercaDe"
                 android:text="@string/boton_acerca_de"
                 android:textSize="20sp" />
-
         </RelativeLayout>
-
     </ScrollView>
-    
+
 </RelativeLayout>
