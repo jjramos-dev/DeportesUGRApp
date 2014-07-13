@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:paddingLeft="5dp" >
 
     <ImageView
-        android:id="@+id/feed_image"
+        android:id="@+id/icono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/flecha_negro25prueba"
-        android:paddingRight="3dip"
-        android:paddingTop="5dip" />
+        android:paddingTop="5dp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -19,24 +19,24 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/feed_text"
+            android:id="@+id/titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="23dip"
-            android:paddingLeft="8dip"
-            android:paddingRight="8dip"
-            android:paddingTop="5dip"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
             android:textAllCaps="true"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/feed_updatetime"
+            android:id="@+id/fecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="3dip"
-            android:paddingLeft="8dip"
-            android:paddingRight="8dip"
-            android:paddingTop="1dip"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
             android:textAllCaps="true"
             android:textSize="10sp" />
     </LinearLayout>
