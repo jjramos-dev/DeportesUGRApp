@@ -84,7 +84,7 @@
                     android:id="@+id/linkLogo"
                     android:layout_width="fill_parent"
                     android:layout_height="100dp"
-                    android:layout_above="@+id/separator"
+					android:layout_above="@+id/separator"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:onClick="onClickPromotor1"
@@ -99,18 +99,7 @@
                     android:layout_above="@+id/contactButton"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignTop="@+id/contactButton"
-                    android:layout_marginBottom="49dp"
-                    android:background="@color/about_borde" />
-
-                <ImageView
-                    android:id="@+id/separator"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:layout_above="@+id/contactButton"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignTop="@+id/separator"
+                    
                     android:layout_marginBottom="49dp"
                     android:background="@color/about_borde" />
 
@@ -133,43 +122,34 @@
             <RelativeLayout
                 android:id="@+id/botonPromotor2"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp"
+                android:layout_height="160dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
+                
                 android:background="@drawable/about_promovidopor_background" >
 
                 <ImageView
                     android:id="@+id/linkLogo2"
                     android:layout_width="fill_parent"
-                    android:layout_height="100dp"
-                    android:layout_above="@+id/separator"
+                    android:layout_height="fill_parent"
+                    android:layout_above="@+id/separator2"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:onClick="onClickPromotor2"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
                     android:src="@drawable/logo_detic" />
 
                 <ImageView
-                    android:id="@+id/separator"
+                    android:id="@+id/separator2"
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
                     android:layout_above="@+id/contactButton2"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignTop="@+id/contactButton2"
-                    android:layout_marginBottom="49dp"
-                    android:background="@color/about_borde" />
-
-                <ImageView
-                    android:id="@+id/separator"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:layout_above="@+id/contactButton2"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignTop="@+id/separator"
                     android:layout_marginBottom="49dp"
                     android:background="@color/about_borde" />
 
@@ -226,7 +206,7 @@
                 	android:layout_marginTop="0dp"/>
 
            		<ImageView
-              		android:id="@+id/separator"
+              		android:id="@+id/separator3"
      	        	android:layout_width="fill_parent"
                     android:layout_height="1dp"
                     android:layout_above="@+id/contactoNuestro"
@@ -236,16 +216,6 @@
                     android:layout_marginBottom="49dp"
                     android:background="@color/about_borde" />
 
-                <ImageView
-                    android:id="@+id/separator"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:layout_above="@+id/contactoNuestro"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignTop="@+id/separator"
-                    android:layout_marginBottom="49dp"
-                    android:background="@color/about_borde" />
 
                 <Button
                 	android:id="@+id/contactoNuestro"
@@ -320,7 +290,6 @@
                 android:typeface="monospace" />
             
 
-            
 
             <Button
                 android:id="@+id/licenciaApache"
